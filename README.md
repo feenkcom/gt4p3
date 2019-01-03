@@ -1,2 +1,8 @@
-# gt4p3
-Glamorous Toolkit for the P3 client
+# GToolkit for P3
+
+```
+Metacello new
+   baseline: 'GToolkit4P3';
+   repository: 'github://feenkcom/gt4p3';
+   load.
+```
