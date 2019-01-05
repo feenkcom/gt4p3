@@ -19,27 +19,27 @@ GtP3ClientSnippet class >> typeName [
 
 { #category : #converting }
 GtP3ClientSnippet >> asElement [
-	| snippetContainer formElement urlLabelElement urlInputElement portLabelElement portInputElement userLabelElement userInputElement passwordLabelElement passwordInputElement |
+	| snippetContainer formElement hostLabelElement hostInputElement portLabelElement portInputElement userLabelElement userInputElement passwordLabelElement passwordInputElement toolbar playInspectButton databaseLabelElement databaseInputElement |
 	formElement := BlElement new.
 	formElement constraintsDo: [ :c |  
 		c vertical fitContent.
 		c horizontal matchParent ].
 	formElement layout: (BlGridLayout horizontal columnCount: 2; cellSpacing: 10).
 
-	urlLabelElement := BrLabel new text: 'Url: '; look: BrGlamorousLabelLook.
-	urlLabelElement constraintsDo: [ :c | 
+	hostLabelElement := BrLabel new text: 'Url: '; look: BrGlamorousLabelLook.
+	hostLabelElement constraintsDo: [ :c | 
 		c vertical fitContent.
 		c horizontal fitContent.
 		c grid vertical alignCenter ].
-	urlInputElement := BrEditorElement new.
-	urlInputElement look: BrGlamorousInputFieldLook.
-	urlInputElement constraintsDo: [ :c | 
+	hostInputElement := BrEditorElement new.
+	hostInputElement look: BrGlamorousInputFieldLook.
+	hostInputElement constraintsDo: [ :c | 
 		c vertical fitContent.
 		c horizontal matchParent.
 		c grid vertical alignCenter ].
-	urlInputElement editor: (BrTextEditor new text: '' asRopedText).
-	formElement addChild: urlLabelElement.
-	formElement addChild: urlInputElement.
+	hostInputElement editor: (BrTextEditor new text: '' asRopedText).
+	formElement addChild: hostLabelElement.
+	formElement addChild: hostInputElement.
 	
 	portLabelElement := BrLabel new text: 'Port: '; look: BrGlamorousLabelLook.
 	portLabelElement constraintsDo: [ :c | 
@@ -55,6 +55,21 @@ GtP3ClientSnippet >> asElement [
 	portInputElement editor: (BrTextEditor new text: '' asRopedText).
 	formElement addChild: portLabelElement.
 	formElement addChild: portInputElement.
+
+	databaseLabelElement := BrLabel new text: 'Database: '; look: BrGlamorousLabelLook.
+	databaseLabelElement constraintsDo: [ :c | 
+		c vertical fitContent.
+		c horizontal fitContent.
+		c grid vertical alignCenter ].
+	databaseInputElement := BrEditorElement new.
+	databaseInputElement look: BrGlamorousInputFieldLook.
+	databaseInputElement constraintsDo: [ :c | 
+		c vertical fitContent.
+		c horizontal matchParent.
+		c grid vertical alignCenter ].
+	databaseInputElement editor: (BrTextEditor new text: '' asRopedText).
+	formElement addChild: databaseLabelElement.
+	formElement addChild: databaseInputElement.
 
 	userLabelElement := BrLabel new text: 'User: '; look: BrGlamorousLabelLook.
 	userLabelElement constraintsDo: [ :c | 
@@ -86,6 +101,28 @@ GtP3ClientSnippet >> asElement [
 	formElement addChild: passwordLabelElement.
 	formElement addChild: passwordInputElement.
 	
+	toolbar := BrToolbar new
+		look: BrToolbarLook new;
+		layout: (BlGridLayout horizontal rowCount: 1; cellSpacing: 3);
+		constraintsDo: [ :c |
+			c horizontal fitContent.
+			c vertical fitContent ].
+	playInspectButton := BrButton new.
+	playInspectButton beSmall;
+		look: BrGlamorousButtonWithIconLook;
+		label: 'Inspect connection';
+		icon: BrGlamorousIcons playinspect asElement;
+		action: [ 
+			| client  |
+			client := P3Client new 
+				host: hostInputElement editor text asString;
+				port: portInputElement editor text asString asNumber;
+				database: databaseInputElement editor text asString;
+				user: userInputElement editor text asString;
+				password: passwordInputElement editor text asString.
+			playInspectButton fireEvent: (GtPhlowObjectToSpawn new object: client; sourceElement: playInspectButton) ].
+	toolbar addItem: playInspectButton.
+	
 	snippetContainer := BlElement new.
 	snippetContainer
 		clipChildren: false;
@@ -94,6 +131,7 @@ GtP3ClientSnippet >> asElement [
 		padding: BlInsets empty;
 		background: (BlBackground paint: Color white).
 	snippetContainer addChild: formElement.
+	snippetContainer addChild: toolbar.
 	^ snippetContainer
 ]
 
