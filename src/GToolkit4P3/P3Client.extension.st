@@ -5,8 +5,8 @@ P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
 		title: 'SQL';
-		text: [ "GTSnippets instance snippetAtOrEmpty: #'P3Client-SQL'" '' ];
-		actionButtonIcon: BrGlamorousIcons inspect 
+		text: [ '' asRopedText attributesBuilder attribute: (BlFontGenericFamilyAttribute monospace beNotOverwritableByStyler) ];
+		actionButtonIcon: BrGlamorousIcons playinspect 
 			label: 'Evaluate and inspect' 
 			action: [ :aButton |
 				| string |
