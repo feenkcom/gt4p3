@@ -6,8 +6,7 @@ P3Client >> gtSQLFor: aView [
 	^ aView textEditor
 		title: 'SQL';
 		text: [ '' asRopedText attributesBuilder attribute: (BlFontGenericFamilyAttribute monospace beNotOverwritableByStyler) ];
-		actionButtonIcon: BrGlamorousIcons playinspect 
-			label: 'Evaluate and inspect' 
+		actionButtonIcon: BrGlamorousIcons playinspect  
 			action: [ :aButton |
 				| string |
 				string := aButton phlow firstParentWithView phlow firstChildWithView parentTabGroup content 
