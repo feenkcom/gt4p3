@@ -8,11 +8,8 @@ P3Client >> gtSQLFor: aView [
 		text: [ '' asRopedText attributesBuilder attribute: (BlFontGenericFamilyAttribute monospace beNotOverwritableByStyler) ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
 			action: [ :aButton |
-				| string |
-				string := aButton phlow firstParentWithView phlow firstChildWithView parentTabGroup content 
-					allChildrenBreadthFirstDetect: [ :each | each isKindOf: BrEditorElement ] 
-					ifFound: [:editorElement | editorElement editor text asString ]. 
-				aButton fireEvent: (GtPhlowObjectToSpawn new
-					object: (self query: string);
-					sourceElement: aButton) ]
+				| query result |
+				query := aButton phlow textViewContent asString.
+				result := self query: query.
+				aButton phlow spawnObject: result ]
 ]
