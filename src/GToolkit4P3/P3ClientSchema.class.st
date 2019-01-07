@@ -14,5 +14,5 @@ P3ClientSchema >> gtTablesFor: aView [
 
 { #category : #ui }
 P3ClientSchema >> tables [
-	^ self client listTablesInSchema: self name 
+	^ (self client listTablesInSchema: self name) collect: [ :each | P3ClientTable new client: self client; name: each ]
 ]

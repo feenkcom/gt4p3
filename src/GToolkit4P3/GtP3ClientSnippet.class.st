@@ -78,7 +78,7 @@ GtP3ClientSnippet >> bind: aSnippet to: aSnippetElement [
 
 { #category : #converting }
 GtP3ClientSnippet >> inputElementNamed: aString in: formElement [
-	| labelElement inputElement |
+	| labelElement inputElement text |
 	labelElement := BrLabel new text: aString, ':'; look: BrGlamorousLabelLook.
 	labelElement constraintsDo: [ :c | 
 		c vertical fitContent.
@@ -90,7 +90,11 @@ GtP3ClientSnippet >> inputElementNamed: aString in: formElement [
 		c vertical fitContent.
 		c horizontal matchParent.
 		c grid vertical alignCenter ].
-	inputElement editor: (BrTextEditor new text: '' asRopedText).
+	text := '' asRopedText 
+		weight: 400;
+		fontName: 'Source Sans Pro';
+		fontSize: 14.
+	inputElement editor: (BrTextEditor new text: text).
 	formElement addChild: labelElement.
 	formElement addChild: inputElement.
 	^ inputElement
