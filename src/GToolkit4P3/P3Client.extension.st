@@ -11,7 +11,7 @@ P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
 		title: 'SQL';
-		text: [ '' asRopedText attributesBuilder attribute: (BlFontGenericFamilyAttribute monospace beNotOverwritableByStyler) ];
+		text: [ '' asRopedText monospace ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
 			action: [ :aButton |
 				| query result |
@@ -25,6 +25,7 @@ P3Client >> gtSchemasFor: aView [
 	<gtView>
 	^ aView list
 		title: 'Schemas';
+		priority: 60;
 		items: [ self schemas ]
 ]
 
