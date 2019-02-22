@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #baseline }
-BaselineOfGToolkit4P3 >> baselineOf: spec [
+BaselineOfGToolkit4P3 >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
