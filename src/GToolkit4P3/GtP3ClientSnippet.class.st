@@ -85,7 +85,7 @@ GtP3ClientSnippet >> inputElementNamed: aString in: formElement [
 		c horizontal fitContent.
 		c grid vertical alignCenter ].
 	inputElement := BrEditorElement new.
-	inputElement look: BrGlamorousInputFieldLook.
+	inputElement look: BrGlamorousInputFieldSpacingLook.
 	inputElement constraintsDo: [ :c | 
 		c vertical fitContent.
 		c horizontal matchParent.
