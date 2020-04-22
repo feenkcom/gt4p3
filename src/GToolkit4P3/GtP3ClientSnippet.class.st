@@ -17,6 +17,11 @@ GtP3ClientSnippet class >> typeName [
 	^ 'P3Client'
 ]
 
+{ #category : #accessing }
+GtP3ClientSnippet class >> xdocSnippetMappingFor: aNeoJSONMapper [
+	"ignore"
+]
+
 { #category : #converting }
 GtP3ClientSnippet >> asElement [
 	| snippetContainer formElement hostInputElement portInputElement userInputElement passwordInputElement toolbar playInspectButton databaseInputElement |
@@ -139,9 +144,4 @@ GtP3ClientSnippet >> user [
 { #category : #accessing }
 GtP3ClientSnippet >> user: anObject [
 	user := anObject
-]
-
-{ #category : #accessing }
-GtP3ClientSnippet >> xdocSnippetMappingFor: aNeoJSONMapper [
-	"ignore"
 ]
