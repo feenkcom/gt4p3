@@ -55,10 +55,11 @@ GtP3ClientSnippet >> asElement [
 			playInspectButton fireEvent: (GtPhlowObjectToSpawn new object: client; sourceElement: playInspectButton) ].
 	toolbar addItem: playInspectButton.
 	
-	snippetContainer := BlElement new.
-	snippetContainer
+	snippetContainer := BrVerticalPane new
 		clipChildren: false;
-		look: (GtSnippetContainerLook new snippet: self) + BrLayoutLook linearVertical vFitContent hMatchParent + BrShadowLook new;
+		vFitContent;
+		hMatchParent;
+		look: (GtSnippetContainerLook new snippet: self) + BrShadowLook new;
 		border: BlBorder empty;
 		padding: BlInsets empty;
 		background: (BlBackground paint: Color white).
@@ -138,4 +139,9 @@ GtP3ClientSnippet >> user [
 { #category : #accessing }
 GtP3ClientSnippet >> user: anObject [
 	user := anObject
+]
+
+{ #category : #accessing }
+GtP3ClientSnippet >> xdocSnippetMappingFor: aNeoJSONMapper [
+	"ignore"
 ]
