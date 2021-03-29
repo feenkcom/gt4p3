@@ -7,10 +7,13 @@ P3Result >> gtTableFor: aView [
 	columnedList := aView columnedList
 		title: 'Table';
 		items: [ self data ].
-	self columns doWithIndex: [ :column :index | 
-		columnedList column: column fieldName do: [ :aColumn | 
-			aColumn 
-				item: [ :eachRow | (eachRow at: index) ]; 
-				matchParent ] ].
+	self columns
+		doWithIndex: [ :column :index | 
+			columnedList
+				column: column fieldName
+				do: [ :aColumn | 
+					aColumn
+						item: [ :eachRow | eachRow at: index ];
+						weight: 1 ] ].
 	^ columnedList
 ]
