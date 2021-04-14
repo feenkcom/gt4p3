@@ -38,7 +38,7 @@ GtP3ClientSnippet >> asElement [
 	passwordInputElement := self inputElementNamed: 'Password' in: formElement.
 	
 	toolbar := BrToolbar new
-		look: BrToolbarLook new;
+		look: BrToolbarAptitude new;
 		layout: (BlGridLayout horizontal rowCount: 1; cellSpacing: 10);
 		constraintsDo: [ :c |
 			c horizontal fitContent.
@@ -46,7 +46,7 @@ GtP3ClientSnippet >> asElement [
 	playInspectButton := BrButton new.
 	playInspectButton 
 		beSmall;
-		look: BrGlamorousButtonWithIconLook;
+		look: BrGlamorousButtonWithIconAptitude;
 		label: 'Inspect connection';
 		icon: BrGlamorousIcons playinspect asElement;
 		action: [ 
@@ -64,7 +64,7 @@ GtP3ClientSnippet >> asElement [
 		clipChildren: false;
 		vFitContent;
 		hMatchParent;
-		look: (GtSnippetContainerLook new snippet: self) + BrShadowLook new;
+		look: (GtSnippetContainerAptitude new snippet: self) + BrShadowAptitude new;
 		border: BlBorder empty;
 		padding: BlInsets empty;
 		background: (BlBackground paint: Color white).
@@ -85,13 +85,13 @@ GtP3ClientSnippet >> bind: aSnippet to: aSnippetElement [
 { #category : #converting }
 GtP3ClientSnippet >> inputElementNamed: aString in: formElement [
 	| labelElement inputElement text |
-	labelElement := BrLabel new text: aString, ':'; look: BrGlamorousLabelLook.
+	labelElement := BrLabel new text: aString, ':'; look: BrGlamorousLabelAptitude.
 	labelElement constraintsDo: [ :c | 
 		c vertical fitContent.
 		c horizontal fitContent.
 		c grid vertical alignCenter ].
 	inputElement := BrEditorElement new.
-	inputElement look: BrGlamorousInputFieldSpacingLook.
+	inputElement look: BrGlamorousInputFieldSpacingAptitude.
 	inputElement constraintsDo: [ :c | 
 		c vertical fitContent.
 		c horizontal matchParent.

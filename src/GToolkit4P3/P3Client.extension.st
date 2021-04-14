@@ -11,7 +11,7 @@ P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
 		title: 'SQL';
-		look: BrGlamorousCodeEditorLook new;
+		look: BrGlamorousCodeEditorAptitude new;
 		text: [ '' asRopedText ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
 			action: [ :aButton |
