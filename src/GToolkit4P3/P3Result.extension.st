@@ -1,6 +1,6 @@
-Extension { #name : #P3Result }
+Extension { #name : 'P3Result' }
 
-{ #category : #'*GToolkit4P3' }
+{ #category : '*GToolkit4P3' }
 P3Result >> gtTableFor: aView [
 	<gtView>
 	| columnedList |

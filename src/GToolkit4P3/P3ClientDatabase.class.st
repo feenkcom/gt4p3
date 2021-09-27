@@ -1,10 +1,10 @@
 Class {
-	#name : #P3ClientDatabase,
-	#superclass : #P3ClientNamedEntity,
-	#category : #GToolkit4P3
+	#name : 'P3ClientDatabase',
+	#superclass : 'P3ClientNamedEntity',
+	#category : 'GToolkit4P3'
 }
 
-{ #category : #ui }
+{ #category : 'ui' }
 P3ClientDatabase >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
