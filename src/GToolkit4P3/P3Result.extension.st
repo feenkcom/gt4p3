@@ -1,9 +1,11 @@
-Extension { #name : 'P3Result' }
+Extension { #name : #P3Result }
 
-{ #category : '*GToolkit4P3' }
+{ #category : #'*GToolkit4P3' }
 P3Result >> gtTableFor: aView [
 	<gtView>
 	| columnedList |
+	self data ifNil: [ ^ aView empty ].
+	self columns ifNil: [ ^ aView empty ].
 	columnedList := aView columnedList
 		title: 'Table';
 		items: [ self data ].
