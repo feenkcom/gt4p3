@@ -7,6 +7,16 @@ P3Client >> databases [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Client >> gtCloseActionFor: anAction [
+	<gtAction>
+	^ anAction button
+		icon: BrGlamorousVectorIcons shutdown;
+		tooltip: 'Close PostgreSQL client connection';
+		priority: 10;
+		action: [ self close ]
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Client >> gtExampleCreateNumbersTable [
 	<gtExample>
 	<noTest>
@@ -66,17 +76,6 @@ P3Client >> gtExampleQueryNumbersTable [
 ]
 
 { #category : #'*GToolkit4P3' }
-P3Client >> gtPropertiesFor: aView [
-	<gtView>
-	
-	^ aView forward
-		object: [ properties ];
-		title: 'Properties';
-		priority: 70;
-		view: #gtItemsFor:
-]
-
-{ #category : #'*GToolkit4P3' }
 P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
@@ -98,11 +97,41 @@ P3Client >> gtSchemasFor: aView [
 	^ aView list
 		title: 'Schemas';
 		priority: 60;
-		items: [ self schemas ]
+		items: [ self schemas ];
+		actionUpdateButton
 ]
 
 { #category : #'*GToolkit4P3' }
-P3Client >> gtSettingsFor: aView [
+P3Client >> gtViewDetailsIn: composite [
+	<gtView>
+	^ composite columnedList
+		title: 'Details';
+		priority: 25;
+		items: [ {
+			{ #URL . self url }.
+			{ #connected . self isConnected }.
+			{ #session . self session ifNil: [ '' ]. self session }
+		} ];
+		column: 'Key' text: #first;
+		column: 'Value' text: #second;
+		send: #last;
+		updateWhen: P3ConnectionClosedEvent in: [ P3LogEvent announcer ];
+		actionUpdateButton
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Client >> gtViewPropertiesFor: aView [
+	<gtView>
+	
+	^ aView forward
+		object: [ properties ];
+		title: 'Properties';
+		priority: 70;
+		view: #gtItemsFor:
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Client >> gtViewSettingsFor: aView [
 	<gtView>
 	
 	^ aView forward
