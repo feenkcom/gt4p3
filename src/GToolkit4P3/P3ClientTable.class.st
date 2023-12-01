@@ -1,8 +1,20 @@
 Class {
 	#name : #P3ClientTable,
 	#superclass : #P3ClientNamedEntity,
-	#category : 'GToolkit4P3'
+	#category : #GToolkit4P3
 }
+
+{ #category : #accessing }
+P3ClientTable >> gtActionQueryFor: anAction [
+	<gtAction>
+	| statement |
+	statement := 'SELECT * FROM {1} LIMIT 10240' format: { self name }.
+	^ anAction button
+		icon: BrGlamorousVectorIcons playinspect;
+		tooltip: statement;
+		action: [ :button |
+			button phlow spawnObject: (self client query: statement) ]
+]
 
 { #category : #accessing }
 P3ClientTable >> gtStructureFor: aView [
@@ -12,6 +24,8 @@ P3ClientTable >> gtStructureFor: aView [
 
 { #category : #accessing }
 P3ClientTable >> structure [
-	^ self client query: 'select column_name, data_type, character_maximum_length
- from INFORMATION_SCHEMA.COLUMNS where table_name = ''', self name, ''''
+	| statement |
+	statement := self client format: 'SELECT column_name, data_type, is_nullable, character_maximum_length
+ FROM information_schema.columns WHERE table_name = $1'.
+ 	^ statement query: { self name }
 ]

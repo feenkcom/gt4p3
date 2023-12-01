@@ -1,6 +1,21 @@
 Extension { #name : #P3Result }
 
 { #category : #'*GToolkit4P3' }
+P3Result >> gtColumnsFor: aView [
+	<gtView>
+	self columns ifNil: [ ^ aView empty ].
+	^ aView columnedList
+		title: 'Columns';
+		items: [ self columns ];
+		priority: 40;
+		column: 'position' text: #attributeNumber;
+		column: 'field name' text: #fieldName;
+		column: 'type name' text: #typeName;
+		column: 'type oid' text: #typeOid;
+		column: 'type size' text: #typeSize
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Result >> gtTableFor: aView [
 	<gtView>
 	| columnedList |
@@ -8,7 +23,8 @@ P3Result >> gtTableFor: aView [
 	self columns ifNil: [ ^ aView empty ].
 	columnedList := aView columnedList
 		title: 'Table';
-		items: [ self data ].
+		items: [ self data ];
+		priority: 35.
 	self columns
 		doWithIndex: [ :column :index | 
 			columnedList
