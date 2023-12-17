@@ -7,6 +7,7 @@ Class {
 { #category : #ui }
 P3ClientDatabase >> gtSQLFor: aView [
 	<gtView>
+	self isCurrent ifFalse: [ ^ aView empty ].
 	^ aView textEditor
 		title: 'SQL';
 		aptitude: [ BrGlamorousCodeEditorAptitude new ];
@@ -17,4 +18,19 @@ P3ClientDatabase >> gtSQLFor: aView [
 				query := aButton phlow textViewContent asString.
 				result := self client query: query.
 				aButton phlow spawnObject: result ]
+]
+
+{ #category : #ui }
+P3ClientDatabase >> gtSchemasFor: aView [
+	<gtView>
+	self isCurrent ifFalse: [ ^ aView empty ].
+	^ aView list
+		title: 'Schemas';
+		priority: 60;
+		items: [ self client schemas ]
+]
+
+{ #category : #testing }
+P3ClientDatabase >> isCurrent [
+	^ self client database = self name
 ]

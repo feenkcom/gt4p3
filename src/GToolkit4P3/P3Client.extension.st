@@ -17,6 +17,15 @@ P3Client >> gtCloseActionFor: anAction [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Client >> gtDatabasesFor: aView [
+	<gtView>
+	^ aView list
+		title: 'Databases';
+		priority: 80;
+		items: [ self databases ]
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Client >> gtExampleCreateNumbersTable [
 	<gtExample>
 	<noTest>
@@ -97,8 +106,7 @@ P3Client >> gtSchemasFor: aView [
 	^ aView list
 		title: 'Schemas';
 		priority: 60;
-		items: [ self schemas ];
-		actionUpdateButton
+		items: [ self schemas ]
 ]
 
 { #category : #'*GToolkit4P3' }
