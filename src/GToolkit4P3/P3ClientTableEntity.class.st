@@ -8,6 +8,11 @@ Class {
 }
 
 { #category : #accessing }
+P3ClientTableEntity >> client [
+	^ self table client
+]
+
+{ #category : #accessing }
 P3ClientTableEntity >> table [
 	^ table
 ]

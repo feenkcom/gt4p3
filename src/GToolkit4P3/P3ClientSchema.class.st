@@ -1,6 +1,9 @@
 Class {
 	#name : #P3ClientSchema,
 	#superclass : #P3ClientRootEntity,
+	#instVars : [
+		'tables'
+	],
 	#category : #GToolkit4P3
 }
 
@@ -9,17 +12,28 @@ P3ClientSchema >> gtTablesFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Tables';
-		items: [ self tables ];
-		column: 'Name' text: #name;
-		column: 'Type' text: #type
+		items: [ self tables associations ];
+		column: 'Name' text: [ :association | association value name ];
+		column: 'Type' text: [ :association | association value type ];
+		send: [ :association | association value ]
+]
+
+{ #category : #accessing }
+P3ClientSchema >> tableNamed: tableName [
+	^ self tables at: tableName
 ]
 
 { #category : #ui }
 P3ClientSchema >> tables [
-	^ (self client listTablesInSchema: self name) collect: [ :each | 
-		P3ClientTable new 
+	tables ifNotNil: [ ^ tables ].
+	tables := Dictionary new.
+	(self client listTablesInSchema: self name) do: [ :each | 
+		| table |
+		table := P3ClientTable new 
 			schema: self; 
 			name: each first;
 			type: each second;
-			yourself ]
+			yourself.
+		tables at: table name put: table ].
+	^ tables
 ]
