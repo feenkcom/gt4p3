@@ -1,6 +1,6 @@
 Class {
 	#name : #P3ClientDatabase,
-	#superclass : #P3ClientNamedEntity,
+	#superclass : #P3ClientRootEntity,
 	#category : #GToolkit4P3
 }
 

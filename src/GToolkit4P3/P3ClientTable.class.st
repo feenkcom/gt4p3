@@ -3,10 +3,22 @@ Class {
 	#superclass : #P3ClientNamedEntity,
 	#instVars : [
 		'schema',
-		'type'
+		'type',
+		'constraints',
+		'structure'
 	],
 	#category : #GToolkit4P3
 }
+
+{ #category : #accessing }
+P3ClientTable >> client [
+	^ self schema client
+]
+
+{ #category : #accessing }
+P3ClientTable >> columns [
+	^ self structure data collect: #second
+]
 
 { #category : #ui }
 P3ClientTable >> gtActionQueryFor: anAction [
@@ -17,7 +29,12 @@ P3ClientTable >> gtActionQueryFor: anAction [
 		icon: BrGlamorousVectorIcons playinspect;
 		tooltip: statement;
 		action: [ :button |
-			button phlow spawnObject: (self client query: statement) ]
+			| result rows |
+			result := self client query: statement.
+			rows := P3ClientTableRows new
+				table: self;
+				rows: result recordsAsDictionaries.
+			button phlow spawnObject: rows ]
 ]
 
 { #category : #ui }
@@ -64,9 +81,10 @@ P3ClientTable >> schema: anObject [
 { #category : #accessing }
 P3ClientTable >> structure [
 	| statement |
-	statement := self client format: 'SELECT column_name, data_type, is_nullable, character_maximum_length
- FROM information_schema.columns WHERE table_name = $1'.
- 	^ statement query: { self name }
+	structure ifNotNil: [ ^ structure ].
+	statement := self client format: 'SELECT ordinal_position, column_name, data_type, is_nullable
+ FROM information_schema.columns WHERE table_name = $1 ORDER BY 1'.
+ 	^ structure := statement query: { self name }
 ]
 
 { #category : #accessing }

@@ -1,22 +1,11 @@
 Class {
 	#name : #P3ClientNamedEntity,
-	#superclass : #Object,
+	#superclass : #P3ClientEntity,
 	#instVars : [
-		'client',
 		'name'
 	],
-	#category : 'GToolkit4P3'
+	#category : #GToolkit4P3
 }
-
-{ #category : #accessing }
-P3ClientNamedEntity >> client [
-	^ client
-]
-
-{ #category : #accessing }
-P3ClientNamedEntity >> client: anObject [
-	client := anObject
-]
 
 { #category : #ui }
 P3ClientNamedEntity >> gtDisplayOn: aStream [

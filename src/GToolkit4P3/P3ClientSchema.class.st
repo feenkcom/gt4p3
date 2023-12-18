@@ -1,6 +1,6 @@
 Class {
 	#name : #P3ClientSchema,
-	#superclass : #P3ClientNamedEntity,
+	#superclass : #P3ClientRootEntity,
 	#category : #GToolkit4P3
 }
 
@@ -18,7 +18,6 @@ P3ClientSchema >> gtTablesFor: aView [
 P3ClientSchema >> tables [
 	^ (self client listTablesInSchema: self name) collect: [ :each | 
 		P3ClientTable new 
-			client: self client;
 			schema: self; 
 			name: each first;
 			type: each second;
