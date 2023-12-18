@@ -106,8 +106,9 @@ P3ClientTable >> gtDetailsFor: aView [
 { #category : #ui }
 P3ClientTable >> gtReferencingConstraintsFor: aView [
 	<gtView>
+	self referencingConstraints ifEmpty: [ ^ aView empty ].
 	^ aView forward
-		title: 'Referencing constraints';
+		title: 'References';
 		priority: 55;
 		object: [ self referencingConstraints ];
 		view: #gtTreeFor:
