@@ -38,7 +38,8 @@ P3ClientTableRows >> printOn: stream [
 	stream 
 		nextPut: $(; 
 		nextPutAll: self table name; 
-		nextPutAll: ' x '; 
+		space;
+		nextPut: $#; 
 		print: self rows size; 
 		nextPut: $)
 ]
