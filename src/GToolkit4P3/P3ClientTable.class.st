@@ -5,7 +5,8 @@ Class {
 		'schema',
 		'type',
 		'constraints',
-		'structure'
+		'structure',
+		'referencingConstraints'
 	],
 	#category : #GToolkit4P3
 }
@@ -23,41 +24,21 @@ P3ClientTable >> columns [
 { #category : #accessing }
 P3ClientTable >> constraintNamed: constraintName [
 	^ self constraints 
-		detect: [ :constraint | (constraint at: 'constraint_name') = constraintName ] 
+		detect: [ :constraint | constraint constraintName = constraintName ] 
 		ifNone: [ nil ]
 ]
 
 { #category : #accessing }
 P3ClientTable >> constraints [
-	| statement result |
 	constraints ifNotNil: [ ^ constraints ].
-	statement := self client format: 'SELECT * FROM information_schema.table_constraints WHERE table_schema = $1 AND table_name= $2'.
-	result := statement query: { self schema name . self name }.
-	constraints := result recordsAsDictionaries.
-	constraints do: [ :constraint |
-		(constraint at: 'constraint_type') = 'PRIMARY KEY'
-			ifTrue: [
-				statement := self client format: 'SELECT constraint_name, table_name, column_name FROM information_schema.constraint_column_usage WHERE constraint_name = $1'.
-				result := statement query: { constraint at: 'constraint_name' }.
-				constraint at: 'primary_key_columns' put: (result data collect: #third) ].
-		(constraint at: 'constraint_type') = 'FOREIGN KEY'
-			ifTrue: [
-				statement := self client format: 'SELECT constraint_name, table_name, column_name FROM information_schema.constraint_column_usage WHERE constraint_name = $1'.
-				result := statement query: { constraint at: 'constraint_name' }.
-				constraint at: 'foreign_key_columns' put: (result data collect: #third).
-				statement := self client format: 'SELECT constraint_name, table_name FROM information_schema.constraint_table_usage WHERE constraint_name = $1'.
-				result := statement query: { constraint at: 'constraint_name' }.
-				constraint at: 'foreign_key_reference_table' put: (result data collect: #second) first.
-				statement := self client format: 'SELECT constraint_name, table_name, column_name FROM information_schema.constraint_column_usage WHERE constraint_name = $1'.
-				result := statement query: { constraint at: 'constraint_name' }.
-				constraint at: 'foreign_key_reference_columns' put: (result data collect: #third) ] ].
+	constraints := P3Constraint allForTable: self.
 	^ constraints
 ]
 
 { #category : #accessing }
 P3ClientTable >> foreignKeyConstraints [
-	^ self constraints
-		select: [ :constraint | (constraint at: 'constraint_type') = 'FOREIGN KEY' ]
+	^ self constraints 
+		select: [ :constraint | constraint isForeignKey ]
 ]
 
 { #category : #ui }
@@ -80,11 +61,11 @@ P3ClientTable >> gtActionQueryFor: anAction [
 { #category : #ui }
 P3ClientTable >> gtConstraintsFor: aView [
 	<gtView>
-	^ aView forward
+	^ aView columnedList
 		title: 'Constraints';
-		priority: 50;
-		object: [ self constraints ];
-		view: #gtTreeFor:
+		priority: 45;
+		items: [ self constraints ];
+		column: 'Name' text: [ :constraint | constraint constraintName ]
 ]
 
 { #category : #ui }
@@ -107,11 +88,11 @@ P3ClientTable >> gtDetailsFor: aView [
 P3ClientTable >> gtReferencingConstraintsFor: aView [
 	<gtView>
 	self referencingConstraints ifEmpty: [ ^ aView empty ].
-	^ aView forward
+	^ aView columnedList
 		title: 'References';
-		priority: 55;
-		object: [ self referencingConstraints ];
-		view: #gtTreeFor:
+		priority: 50;
+		items: [ self referencingConstraints ];
+		column: 'Name' text: [ :constraint | constraint constraintName ]
 ]
 
 { #category : #ui }
@@ -127,7 +108,7 @@ P3ClientTable >> gtStructureFor: aView [
 { #category : #accessing }
 P3ClientTable >> primaryKeyConstraints [
 	^ self constraints
-		select: [ :constraint | (constraint at: 'constraint_type') = 'PRIMARY KEY' ]
+		select: [ :constraint | constraint isPrimaryKey ]
 ]
 
 { #category : #accessing }
@@ -138,11 +119,14 @@ P3ClientTable >> qualifiedName [
 { #category : #accessing }
 P3ClientTable >> referencingConstraints [
 	| statement result |
-	statement := self client format: 'SELECT ctu.table_name AS foreign_key_reference_table, tc.table_name, ctu.constraint_name
+	referencingConstraints ifNotNil: [ ^ referencingConstraints ].
+	statement := self client format: 'SELECT tc.table_name, ctu.constraint_name
 FROM information_schema.constraint_table_usage AS ctu, information_schema.table_constraints AS tc
 WHERE ctu.table_name = $1 AND ctu.constraint_name = tc.constraint_name AND tc.constraint_type = ''FOREIGN KEY'''.
 	result := statement query: { self name }.
-	^ result recordsAsDictionaries.
+	referencingConstraints := result data collect: [ :each |
+		(self schema tableNamed: each first) constraintNamed: each second ].
+	^ referencingConstraints
 ]
 
 { #category : #accessing }

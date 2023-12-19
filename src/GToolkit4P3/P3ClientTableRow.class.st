@@ -10,13 +10,15 @@ Class {
 { #category : #accessing }
 P3ClientTableRow >> foreignKeyFor: columnName [
 	^ self table foreignKeyConstraints
-		detect: [ :c | (c at: 'foreign_key_columns') first = columnName ]
+		detect: [ :constraint |
+			"only for one column now"
+			constraint constraintColumns first = columnName ]
 		ifNone: [ nil ]
 ]
 
 { #category : #accessing }
 P3ClientTableRow >> foreignKeyTableFor: columnName [
-	^ (self foreignKeyFor: columnName) ifNotNil: [ :constraint | constraint at: 'foreign_key_reference_table' ]
+	^ (self foreignKeyFor: columnName) ifNotNil: [ :constraint | constraint foreignKeyTable ]
 ]
 
 { #category : #accessing }
@@ -27,19 +29,18 @@ P3ClientTableRow >> gtViewReferencesFor: aView [
 		title: 'References';
 		priority: 40;
 		items: [ self table referencingConstraints ];
-		itemText: [ :referencingConstraint | referencingConstraint at: 'table_name' ];
+		itemText: [ :referencingConstraint | referencingConstraint tableName ];
 		send: [ :referencingConstraint | 
-			| targetTable column foreignConstraint referencedColumn keyValue statement result |
+			| targetTable column referencedColumn keyValue statement result |
 			"only for one column now"
-			targetTable := self table schema tableNamed: (referencingConstraint at: 'table_name').
-			foreignConstraint := targetTable constraintNamed: (referencingConstraint at: 'constraint_name').
-			column := (foreignConstraint at: 'foreign_key_columns') first.
-			referencedColumn := (foreignConstraint at: 'foreign_key_reference_columns') first.
+			targetTable := referencingConstraint tableName.
+			column := referencingConstraint constraintColumns first.
+			referencedColumn := referencingConstraint foreignKeyColumns first.
 			keyValue := self row at: referencedColumn.
-			statement := self client format: ('select * from {1} where {2} = $1' format: { targetTable name . column }).
+			statement := self client format: ('select * from {1} where {2} = $1' format: { targetTable . column }).
 			result := statement query: { keyValue }.
 			P3ClientTableRows new
-				table: targetTable;
+				table: (self table schema tableNamed: targetTable);
 				rows: result recordsAsDictionaries ]
 ]
 
@@ -60,7 +61,7 @@ P3ClientTableRow >> gtViewRowFor: aView [
 					| keyValue referencedColumn statement result |
 					"only for one column for now"
 					keyValue := self row at: column.
-					referencedColumn := (self foreignKeyFor: column).
+					referencedColumn := self foreignKeyFor: column.
 					statement := self client format: ('select * from {1} where {2} = $1' format: { referencedTable . column }).
 					result := statement query: { keyValue }.
 					P3ClientTableRow new
