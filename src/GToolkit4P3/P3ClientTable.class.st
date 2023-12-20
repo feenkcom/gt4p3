@@ -86,6 +86,35 @@ P3ClientTable >> gtDetailsFor: aView [
 		send: #last
 ]
 
+{ #category : #accessing }
+P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
+	<gtView>
+	^ aView mondrian
+		title: 'ER Diagram';
+		priority: 60;
+		painting: [ :view | 
+			view nodes
+				stencil: [ :node | BlTextElement new text: node name asRopedText ];
+				with: { self } 
+					, (self foreignKeyConstraints collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ]) 
+					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ]).
+			view edges
+				stencil: [ :class | 
+					BlParabollaArcElement new
+						zIndex: 0;
+						curvatureFraction: 0.1;
+						border: (BlBorder paint: (Color orange alpha: 0.8) width: 2);
+						toHead: (BlArrowheadSimpleArrow new
+								border: (BlBorder builder
+										paint: (Color orange alpha: 0.8);
+										width: 2;
+										build)) ];
+				connectToAll: [ :node | 
+					node foreignKeyConstraints
+						collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ] ].
+			view layout circle ]
+]
+
 { #category : #ui }
 P3ClientTable >> gtReferencingConstraintsFor: aView [
 	<gtView>
