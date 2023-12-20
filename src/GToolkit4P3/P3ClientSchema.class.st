@@ -31,7 +31,10 @@ P3ClientSchema >> gtEntityRelationshipDiagramFor: aView [
 				connectToAll: [ :node | 
 					node foreignKeyConstraints
 						collect: [ :fkc | self tableNamed: fkc foreignKeyTable ] ].
-			view layout circle ]
+			view layout
+				custom: (GtGradHorizontalDominanceTreeLayout new
+						levelDistance: 10;
+						nodeDistance: 10) ]
 ]
 
 { #category : #ui }
