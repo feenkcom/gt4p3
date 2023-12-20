@@ -129,7 +129,7 @@ P3Constraint >> isUnique [
 { #category : #accessing }
 P3Constraint >> loadDetailsUsing: client [
 	| statement result |
-	statement := client format: 'SELECT column_name FROM information_schema.constraint_column_usage WHERE constraint_schema = $1 AND constraint_name = $2'.
+	statement := client format: 'SELECT column_name FROM information_schema.key_column_usage WHERE constraint_schema = $1 AND constraint_name = $2'.
 	result := statement query: { self constraintSchema . self constraintName }.
 	self constraintColumns: result firstColumnData
 ]

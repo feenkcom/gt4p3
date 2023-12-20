@@ -26,7 +26,7 @@ P3ClientSchema >> tableNamed: tableName [
 { #category : #ui }
 P3ClientSchema >> tables [
 	tables ifNotNil: [ ^ tables ].
-	tables := Dictionary new.
+	tables := OrderedDictionary new.
 	(self client listTablesInSchema: self name) do: [ :each | 
 		| table |
 		table := P3ClientTable new 
