@@ -65,7 +65,9 @@ P3ClientTable >> gtConstraintsFor: aView [
 		title: 'Constraints';
 		priority: 45;
 		items: [ self constraints ];
-		column: 'Name' text: [ :constraint | constraint constraintName ]
+		column: 'Name' text: [ :constraint | constraint constraintName ];
+		column: 'Table' text: [ :constraint | constraint tableName ];
+		column: 'Description' text: [ :constraint | constraint sqlDescription ]
 ]
 
 { #category : #ui }
@@ -92,7 +94,9 @@ P3ClientTable >> gtReferencingConstraintsFor: aView [
 		title: 'References';
 		priority: 50;
 		items: [ self referencingConstraints ];
-		column: 'Name' text: [ :constraint | constraint constraintName ]
+		column: 'Name' text: [ :constraint | constraint constraintName ];
+		column: 'Table' text: [ :constraint | constraint tableName ];
+		column: 'Description' text: [ :constraint | constraint sqlDescription ]
 ]
 
 { #category : #ui }
