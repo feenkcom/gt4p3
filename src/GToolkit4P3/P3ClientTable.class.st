@@ -96,7 +96,7 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 			view nodes
 				stencil: [ :node | | text |
 					text := node name asRopedText.
-					node = self ifTrue: [ text fontSize: 24; bold ].
+					node = self ifTrue: [ text foreground: BrGlamorousColors textHighlightColor ; bold ].
 					BlTextElement new text: text ];
 				with: { self } 
 					, (self foreignKeyConstraints collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ]) 
@@ -106,10 +106,10 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 					BlParabollaArcElement new
 						zIndex: 0;
 						curvatureFraction: 0.1;
-						border: (BlBorder paint: (Color orange alpha: 0.8) width: 2);
+						border: (BlBorder paint: (BrGlamorousColors shadowColor alpha: 0.8) width: 2);
 						toHead: (BlArrowheadSimpleArrow new
 								border: (BlBorder builder
-										paint: (Color orange alpha: 0.8);
+										paint: (BrGlamorousColors shadowColor alpha: 0.8);
 										width: 2;
 										build)) ];
 				connectToAll: [ :node | 
