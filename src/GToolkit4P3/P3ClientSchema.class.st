@@ -20,7 +20,7 @@ P3ClientSchema >> gtEntityRelationshipDiagramFor: aView [
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new
-						zIndex: 0;
+						zIndex: -1;
 						curvatureFraction: 0.1;
 						border: (BlBorder paint: (BrGlamorousColors shadowColor alpha: 0.8) width: 2);
 						toHead: (BlArrowheadSimpleArrow new
