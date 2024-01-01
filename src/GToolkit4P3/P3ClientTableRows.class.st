@@ -23,7 +23,7 @@ P3ClientTableRows >> gtRowsFor: aView [
 				column: column
 				do: [ :aColumn | 
 					aColumn
-						item: [ :eachRow | eachRow at: column ];
+						item: [ :eachRow | (eachRow at: column) ifNil: [ '' ] ];
 						weight: 1 ] ].
 	columnedList send: [ :eachRow | 
 		P3ClientTableRow new
