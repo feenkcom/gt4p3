@@ -52,5 +52,17 @@ P3ForeignKeyConstraint >> loadDetailsUsing: client [
 
 { #category : #accessing }
 P3ForeignKeyConstraint >> sqlDescription [
-	^ 'FOREIGN KEY (' , ($, join: self constraintColumns) ,') REFERENCES ' , self foreignKeyTable , '(', ($, join: self foreignKeyColumns), ')'
+	^ String streamContents: [ :out |
+		out nextPutAll: 'FOREIGN KEY'.
+		(self constraintColumns isEmptyOrNil 
+				or: [ self foreignKeyColumns isEmptyOrNil 
+						or: [ self foreignKeyTable isNil ] ])
+			ifFalse: [
+				out nextPutAll: ' ('; 
+				nextPutAll: ($, join: self constraintColumns); 
+				nextPutAll: ') REFERENCES ';
+				nextPutAll: self foreignKeyTable;
+				nextPut: $(;
+				nextPutAll: ($, join: self foreignKeyColumns);
+				nextPut: $) ] ]
 ]

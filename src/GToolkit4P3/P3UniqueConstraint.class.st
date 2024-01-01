@@ -16,5 +16,11 @@ P3UniqueConstraint >> constraintType [
 
 { #category : #accessing }
 P3UniqueConstraint >> sqlDescription [
-	^ 'UNIQUE (' , ($, join: self constraintColumns) ,')'
+	^ String streamContents: [ :out |
+		out nextPutAll: 'UNIQUE'.
+		self constraintColumns isEmptyOrNil ifFalse: [
+			out 
+				nextPutAll: ' ('; 
+				nextPutAll: ($, join: self constraintColumns); 
+				nextPut: $) ] ]
 ]

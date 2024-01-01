@@ -137,12 +137,13 @@ P3Constraint >> loadDetailsUsing: client [
 { #category : #accessing }
 P3Constraint >> printOn: stream [
 	super printOn: stream.
-	stream 
-		nextPut: $(; 
-		nextPutAll: self constraintName; 
-		space;
-		nextPutAll: self sqlDescription;
-		nextPut: $)
+	stream nextPut: $(. 
+	self constraintName ifNotNil: [ :name | 
+		stream nextPutAll: name ]. 
+	self sqlDescription ifNotNil: [ :description |
+		self constraintName ifNotNil: [ stream space ].
+		stream nextPutAll: description ].
+	stream nextPut: $)
 ]
 
 { #category : #accessing }

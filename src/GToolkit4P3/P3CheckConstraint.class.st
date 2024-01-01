@@ -38,5 +38,8 @@ P3CheckConstraint >> loadDetailsUsing: client [
 
 { #category : #accessing }
 P3CheckConstraint >> sqlDescription [
-	^ 'CHECK ' , self checkClause
+	^ String streamContents: [ :out |
+		out nextPutAll: 'CHECK'.
+		self checkClause ifNotNil: [ :clause | 
+			out space; nextPutAll: clause ] ]
 ]

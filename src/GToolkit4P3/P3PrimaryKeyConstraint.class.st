@@ -16,5 +16,11 @@ P3PrimaryKeyConstraint >> constraintType [
 
 { #category : #accessing }
 P3PrimaryKeyConstraint >> sqlDescription [
-	^ 'PRIMARY KEY (' , ($, join: self constraintColumns) ,')'
+	^ String streamContents: [ :out |
+		out nextPutAll: 'PRIMARY KEY'.
+		self constraintColumns isEmptyOrNil ifFalse: [
+			out 
+				nextPutAll: ' ('; 
+				nextPutAll: ($, join: self constraintColumns); 
+				nextPut: $) ] ]
 ]
