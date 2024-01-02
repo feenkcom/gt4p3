@@ -157,13 +157,13 @@ P3ClientTable >> qualifiedName [
 
 { #category : #accessing }
 P3ClientTable >> referencingConstraints [
-	| statement result |
+	| names |
 	referencingConstraints ifNotNil: [ ^ referencingConstraints ].
-	statement := self client format: 'SELECT tc.table_name, ctu.constraint_name
-FROM information_schema.constraint_table_usage AS ctu, information_schema.table_constraints AS tc
-WHERE ctu.table_name = $1 AND ctu.constraint_name = tc.constraint_name AND tc.constraint_type = ''FOREIGN KEY'''.
-	result := statement query: { self name }.
-	referencingConstraints := result data collect: [ :each |
+	names := P3Constraint 
+		referencingConstraintNamesForTable: self name 
+		in: self schema name 
+		using: self client.
+	referencingConstraints := names collect: [ :each |
 		(self schema tableNamed: each first) constraintNamed: each second ].
 	^ referencingConstraints
 ]
