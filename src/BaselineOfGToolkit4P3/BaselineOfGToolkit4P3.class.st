@@ -13,3 +13,17 @@ BaselineOfGToolkit4P3 >> baseline: spec [
 			spec baseline: 'P3' with: [ spec repository: 'github://feenkcom/P3' ].
 			spec package: 'GToolkit4P3' with: [ spec requires: #(P3) ] ]
 ]
+
+{ #category : #accessing }
+BaselineOfGToolkit4P3 >> loadLepiter [
+	IceRepository registry
+		detect: [ :aRepository | aRepository name = 'gt4p3' ]
+		ifFound: [ :aRepository | 
+			| defaultDatabase currentProperties |
+			defaultDatabase := LeDatabasesRegistry defaultLogicalDatabase.
+			currentProperties := defaultDatabase properties.
+			currentProperties
+				addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
+			defaultDatabase reload ]
+		ifNone: [ self inform: 'Repository not found.' ]
+]
