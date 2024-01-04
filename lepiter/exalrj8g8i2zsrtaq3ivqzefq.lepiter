@@ -248,7 +248,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:27:47.941081+01:00"
+						"dateAndTimeString" : "2024-01-04T17:30:30.20499+01:00"
 					}
 				},
 				"uid" : {
@@ -258,7 +258,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "This new instance of P3Client is ready and fully configured, but not yet connected - there is no open connection and no database session. You can see this by inspecting the **Details** tab."
+				"string" : "This new instance of {{gtClass:P3Client}} is ready and fully configured, but not yet connected - there is no open connection and no database session. You can see this by inspecting the **Details** tab."
 			},
 			{
 				"__type" : "textSnippet",
@@ -470,7 +470,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:28:59.467536+01:00"
+						"dateAndTimeString" : "2024-01-04T17:48:16.886844+01:00"
 					}
 				},
 				"uid" : {
@@ -480,7 +480,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "This will show a {{gtClass:P3Result}} object with a **Table** view showing the data of all racing circuits as well as  a **Columns** tab show details about each column."
+				"string" : "This will show a {{gtClass:P3Result}} object with a **Table** tab showing the data of all racing circuits."
 			},
 			{
 				"__type" : "textSnippet",
@@ -570,7 +570,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:29:22.876433+01:00"
+						"dateAndTimeString" : "2024-01-04T17:31:25.318697+01:00"
 					}
 				},
 				"editEmail" : {
@@ -581,7 +581,229 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:29:33.429491+01:00"
+						"dateAndTimeString" : "2024-01-04T17:35:36.043298+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "1tDm/oLKDQCbEXNuAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "To list all available tables and views, first go to the **Schemas** tab. Usually the **public** schema will be the one you want. BTW, although you can list all existing databases under the **Databases** tab, you can actually only work with the database you are connected to ({{gtMethod:P3Client>>database}})."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:42:20.592998+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:42:20.592998+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "e5H4JoPKDQCuoBIjAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Clicking on any table or view in the **Tables** tab of {{gtClass:P3ClientSchema}} will inspect a {{gtClass:P3ClientTable}}. In the **Details** tab you will see that this table belongs to a schema. Next you can check the definition, column name and type, of all columns in the **Structure** tab."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:36:04.345331+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:42:43.116458+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "13qLEIPKDQCihOjxAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "There are 2 tabs related to SQL constraints: the **Constraints** tab list all constraints for the table (unique, primary key, check and foreign key) while the **References** tab list all foreign keys constraints for which this table is the reference."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:44:37.601303+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:44:37.601303+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "sCMjL4PKDQC0u/+SAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "By combining the foreign key constraints and references, a ER diagram focused on the table can be constructed. It will show visually to which tables we refer, and which tables refer to us. Of course, this only works when such foreign key contraints are defined."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:42:24.369675+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:50:20.383444+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7y8yJ4PKDQCupu+aAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Using the play/inspect button on the top right of a  {{gtClass:P3ClientTable}} will query the table limited to 10240 rows and show a {{gtClass:P3Result}} with a **Table** tab showing the rows. Selecting a row will bring up a {{gtClass:P3ClientTableRow}} where the **Row** tab list the column names and values."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:50:22.764883+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T18:28:58.233284+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "CfO1Q4PKDQC7VAGuAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : " {{gtClass:P3ClientTableRow}} contains a **References** tab as well as a **References** column next to all values. The first are other tables refering to us, the second are the tables we refer to. Try going to `RACES` and start by looking at the ER diagram. Then query the table's contents and select a random row (race). Notice how the race refers to a circuit and a season through 2 column values, you can follow these links. At the same time you can see that other tables can refer to a race. These include results and standings. Again you can follow these links to find out if this particular race is refer to by rows in those other tables."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T18:25:24.960059+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T18:30:19.912126+01:00"
 					}
 				},
 				"uid" : {
@@ -591,7 +813,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "*to be completed*"
+				"string" : "Finally, you can try the **ER Diagram** tab in {{gtClass:P3ClientSchema}}. The first time this will take some time as it has to execute many queries. Now you should visually see how the tables in the schema are related to each other through foreign key constraints. You can click on any table to continue exploring."
 			},
 			{
 				"__type" : "textSnippet",
