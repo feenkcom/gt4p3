@@ -135,7 +135,8 @@ P3Client >> gtViewPropertiesFor: aView [
 		object: [ properties ];
 		title: 'Properties';
 		priority: 70;
-		view: #gtItemsFor:
+		view: #gtItemsFor:;
+		actionUpdateButton
 ]
 
 { #category : #'*GToolkit4P3' }
