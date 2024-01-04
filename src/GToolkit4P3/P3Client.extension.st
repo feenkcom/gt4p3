@@ -116,12 +116,13 @@ P3Client >> gtViewDetailsIn: composite [
 		title: 'Details';
 		priority: 25;
 		items: [ {
+			{ #client . self class . self }.
 			{ #URL . self url }.
 			{ #connected . self isConnected }.
 			{ #session . self session ifNil: [ '' ]. self session }
 		} ];
 		column: 'Key' text: #first;
-		column: 'Value' text: #second;
+		column: 'Value' text: #second weight: 3;
 		send: #last;
 		updateWhen: P3ConnectionClosedEvent in: [ P3LogEvent announcer ];
 		actionUpdateButton
