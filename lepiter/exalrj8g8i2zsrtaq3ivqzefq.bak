@@ -729,7 +729,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T17:50:20.383444+01:00"
+						"dateAndTimeString" : "2024-01-04T18:47:34.787982+01:00"
 					}
 				},
 				"uid" : {
@@ -739,7 +739,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Using the play/inspect button on the top right of a  {{gtClass:P3ClientTable}} will query the table limited to 10240 rows and show a {{gtClass:P3Result}} with a **Table** tab showing the rows. Selecting a row will bring up a {{gtClass:P3ClientTableRow}} where the **Row** tab list the column names and values."
+				"string" : "Using the play/inspect button on the top right of a  {{gtClass:P3ClientTable}} will query the table limited to 10240 rows and show a {{gtClass:P3ClientTableRows}} with a **Rows** tab showing the rows. Selecting a row will bring up a {{gtClass:P3ClientTableRow}} where the **Row** tab list the column names and values."
 			},
 			{
 				"__type" : "textSnippet",
@@ -803,7 +803,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T18:28:19.409462+01:00"
+						"dateAndTimeString" : "2024-01-04T18:48:31.826093+01:00"
 					}
 				},
 				"uid" : {
@@ -813,7 +813,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Finally, you can try the **ER Diagram** tab in {{gtClass:P3ClientSchema}}. The first time this will take some time as it has to execute many queries. Now you should visually see how the tables in the schema are related to each other through foreign key constraints."
+				"string" : "Finally, you can try the **ER Diagram** tab in {{gtClass:P3ClientSchema}}. The first time this will take some time as it has to execute many queries. Now you should visually see how all the tables in the schema are related to each other through foreign key constraints. You can click on any table to continue exploring."
 			},
 			{
 				"__type" : "textSnippet",
@@ -877,7 +877,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:29:56.017646+01:00"
+						"dateAndTimeString" : "2024-01-04T18:32:19.502516+01:00"
 					}
 				},
 				"uid" : {
@@ -887,7 +887,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The standard GT approach is to create specific wrapper objects around the actual data and results. These wrappers can then be provided with specific views and behaviours, modelling the application."
+				"string" : "One standard GT approach is to create specific wrapper objects around the actual data and results. These wrappers can then be provided with specific views and behaviours, modelling the application."
 			},
 			{
 				"__type" : "textSnippet",
@@ -903,7 +903,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:30:09.945766+01:00"
+						"dateAndTimeString" : "2024-01-04T20:47:50.708531+01:00"
 					}
 				},
 				"editEmail" : {
@@ -914,7 +914,189 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:30:10.517131+01:00"
+						"dateAndTimeString" : "2024-01-04T20:49:02.265008+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hWOrvYXKDQCYOHkDA7uIoQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Let's instanciate a main object for our application, {{gtClass:GtP3F1Demo}} which we will pass a PostgreSQL connection string so that it can configure a client to talk to the database server."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T20:49:06.626933+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T20:50:02.926968+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "CxznwoXKDQCcNXpuA7uIoQ=="
+				},
+				"code" : "GtP3F1Demo new url:'postgresql://scott2:tiger@stfx.eu:6543/f1db?sslmode=require'"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T20:50:24.307926+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T09:07:10.545427+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "WGyIx4XKDQCclt/HA7uIoQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "There are lots of things that we can do with the dataset, let's take the angle of seasons, races, results and standings to start. The tab **F1 Seasons** lists all seasons for which data is available. The tab **P3 Client** gives us a view of the underlying {{gtClass:P3Client}} being used. We could add other perspective views to our main object later on."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T08:55:27.36714+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T08:58:17.943307+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "526E6I/KDQCMsjJ/AlA2RQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Clicking on a season gives us a {{gtClass:GtP3F1Season}} object with a **Races** tab listing all the races that took place that season in chronological order. The **Row** tab show the underlying row object as a {{gtClass:Dictionary}}."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T08:58:34.841039+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T09:04:38.641884+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "mQux84/KDQCRgb6FAlA2RQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Selecting a particular race shows a {{gtClass:GtP3F1Race}} object with 3 application specific tabs. The **Results** tab details the final result at the end of the race. The **Driver standings** tab gives the standing of drivers over all races in that season, up to and including this race. Similarly, the **Constructor standings** does the same thing for constructors (the teams, each having 2 drivers). By moving between races in the seasons object, you can see the standings evolve over time."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T09:05:45.515469+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T09:12:15.728024+01:00"
 					}
 				},
 				"uid" : {
@@ -924,7 +1106,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "*to be completed*"
+				"string" : "The seasons, races, results and standings are just one part of the dataset. For each race, there is a record for each round by each driver as well as a record for each pitstop. As a very technical sport, statistics are a fundamental part of Formula One racing, and this is one way to "
 			},
 			{
 				"__type" : "textSnippet",
