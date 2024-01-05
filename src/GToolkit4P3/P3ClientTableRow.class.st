@@ -27,7 +27,7 @@ P3ClientTableRow >> gtViewReferencesFor: aView [
 	self table referencingConstraints ifEmpty: [ ^ aView empty ].
 	^ aView list
 		title: 'References';
-		priority: 40;
+		priority: 85;
 		items: [ self table referencingConstraints ];
 		itemText: [ :referencingConstraint | referencingConstraint tableName ];
 		send: [ :referencingConstraint | 
@@ -49,7 +49,7 @@ P3ClientTableRow >> gtViewRowFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Row';
-		priority: 30;
+		priority: 80;
 		items: [ self table columns ];
 		column: 'Field' text: #yourself;
 		column: 'Value' text: [ :each | (self row at: each) ifNil: [ '' ] ] weight: 3;

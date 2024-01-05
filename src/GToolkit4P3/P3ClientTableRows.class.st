@@ -16,7 +16,7 @@ P3ClientTableRows >> gtRowsFor: aView [
 	columnedList := aView columnedList
 		title: 'Rows';
 		items: [ self rows ];
-		priority: 35.
+		priority: 80.
 	self table columns
 		do: [ :column | 
 			columnedList
