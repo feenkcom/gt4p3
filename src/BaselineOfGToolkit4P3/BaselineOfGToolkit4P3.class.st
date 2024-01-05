@@ -4,18 +4,8 @@ Class {
 	#category : #BaselineOfGToolkit4P3
 }
 
-{ #category : #baseline }
-BaselineOfGToolkit4P3 >> baseline: spec [
-	<baseline>
-	spec
-		for: #common
-		do: [
-			spec baseline: 'P3' with: [ spec repository: 'github://feenkcom/P3' ].
-			spec package: 'GToolkit4P3' with: [ spec requires: #(P3) ] ]
-]
-
 { #category : #accessing }
-BaselineOfGToolkit4P3 >> loadLepiter [
+BaselineOfGToolkit4P3 class >> loadLepiter [
 	IceRepository registry
 		detect: [ :aRepository | aRepository name = 'gt4p3' ]
 		ifFound: [ :aRepository | 
@@ -26,4 +16,14 @@ BaselineOfGToolkit4P3 >> loadLepiter [
 				addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
 			defaultDatabase reload ]
 		ifNone: [ self inform: 'Repository not found.' ]
+]
+
+{ #category : #baseline }
+BaselineOfGToolkit4P3 >> baseline: spec [
+	<baseline>
+	spec
+		for: #common
+		do: [
+			spec baseline: 'P3' with: [ spec repository: 'github://feenkcom/P3' ].
+			spec package: 'GToolkit4P3' with: [ spec requires: #(P3) ] ]
 ]
