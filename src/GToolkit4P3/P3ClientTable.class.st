@@ -44,18 +44,10 @@ P3ClientTable >> foreignKeyConstraints [
 { #category : #ui }
 P3ClientTable >> gtActionQueryFor: anAction [
 	<gtAction>
-	| statement  |
-	statement := 'SELECT * FROM {1} LIMIT 10240' format: { self qualifiedName}.
 	^ anAction button
 		icon: BrGlamorousVectorIcons playinspect;
-		tooltip: statement;
-		action: [ :button |
-			| result rows |
-			result := self client query: statement.
-			rows := P3ClientTableRows new
-				table: self;
-				rows: result recordsAsDictionaries.
-			button phlow spawnObject: rows ]
+		tooltip: self queryAllStatement;
+		action: [ :button | button phlow spawnObject: self queryAll ]
 ]
 
 { #category : #ui }
@@ -153,6 +145,20 @@ P3ClientTable >> primaryKeyConstraints [
 { #category : #accessing }
 P3ClientTable >> qualifiedName [
 	^ self schema name , '.' , self name
+]
+
+{ #category : #accessing }
+P3ClientTable >> queryAll [
+	| result |
+	result := self client query: self queryAllStatement.
+	^ P3ClientTableRows new
+		table: self;
+		rows: result recordsAsDictionaries
+]
+
+{ #category : #ui }
+P3ClientTable >> queryAllStatement [
+	^ 'SELECT * FROM {1} LIMIT 10240' format: {self qualifiedName}
 ]
 
 { #category : #accessing }

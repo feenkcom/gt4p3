@@ -31,17 +31,7 @@ P3ClientTableRow >> gtViewReferencesFor: aView [
 		items: [ self table referencingConstraints ];
 		itemText: [ :referencingConstraint | referencingConstraint tableName ];
 		send: [ :referencingConstraint | 
-			| targetTable column referencedColumn keyValue statement result |
-			"only for one column now"
-			targetTable := referencingConstraint tableName.
-			column := referencingConstraint constraintColumns first.
-			referencedColumn := referencingConstraint foreignKeyColumns first.
-			keyValue := self row at: referencedColumn.
-			statement := self client format: ('select * from {1} where {2} = $1' format: { targetTable . column }).
-			result := statement query: { keyValue }.
-			P3ClientTableRows new
-				table: (self table schema tableNamed: targetTable);
-				rows: result recordsAsDictionaries ]
+			self resolveReferencingConstraint: referencingConstraint ]
 ]
 
 { #category : #accessing }
@@ -76,6 +66,23 @@ P3ClientTableRow >> printOn: stream [
 		nextPut: $(; 
 		nextPutAll: self table name; 
 		nextPut: $)
+]
+
+{ #category : #accessing }
+P3ClientTableRow >> resolveReferencingConstraint: referencingConstraint [
+	| keyValue statement result targetTable column referencedColumn |
+	targetTable := referencingConstraint tableName.
+	column := referencingConstraint constraintColumns first.
+	referencedColumn := referencingConstraint foreignKeyColumns first.
+	keyValue := self row at: referencedColumn.
+	statement := self client
+			format: ('select * from {1} where {2} = $1'
+					format: {targetTable.
+							column}).
+	result := statement query: {keyValue}.
+	^ P3ClientTableRows new
+		table: (self table schema tableNamed: targetTable);
+		rows: result recordsAsDictionaries
 ]
 
 { #category : #accessing }
