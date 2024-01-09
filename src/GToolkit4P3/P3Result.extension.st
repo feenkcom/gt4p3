@@ -46,3 +46,32 @@ P3Result >> gtTableFor: aView [
 						weight: 1 ] ].
 	^ columnedList
 ]
+
+{ #category : #'*GToolkit4P3' }
+P3Result >> gtViewRacesIn: composite [
+	<gtView>
+	self tableName = 'races' ifFalse: [ ^ composite empty ].
+	^ composite columnedList
+		title: 'Races';
+		priority: 50;
+		items: [ self recordsAsDictionaries ];
+		column: 'Round' text: [ :each | each at: #round ];
+		column: 'Name' text: [ :each | each at: #name ];
+		column: 'Date' text: [ :each | each at: #date ]
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Result >> tableName [
+	"Simple heuristic approach to extract the table name from our SQL source.
+	Return nil if not found."
+	
+	| parser table |
+	self hasSource ifFalse: [ ^ nil ].
+	parser := 'from' asPParser
+		, #blank asPParser plus
+		, #blank asPParser negate plus 
+		flatten ==> #third.
+	table := (parser sea ==> #second) star 
+		==> [ :t | t size = 1 ifTrue: [ t anyOne ] ifFalse: [ nil ] ].
+	^ table parse: self source asLowercase
+]

@@ -2930,6 +2930,120 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:45:43.452562+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:47:56.204004+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "5ZQdG+bKDQCByPaJAD6jfA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "There is yet another alternative approach. We can also add custom views to the very generic {{gtClass:P3Result}} because it knows its SQL source and we can apply a heuristic to extract the table name from it. Though this is far from perfect, it works in many cases."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:48:32.209277+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:51:33.96647+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "n5EsJebKDQCHwjFYAD6jfA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The following example looks at the races in the 2023 season and shows them in a nicer table, like we did before. The view used is {{gtMethod:P3Result>>#gtViewRacesIn:}}"
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:49:13.515539+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-09T15:49:13.515539+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "weSiJ+bKDQCKHjI4AD6jfA=="
+				},
+				"exampleSelector" : "queryRaces2023Season",
+				"previewHeight" : 200,
+				"previewShowSelector" : "gtViewRacesIn:",
+				"exampleBehaviorName" : "GtP3F1DemoExamples class",
+				"codeExpanded" : true,
+				"previewExpanded" : true,
+				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-08T14:02:40.768759+01:00"
 					}
 				},
@@ -3055,7 +3169,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T10:17:21.351513+01:00"
+						"dateAndTimeString" : "2024-01-09T15:45:33.790474+01:00"
 					}
 				},
 				"uid" : {
@@ -3065,7 +3179,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Notice how we defined our custom views on generic objects ({{gtClass:P3ClientTableRows}} and {{gtClass:P3ClientTableRow}}), made them show conditionally based on the table name (i.e. the type) and defined them as extensions in another package. Effectively they constitute an application specific layer."
+				"string" : "Notice how we defined our custom views on generic objects ({{gtClass:P3ClientTableRows}} and {{gtClass:P3ClientTableRow}} and even {{gtClass:P3Result}}), made them show conditionally based on the table name (i.e. the type) and defined them as extensions in another package. Effectively they constitute an application specific layer."
 			},
 			{
 				"__type" : "textSnippet",

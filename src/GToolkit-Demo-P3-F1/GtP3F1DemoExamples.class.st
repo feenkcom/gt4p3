@@ -83,6 +83,12 @@ GtP3F1DemoExamples class >> queryCircuitSpaFrancorchampsByRef [
 ]
 
 { #category : #accessing }
+GtP3F1DemoExamples class >> queryRaces2023Season [
+	<gtExample>
+	^ self p3Client query: 'SELECT * FROM races WHERE year = 2023 ORDER BY round'
+]
+
+{ #category : #accessing }
 GtP3F1DemoExamples class >> racesInSeason2020ViaReferencingConstraint [
 	<gtExample>
 	| referencingConstraint |
