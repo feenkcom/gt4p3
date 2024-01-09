@@ -2408,7 +2408,7 @@
 					"__type" : "uid",
 					"uidString" : "L4mn7c/KDQCQ4KQBDt85og=="
 				},
-				"exampleSelector" : "seasonsTableRow2020",
+				"exampleSelector" : "seasonsTableContentsRow2020",
 				"previewHeight" : 200,
 				"previewShowSelector" : "gtViewRowFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
@@ -3018,7 +3018,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-08T14:07:08.98808+01:00"
+						"dateAndTimeString" : "2024-01-08T14:07:26.254631+01:00"
 					}
 				},
 				"uid" : {
@@ -3028,7 +3028,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The implementawtio"
+				"string" : "The implementation can be found in {{gtMethod:P3ClientTable>>#gtViewDriverStandingsTop20OverallWinsIn:}}."
 			},
 			{
 				"__type" : "textSnippet",

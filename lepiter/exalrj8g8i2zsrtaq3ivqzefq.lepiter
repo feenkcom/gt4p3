@@ -2408,7 +2408,7 @@
 					"__type" : "uid",
 					"uidString" : "L4mn7c/KDQCQ4KQBDt85og=="
 				},
-				"exampleSelector" : "seasonsTableRow2020",
+				"exampleSelector" : "seasonsTableContents2020Row",
 				"previewHeight" : 200,
 				"previewShowSelector" : "gtViewRowFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",

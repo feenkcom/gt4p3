@@ -60,6 +60,29 @@ GtP3F1DemoExamples class >> queryAllCircuits [
 ]
 
 { #category : #accessing }
+GtP3F1DemoExamples class >> queryCircuitSpaFrancorchampsById [
+	<gtExample>
+	| statement |
+	statement := self p3Client 
+		format: 'SELECT * FROM circuits WHERE circuitid = $1'.
+	^ statement query: { 13 }
+]
+
+{ #category : #accessing }
+GtP3F1DemoExamples class >> queryCircuitSpaFrancorchampsByRef [
+	<gtExample>
+	| id statement |
+	id := 'select-circuits-by-circuitref'.
+	statement := [ self p3Client preparedStatementNamed: id ]
+		on: NotFound
+		do: [
+			self p3Client 
+				prepare: 'SELECT * FROM circuits WHERE circuitref = $1'
+				named: id ].
+	^ statement query: { 'spa' }
+]
+
+{ #category : #accessing }
 GtP3F1DemoExamples class >> racesInSeason2020ViaReferencingConstraint [
 	<gtExample>
 	| referencingConstraint |

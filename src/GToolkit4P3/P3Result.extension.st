@@ -16,6 +16,17 @@ P3Result >> gtColumnsFor: aView [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Result >> gtSourceFor: aView [
+	<gtView>
+	self hasSource ifFalse: [ ^ aView empty ].
+	^ aView textEditor
+		title: 'Source';
+		priority: 45;
+		aptitude: BrGlamorousCodeEditorAptitude;
+		text: [ self source ]
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Result >> gtTableFor: aView [
 	<gtView>
 	| columnedList |
