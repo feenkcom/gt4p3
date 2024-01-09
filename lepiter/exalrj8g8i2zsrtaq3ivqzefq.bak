@@ -2978,7 +2978,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-09T15:50:59.904474+01:00"
+						"dateAndTimeString" : "2024-01-09T15:51:33.96647+01:00"
 					}
 				},
 				"uid" : {
@@ -2988,7 +2988,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The following example looks at the races in the 2023 season and shows them in a nicer table, like we did before. The view used is {{gtMethod:GtP3F1DemoExamples class>>#queryRaces2023Season}}"
+				"string" : "The following example looks at the races in the 2023 season and shows them in a nicer table, like we did before. The view used is {{gtMethod:P3Result>>#gtViewRacesIn:}}"
 			},
 			{
 				"__type" : "exampleSnippet",

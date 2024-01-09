@@ -83,6 +83,19 @@ GtP3F1DemoExamples class >> queryCircuitSpaFrancorchampsByRef [
 ]
 
 { #category : #accessing }
+GtP3F1DemoExamples class >> queryDriverStandingsTop20OverallWins [
+	<gtExample>
+	^ self p3Client query: '
+SELECT driverstandings.driverid, drivers.driverref, drivers.nationality, SUM(position) AS wins
+FROM driverstandings, drivers 
+WHERE driverstandings.driverid = drivers.driverid AND driverstandings.position = 1 
+GROUP BY driverstandings.driverid, drivers.driverref, drivers.nationality 
+ORDER BY wins DESC 
+LIMIT 20
+'
+]
+
+{ #category : #accessing }
 GtP3F1DemoExamples class >> queryRaces2023Season [
 	<gtExample>
 	^ self p3Client query: 'SELECT * FROM races WHERE year = 2023 ORDER BY round'
