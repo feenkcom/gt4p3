@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:22:23.734504+01:00"
+						"dateAndTimeString" : "2024-02-12T13:20:34.457902+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +29,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:22:23.811917+01:00"
+						"dateAndTimeString" : "2024-02-12T13:20:34.457902+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "FaMKJnzKDQC3YsY9BEAZ/A=="
+					"uidString" : "SqWfCpDNDQCnSzpcCvrAoA=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "One of the most popular open source relational databases is [PostgreSQL](https://postgresql.org). This case study shows how to connect to a PostgreSQL database and how to explore and visualise both the data and structure. The demo implements two approaches to work with the data from the database."
+				"string" : ""
 			},
 			{
 				"__type" : "textSnippet",
@@ -55,7 +55,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:09.345821+01:00"
+						"dateAndTimeString" : "2024-02-12T13:20:02.749881+01:00"
 					}
 				},
 				"editEmail" : {
@@ -66,17 +66,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:09.352394+01:00"
+						"dateAndTimeString" : "2024-02-12T13:20:02.749881+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "0zOPm5DNDQCrB9i8CvrAoA=="
+					"uidString" : "y9G7CJDNDQCnSoMmCvrAoA=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Connecting to the database]]"
+				"string" : ""
 			},
 			{
 				"__type" : "textSnippet",
@@ -92,7 +92,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:19.268788+01:00"
+						"dateAndTimeString" : "2024-01-05T10:33:22.318176+01:00"
 					}
 				},
 				"editEmail" : {
@@ -103,17 +103,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:19.274321+01:00"
+						"dateAndTimeString" : "2024-01-05T10:34:23.226192+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "rETjm5DNDQCrJwAECvrAoA=="
+					"uidString" : "XHhwRpHKDQCV3dZQAlA2RQ=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Exploring the database schema]]"
+				"string" : "#Going further"
 			},
 			{
 				"__type" : "textSnippet",
@@ -129,7 +129,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:26.604684+01:00"
+						"dateAndTimeString" : "2024-01-05T09:05:45.515469+01:00"
 					}
 				},
 				"editEmail" : {
@@ -140,54 +140,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:26.610433+01:00"
+						"dateAndTimeString" : "2024-01-05T09:12:36.017042+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "JvZ4nJDNDQCraPb2CvrAoA=="
+					"uidString" : "FqXORnzKDQC6LmP5BEAZ/A=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Wrapping database results]]"
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:28.43874+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T14:01:31.780689+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "Z2bknJDNDQCriGPCCvrAoA=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "[[ADD"
+				"string" : "The seasons, races, results and standings are just one part of the dataset. For each race, there is a record for each round by each driver as well as a record for each pitstop. As a very technical sport, statistics are a fundamental part of Formula One racing, and this is one way to collect your own."
 			}
 		]
 	},
@@ -199,7 +162,7 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2024-01-04T09:21:00.137317+01:00"
+			"dateAndTimeString" : "2024-02-12T13:20:34.451427+01:00"
 		}
 	},
 	"editEmail" : {
@@ -210,15 +173,15 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2024-01-04T09:22:06.405511+01:00"
+			"dateAndTimeString" : "2024-02-12T13:20:34.451427+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Using P3 to interact with the PostgreSQL Relational Database"
+		"title" : "Going further with F1 data"
 	},
 	"uid" : {
 		"__type" : "uuid",
-		"uuid" : "d6490926-7cca-0d00-b761-ea0c044019fc"
+		"uuid" : "b974bb08-90cd-0d00-a749-2f780afac0a0"
 	}
 }
