@@ -18,80 +18,6 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:19:11.974401+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:19:11.974401+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "EQy1BZDNDQCnRgjVCvrAoA=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : ""
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:29:36.081577+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:29:46.410433+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "CvXJRHzKDQC5vLx+BEAZ/A=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "#Wrapping database results"
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-04T09:29:47.376547+01:00"
 					}
 				},
@@ -186,7 +112,8 @@
 				},
 				"exampleSelector" : "default",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewF1SeasonsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewF1SeasonsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -263,7 +190,8 @@
 				},
 				"exampleSelector" : "default",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewP3ClientFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewP3ClientFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -377,7 +305,8 @@
 				},
 				"exampleSelector" : "season2020",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewRacesFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewRacesFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -397,7 +326,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T08:58:34.841039+01:00"
+						"dateAndTimeString" : "2024-02-12T14:46:17.32714+01:00"
 					}
 				},
 				"editEmail" : {
@@ -408,17 +337,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T11:00:18.753935+01:00"
+						"dateAndTimeString" : "2024-02-12T14:46:17.32714+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "mQux84/KDQCRgb6FAlA2RQ=="
+					"uidString" : "ZYspPZHNDQC4rr7cCvrAoA=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Selecting a particular race shows a {{gtClass:GtP3F1Race}} object with 4 application specific tabs. The **Details** tab shows which race we are looking at. The **Results** tab details the final result at the end of the race. The **Driver standings** tab gives the standing of drivers over all races in that season, up to and including this race. Similarly, the **Constructor standings** does the same thing for constructors (the teams, each having 2 drivers). By moving between races in the seasons object, you can see the standings evolve over time."
+				"string" : "Selecting a particular race shows a {{gtClass:GtP3F1Race}} object with 4 application specific tabs. The **Details** tab shows which race we are looking at."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -454,11 +383,49 @@
 				},
 				"exampleSelector" : "season2020race7",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewDetailsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewDetailsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
 				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:46:27.877136+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:46:27.877136+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7o3KPZHNDQC4vcnHCvrAoA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The **Results** tab details the final result at the end of the race."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -494,11 +461,49 @@
 				},
 				"exampleSelector" : "season2020race7",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewResultsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewResultsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
 				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T08:58:34.841039+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:46:27.883639+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "mQux84/KDQCRgb6FAlA2RQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The **Driver standings** tab gives the standing of drivers over all races in that season, up to and including this race. Similarly, the **Constructor standings** does the same thing for constructors (the teams, each having 2 drivers). By moving between races in the seasons object, you can see the standings evolve over time."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -534,7 +539,8 @@
 				},
 				"exampleSelector" : "season2020race7",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewDriverStandingsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewDriverStandingsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -574,7 +580,8 @@
 				},
 				"exampleSelector" : "season2020race7",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewConstructorStandingsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewConstructorStandingsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,

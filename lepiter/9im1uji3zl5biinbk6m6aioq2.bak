@@ -18,117 +18,6 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:17:26.259149+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:17:26.259149+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "7PVn/4/NDQCnP8kjCvrAoA=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : ""
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:17:17.25915+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-02-12T13:17:17.25915+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "oKHe/o/NDQCnPh3pCvrAoA=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : ""
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:30:12.351652+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T09:30:22.86463+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "o2XzRnzKDQC6YXr7BEAZ/A=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "#Adding custom views to generic objects"
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-04T09:30:23.805749+01:00"
 					}
 				},
@@ -243,6 +132,43 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T15:00:00.00068+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T15:01:00.403715+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Q5MybpHNDQC5kpoBCvrAoA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Adding views to P3ClientTableRow"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-05T09:17:32.713119+01:00"
 					}
 				},
@@ -320,7 +246,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T09:33:47.04622+01:00"
+						"dateAndTimeString" : "2024-02-12T14:52:05.145367+01:00"
 					}
 				},
 				"editEmail" : {
@@ -331,17 +257,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T11:03:22.647532+01:00"
+						"dateAndTimeString" : "2024-02-12T14:52:05.145367+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "hLWWcZDKDQC+odVbAlA2RQ=="
+					"uidString" : "KtzkUZHNDQC5IHOaCvrAoA=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Selecting a single row shows a {{gtClass:P3ClientTableRow}} for one record of `seasons` (i.e. one year). The **References** tab contains other tables that refers to this table, potentially this specific record. You will see that `races` refers to `seasons`. If you click on the reference, you will follow that relation. Say you are looking at the 2020 season, the SQL query `SELECT * FROM races WHERE year = 2020` will be executed. This is based on the {{gtClass:P3ForeignKeyConstraint}} `(races_seasons_fkey FOREIGN KEY (year) REFERENCES seasons(year))`."
+				"string" : "Selecting a single row shows a {{gtClass:P3ClientTableRow}} for one record of `seasons` (i.e. one year)."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -377,11 +303,49 @@
 				},
 				"exampleSelector" : "seasonsTableContents2020Row",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewRowFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewRowFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
 				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:52:47.442415+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:52:47.442415+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "pkRqVJHNDQC5LxJnCvrAoA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The **References** tab contains other tables that refers to this table, potentially this specific record. You will see that `races` refers to `seasons`."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -417,11 +381,49 @@
 				},
 				"exampleSelector" : "seasonsTableContents2020Row",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewReferencesFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewReferencesFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
 				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-05T09:33:47.04622+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:52:47.446455+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hLWWcZDKDQC+odVbAlA2RQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "If you click on the reference, you will follow that relation. Say you are looking at the 2020 season, the SQL query `SELECT * FROM races WHERE year = 2020` will be executed. This is based on the {{gtClass:P3ForeignKeyConstraint}} `(races_seasons_fkey FOREIGN KEY (year) REFERENCES seasons(year))`."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -457,7 +459,8 @@
 				},
 				"exampleSelector" : "racesInSeason2020ViaReferencingConstraint",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewRacesIn:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewRacesIn:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -576,7 +579,8 @@
 							},
 							"exampleSelector" : "racesInSeason2020ViaReferencingConstraintRound7",
 							"previewHeight" : 200,
-							"previewShowSelector" : "gtViewRaceDetailsFor:",
+							"previewShowSelector" : "gtViewsFor:",
+							"previewSelectSelector" : "gtViewRaceDetailsFor:",
 							"exampleBehaviorName" : "GtP3F1DemoExamples class",
 							"codeExpanded" : true,
 							"previewExpanded" : true,
@@ -653,7 +657,8 @@
 							},
 							"exampleSelector" : "racesInSeason2020ViaReferencingConstraintRound7",
 							"previewHeight" : 200,
-							"previewShowSelector" : "gtViewRaceResultsFor:",
+							"previewShowSelector" : "gtViewsFor:",
+							"previewSelectSelector" : "gtViewRaceResultsFor:",
 							"exampleBehaviorName" : "GtP3F1DemoExamples class",
 							"codeExpanded" : true,
 							"previewExpanded" : true,
@@ -730,7 +735,8 @@
 							},
 							"exampleSelector" : "racesInSeason2020ViaReferencingConstraintRound7",
 							"previewHeight" : 200,
-							"previewShowSelector" : "gtViewRaceDriverStandingsFor:",
+							"previewShowSelector" : "gtViewsFor:",
+							"previewSelectSelector" : "gtViewRaceDriverStandingsFor:",
 							"exampleBehaviorName" : "GtP3F1DemoExamples class",
 							"codeExpanded" : true,
 							"previewExpanded" : true,
@@ -807,7 +813,8 @@
 							},
 							"exampleSelector" : "racesInSeason2020ViaReferencingConstraintRound7",
 							"previewHeight" : 200,
-							"previewShowSelector" : "gtViewRaceConstructorStandingsFor:",
+							"previewShowSelector" : "gtViewsFor:",
+							"previewSelectSelector" : "gtViewRaceConstructorStandingsFor:",
 							"exampleBehaviorName" : "GtP3F1DemoExamples class",
 							"codeExpanded" : true,
 							"previewExpanded" : true,
@@ -897,6 +904,43 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T15:01:17.410019+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T15:01:34.308607+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "YcDPcpHNDQC6i7LFCvrAoA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "#Adding views to P3Result"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-09T15:45:43.452562+01:00"
 					}
 				},
@@ -908,7 +952,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-09T15:47:56.204004+01:00"
+						"dateAndTimeString" : "2024-02-12T14:56:43.370555+01:00"
 					}
 				},
 				"uid" : {
@@ -918,7 +962,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "There is yet another alternative approach. We can also add custom views to the very generic {{gtClass:P3Result}} because it knows its SQL source and we can apply a heuristic to extract the table name from it. Though this is far from perfect, it works in many cases."
+				"string" : "And there is yet another alternative approach. We can also add custom views to the very generic {{gtClass:P3Result}} because it knows its SQL source and we can apply a heuristic to extract the table name from it. Though this is far from perfect, it works in many cases."
 			},
 			{
 				"__type" : "textSnippet",
@@ -991,7 +1035,8 @@
 				},
 				"exampleSelector" : "queryRaces2023Season",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewRacesIn:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewRacesIn:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -1067,8 +1112,9 @@
 					"uidString" : "AYBglNDKDQCMp+OyD33uuw=="
 				},
 				"exampleSelector" : "driverStandingsTable",
-				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewDriverStandingsTop20OverallWinsIn:",
+				"previewHeight" : 600,
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewDriverStandingsTop20OverallWinsIn:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,

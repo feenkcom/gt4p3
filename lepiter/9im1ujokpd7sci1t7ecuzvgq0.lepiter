@@ -112,7 +112,8 @@
 				},
 				"exampleSelector" : "publicSchema",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtTablesFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtTablesFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -189,7 +190,8 @@
 				},
 				"exampleSelector" : "circuitsTable",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtDetailsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtDetailsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -229,7 +231,8 @@
 				},
 				"exampleSelector" : "circuitsTable",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtStructureFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtStructureFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -306,7 +309,8 @@
 				},
 				"exampleSelector" : "racesTable",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtConstraintsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtConstraintsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -346,7 +350,8 @@
 				},
 				"exampleSelector" : "racesTable",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtReferencingConstraintsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtReferencingConstraintsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -422,8 +427,9 @@
 					"uidString" : "IsC4h83KDQCER9N6Dyb2VA=="
 				},
 				"exampleSelector" : "racesTable",
-				"previewHeight" : 200,
-				"previewShowSelector" : "gtEntityRelationshipDiagramFor:",
+				"previewHeight" : 600,
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtEntityRelationshipDiagramFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -443,7 +449,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-04T17:42:24.369675+01:00"
+						"dateAndTimeString" : "2024-02-12T14:35:30.891989+01:00"
 					}
 				},
 				"editEmail" : {
@@ -454,17 +460,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-05T10:47:37.764205+01:00"
+						"dateAndTimeString" : "2024-02-12T14:35:30.891989+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "7y8yJ4PKDQCupu+aAXjjcQ=="
+					"uidString" : "08ChFpHNDQC2VuFRCvrAoA=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Using the play/inspect button on the top right of a  {{gtClass:P3ClientTable}} will query the table (limited to 10240 rows) and show a {{gtClass:P3ClientTableRows}} object with a **Rows** tab showing the rows. Selecting a row will bring up a {{gtClass:P3ClientTableRow}} object where the **Row** tab list the column names and values."
+				"string" : "Using the play/inspect button on the top right of a  {{gtClass:P3ClientTable}} will query the table (limited to 10240 rows) and show a {{gtClass:P3ClientTableRows}} object with a **Rows** tab showing the rows."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -500,11 +506,49 @@
 				},
 				"exampleSelector" : "racesTableContents",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtRowsFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtRowsFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
 				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-04T17:42:24.369675+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-02-12T14:35:30.899762+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7y8yJ4PKDQCupu+aAXjjcQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Selecting a row will bring up a {{gtClass:P3ClientTableRow}} object where the **Row** tab list the column names and values."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -540,7 +584,8 @@
 				},
 				"exampleSelector" : "racesTableContentsFirstRow",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewRowFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewRowFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -617,7 +662,8 @@
 				},
 				"exampleSelector" : "racesTableContentsFirstRow",
 				"previewHeight" : 200,
-				"previewShowSelector" : "gtViewReferencesFor:",
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtViewReferencesFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
@@ -693,8 +739,9 @@
 					"uidString" : "guWFSs7KDQCFCQzkDyb2VA=="
 				},
 				"exampleSelector" : "publicSchema",
-				"previewHeight" : 200,
-				"previewShowSelector" : "gtEntityRelationshipDiagramFor:",
+				"previewHeight" : 600,
+				"previewShowSelector" : "gtViewsFor:",
+				"previewSelectSelector" : "gtEntityRelationshipDiagramFor:",
 				"exampleBehaviorName" : "GtP3F1DemoExamples class",
 				"codeExpanded" : true,
 				"previewExpanded" : true,
