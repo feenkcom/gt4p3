@@ -125,6 +125,7 @@ P3Client >> gtViewDetailsIn: composite [
 		column: 'Value' text: #second weight: 3;
 		send: #last;
 		updateWhen: P3ConnectionClosedEvent in: [ P3LogEvent announcer ];
+		updateWhen: P3ConnectionEstablishedEvent in: [ P3LogEvent announcer ];
 		actionUpdateButton
 ]
 
