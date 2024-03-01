@@ -81,17 +81,17 @@ P3ClientTable >> gtDetailsFor: aView [
 { #category : #accessing }
 P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 	<gtView>
-	| container list |
+	| container list fkeys |
 	^ aView mondrian
 		title: 'ER Diagram';
 		priority: 60;
 		painting: [ :view | 
 			view nodes
-				stencil: [  :aTable | 
+				stencil: [ :aTable | 
 					container := BrVerticalPane new
 							exact: 200 @ 100;
 							margin: (BlInsets all: 10);
-							aptitude: BrShadowAptitude;
+							aptitude: BrShadowAptitude + BrGlamorousWithVerticalResizerAptitude + BrGlamorousWithHorizontalResizerAptitude;
 							padding: (BlInsets all: 5);
 							background: Color white.
 					container
@@ -109,12 +109,16 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 						cellStencil: [ BrLabel new hMatchParent beSmallSize
 								aptitude: (BrGlamorousLabelAptitude new foreground: Color gray) ];
 						dataBinder: [ :anItemElement :anItem | anItemElement text: anItem dataType ].
-					list items: aTable structure.
+					fkeys := aTable foreignKeyConstraints flatCollect: #foreignKeyColumns.
+					list
+						items: (aTable structure reject: [ :each | fkeys includes: each name ]).
 					container addChild: list.
-					container  ];
-				with: { self } 
-					, (self foreignKeyConstraints collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ]) 
-					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ]).
+					container ];
+				with: {self}
+						, (self foreignKeyConstraints
+								collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ])
+						, (self referencingConstraints
+								collect: [ :fkc | self schema tableNamed: fkc tableName ]).
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new
