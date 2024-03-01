@@ -40,7 +40,7 @@ P3ClientTableRow >> gtViewRowFor: aView [
 	^ aView columnedList
 		title: 'Row';
 		priority: 80;
-		items: [ self table columns ];
+		items: [ self table columnNames ];
 		column: 'Field' text: #yourself;
 		column: 'Value' text: [ :each | (self row at: each) ifNil: [ '' ] ] weight: 3;
 		column: 'References' text: [ :each | (self foreignKeyTableFor: each) ifNil: [ '' ] ];

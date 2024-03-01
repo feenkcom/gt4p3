@@ -17,8 +17,8 @@ P3ClientTable >> client [
 ]
 
 { #category : #accessing }
-P3ClientTable >> columns [
-	^ self structure data collect: #second
+P3ClientTable >> columnNames [
+	^ self structure collect: #name
 ]
 
 { #category : #accessing }
@@ -94,9 +94,9 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 					view nodes 
 						stencil: [ :aColumn | 
 							BrLabel new 
-								text: aColumn second; 
+								text: aColumn name; 
 								aptitude: BrGlamorousLabelAptitude new ];
-						with: aTable structure data.
+						with: aTable structure.
 					view layout vertical ].
 			view edges
 				stencil: [ :class | 
@@ -134,11 +134,14 @@ P3ClientTable >> gtReferencingConstraintsFor: aView [
 { #category : #ui }
 P3ClientTable >> gtStructureFor: aView [
 	<gtView>
-	^ aView forward
+	^ aView columnedList
 		title: 'Structure';
 		priority: 40;
-		object: [ self structure ];
-		view: #gtTableFor:
+		items: [ self structure ];
+		column: 'Ordinal position' text: #ordinalPosition;
+		column: 'Column name' text: #name;
+		column: 'Data type' text: #dataType;
+		column: 'Nullable' text: #isNullable
 ]
 
 { #category : #accessing }
@@ -191,11 +194,8 @@ P3ClientTable >> schema: anObject [
 
 { #category : #accessing }
 P3ClientTable >> structure [
-	| statement |
 	structure ifNotNil: [ ^ structure ].
-	statement := self client format: 'SELECT ordinal_position, column_name, data_type, is_nullable
- FROM information_schema.columns WHERE table_name = $1 ORDER BY 1'.
- 	^ structure := statement query: { self name }
+	^ structure := P3ClientTableColumn allForTable: self
 ]
 
 { #category : #accessing }
