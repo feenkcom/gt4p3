@@ -15,8 +15,16 @@ P3ClientSchema >> gtEntityRelationshipDiagramFor: aView [
 		priority: 40;
 		painting: [ :view | 
 			view nodes
-				stencil: [ :node | BlTextElement new text: node name asRopedText ];
-				with: self tables values.
+				umlClassShapeWithName: #name;
+				with: self tables values
+				forEach: [ :aTable | 
+					view nodes 
+						stencil: [ :aColumn | 
+							BrLabel new 
+								text: aColumn second; 
+								aptitude: BrGlamorousLabelAptitude new ];
+						with: aTable structure data.
+					view layout vertical ].
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new

@@ -86,13 +86,18 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 		priority: 60;
 		painting: [ :view | 
 			view nodes
-				stencil: [ :node | | text |
-					text := node name asRopedText.
-					node = self ifTrue: [ text foreground: BrGlamorousColors linkColor ; bold ].
-					BlTextElement new text: text ];
+				umlClassShapeWithName: #name;
 				with: { self } 
 					, (self foreignKeyConstraints collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ]) 
-					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ]).
+					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ])
+				forEach: [ :aTable | 
+					view nodes 
+						stencil: [ :aColumn | 
+							BrLabel new 
+								text: aColumn second; 
+								aptitude: BrGlamorousLabelAptitude new ];
+						with: aTable structure data.
+					view layout vertical ].
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new
@@ -109,7 +114,7 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 						collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ] ].
 			view layout
 				custom: (GtGradHorizontalDominanceTreeLayout new
-						levelDistance: 10;
+						levelDistance: 100;
 						nodeDistance: 10) ]
 ]
 
