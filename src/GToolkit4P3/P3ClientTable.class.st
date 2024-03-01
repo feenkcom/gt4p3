@@ -81,23 +81,40 @@ P3ClientTable >> gtDetailsFor: aView [
 { #category : #accessing }
 P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 	<gtView>
+	| container list |
 	^ aView mondrian
 		title: 'ER Diagram';
 		priority: 60;
 		painting: [ :view | 
 			view nodes
-				umlClassShapeWithName: #name;
+				stencil: [  :aTable | 
+					container := BrVerticalPane new
+							exact: 200 @ 100;
+							margin: (BlInsets all: 10);
+							aptitude: BrShadowAptitude;
+							padding: (BlInsets all: 5);
+							background: Color white.
+					container
+						addChild: (BrLabel new
+								text: aTable name;
+								margin: (BlInsets bottom: 5);
+								aptitude: BrGlamorousLabelAptitude new bold).
+					list := BrColumnedList new matchParent.
+					list column
+						title: 'Column';
+						cellStencil: [ BrLabel new hMatchParent beSmallSize aptitude: BrGlamorousLabelAptitude ];
+						dataBinder: [ :anItemElement :anItem | anItemElement text: anItem name ].
+					list column
+						title: 'Type';
+						cellStencil: [ BrLabel new hMatchParent beSmallSize
+								aptitude: (BrGlamorousLabelAptitude new foreground: Color gray) ];
+						dataBinder: [ :anItemElement :anItem | anItemElement text: anItem dataType ].
+					list items: aTable structure.
+					container addChild: list.
+					container  ];
 				with: { self } 
 					, (self foreignKeyConstraints collect: [ :fkc | self schema tableNamed: fkc foreignKeyTable ]) 
-					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ])
-				forEach: [ :aTable | 
-					view nodes 
-						stencil: [ :aColumn | 
-							BrLabel new 
-								text: aColumn name; 
-								aptitude: BrGlamorousLabelAptitude new ];
-						with: aTable structure.
-					view layout vertical ].
+					, (self referencingConstraints collect: [ :fkc | self schema tableNamed: fkc tableName ]).
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new
