@@ -2,7 +2,8 @@ Class {
 	#name : #GtP3F1DemoExamples,
 	#superclass : #Object,
 	#classInstVars : [
-		'default'
+		'default',
+		'connectionUrl'
 	],
 	#category : #'GToolkit-Demo-P3-F1'
 }
@@ -22,7 +23,12 @@ GtP3F1DemoExamples class >> circuitsTableContents [
 { #category : #accessing }
 GtP3F1DemoExamples class >> connectionUrl [
 	<gtExample>
-	^ 'postgresql://scott2:tiger@stfx.eu:6543/f1db?sslmode=require' asUrl
+	^ connectionUrl ifNil: [ 'postgresql://scott2:tiger@stfx.eu:6543/f1db?sslmode=require' asUrl ]
+]
+
+{ #category : #accessing }
+GtP3F1DemoExamples class >> connectionUrl: aUrl [
+	connectionUrl := aUrl asUrl
 ]
 
 { #category : #accessing }

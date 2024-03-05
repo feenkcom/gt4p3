@@ -118,6 +118,13 @@ P3Client >> gtViewDetailsIn: composite [
 		items: [ {
 			{ #client . self class . self }.
 			{ #URL . self url }.
+			{ #host . self host }.
+			{ #port . self port }.
+			{ #user . self user }.
+			{ #password . self password }.
+			{ #database . self database }.
+			{ #ssl . self isSSL }.
+			{ #options . self startupOptions ifNil: [ '' ] . self startupOptions }.
 			{ #connected . self isConnected }.
 			{ #session . self session ifNil: [ '' ]. self session }
 		} ];
