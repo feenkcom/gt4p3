@@ -37,6 +37,12 @@ P3ClientLoginPane >> databaseDescription [
 		accessor: #database
 ]
 
+{ #category : #examples }
+P3ClientLoginPane >> gtExampleF1 [
+	<gtExample>
+	^ self loadFrom: (GtP3F1DemoExamples p3Client); asElement
+]
+
 { #category : #accessing }
 P3ClientLoginPane >> host [
 	^ host
