@@ -7,7 +7,7 @@ Class {
 		'isNullable',
 		'name'
 	],
-	#category : #GToolkit4P3
+	#category : #'GToolkit4P3-Model'
 }
 
 { #category : #'instance creation' }

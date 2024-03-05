@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'row'
 	],
-	#category : #GToolkit4P3
+	#category : #'GToolkit4P3-Model'
 }
 
 { #category : #accessing }

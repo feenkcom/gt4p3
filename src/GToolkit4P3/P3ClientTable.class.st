@@ -8,7 +8,7 @@ Class {
 		'structure',
 		'referencingConstraints'
 	],
-	#category : #GToolkit4P3
+	#category : #'GToolkit4P3-Model'
 }
 
 { #category : #accessing }
