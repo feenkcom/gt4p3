@@ -90,6 +90,19 @@ P3ClientLoginPane >> magritteAcceptAction [
 ]
 
 { #category : #accessing }
+P3ClientLoginPane >> magritteInspectAction [
+	<magritteActionDescription>
+	^ MAActionDescription new
+		priority: 20;
+		label: 'Inspect';
+		isLabelVisible: false;
+		blocIcon: BrGlamorousVectorIcons inspect;
+		action: [ :aModel :aButton :aMemento :aDescription | 
+			aButton inUIProcessDo: [ aButton phlow spawnObject: aModel p3Client ] ];
+		beToolbarAction
+]
+
+{ #category : #accessing }
 P3ClientLoginPane >> options [
 	^ options
 ]
