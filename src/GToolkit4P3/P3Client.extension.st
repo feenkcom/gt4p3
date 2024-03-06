@@ -22,7 +22,7 @@ P3Client >> gtDatabasesFor: aView [
 	^ aView list
 		title: 'Databases';
 		priority: 80;
-		items: [ self databases ]
+		items: [ self ensureConnected; databases ]
 ]
 
 { #category : #'*GToolkit4P3' }
@@ -96,6 +96,12 @@ P3Client >> gtSQLFor: aView [
 			action: [ :aButton |
 				| query result |
 				query := aButton phlow textViewContent asString.
+				[ self ensureConnected ] on: Error do: [ :exception |
+					(P3Error new 
+						info: { 
+							$C->'P3090'. 
+							$M->('Cannot connect to server ({1})' format: { exception }) } asDictionary; 
+						yourself) signal ].
 				result := self query: query.
 				aButton phlow spawnObject: result ]
 ]
@@ -106,7 +112,7 @@ P3Client >> gtSchemasFor: aView [
 	^ aView list
 		title: 'Schemas';
 		priority: 60;
-		items: [ self schemas ]
+		items: [ self ensureConnected; schemas ]
 ]
 
 { #category : #'*GToolkit4P3' }
