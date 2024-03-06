@@ -7,11 +7,17 @@ Class {
 	#category : #'GToolkit4P3-Snippet'
 }
 
+{ #category : #accessing }
+LePostgresqlLoginSnippetElement >> defaultConnection [
+	^ GtP3ConnectionManager uniqueInstance defaultConnection
+]
+
 { #category : #initiailize }
 LePostgresqlLoginSnippetElement >> initialize [
 	| form formElement indicatorElement |
 	super initialize.
 	form := P3ClientLoginPane new.
+	form loadFrom: self defaultConnection.
 	formElement := form asGtMagritteViewModel asElement margin: (BlInsets all: 10).
 	formElement constraintsDo: [ :c |
 		c frame horizontal alignLeft.

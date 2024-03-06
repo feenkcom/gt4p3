@@ -42,5 +42,15 @@ GtPostgreSQLSourceCoder >> initializeAddOns: addOns [
 
 { #category : #'private - actions' }
 GtPostgreSQLSourceCoder >> primitiveEvaluate: aSourceString inContext: aGtSourceCoderEvaluationContext onFailDo: anEvaluationFailBlock [
-	^ GtP3F1DemoExamples p3Client query: aSourceString
+	| p3Client |
+	p3Client := GtP3ConnectionManager uniqueInstance defaultConnection.
+	[ p3Client ensureConnected ] 
+		on: Error 
+		do: [ :exception |
+					(P3Error new 
+						info: { 
+							$C->'P3090'. 
+							$M->('Cannot connect to server ({1})' format: { exception }) } asDictionary; 
+						yourself) signal ].
+	^ p3Client query: aSourceString
 ]

@@ -32,3 +32,8 @@ LePostgresqlLoginSnippet >> asSnippetViewModel [
 LePostgresqlLoginSnippet >> contentAsString [
 	^ String new
 ]
+
+{ #category : #accessing }
+LePostgresqlLoginSnippet >> defaultConnection [
+	^ GtP3ConnectionManager uniqueInstance defaultConnection
+]

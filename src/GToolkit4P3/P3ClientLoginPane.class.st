@@ -97,7 +97,8 @@ P3ClientLoginPane >> magritteAcceptAction [
 	<magritteActionDescription>
 	^ super magritteAcceptAction
 		onSuccessCallback: (GtMagritteCallback new
-				action: [ :aModel :aButton :aMemento :aDescription | ])
+				action: [ :aModel :aButton :aMemento :aDescription |
+					self saveTo: GtP3ConnectionManager uniqueInstance defaultConnection ])
 ]
 
 { #category : #accessing }
@@ -109,7 +110,7 @@ P3ClientLoginPane >> magritteInspectAction [
 		isLabelVisible: false;
 		blocIcon: BrGlamorousVectorIcons inspect;
 		action: [ :aModel :aButton :aMemento :aDescription | 
-			aButton inUIProcessDo: [ aButton phlow spawnObject: aModel p3Client ] ];
+			aButton inUIProcessDo: [ aButton phlow spawnObject: GtP3ConnectionManager uniqueInstance defaultConnection ] ];
 		beToolbarAction
 ]
 
