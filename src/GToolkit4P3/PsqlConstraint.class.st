@@ -19,6 +19,15 @@ PsqlConstraint >> columns: anObject [
 ]
 
 { #category : #accessing }
+PsqlConstraint >> install [
+]
+
+{ #category : #accessing }
+PsqlConstraint >> isForeignKey [
+	^ false
+]
+
+{ #category : #accessing }
 PsqlConstraint >> isPrimaryKey [
 	^ false
 ]

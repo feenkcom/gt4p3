@@ -7,6 +7,7 @@ Class {
 		'columns',
 		'tableConstraints',
 		'constraints',
+		'tableLikeConstraint',
 		'parentTables',
 		'columnNames',
 		'collation',
@@ -148,7 +149,7 @@ PsqlCreateTableCommandNode >> modulus: aPsqlNumberNode [
 
 { #category : #generated }
 PsqlCreateTableCommandNode >> nodeVariables [
-	^ #(#tableName #collation #partitionBy #modulus #remainder)
+	^ #(#tableName #tableLikeConstraint #collation #partitionBy #modulus #remainder)
 ]
 
 { #category : #generated }
@@ -236,6 +237,20 @@ PsqlCreateTableCommandNode >> tableConstraints: anOrderedCollection [
 	self setParents: self tableConstraints to: nil.
 	tableConstraints := anOrderedCollection.
 	self setParents: self tableConstraints to: self
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> tableLikeConstraint [
+	^ tableLikeConstraint
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> tableLikeConstraint: aPsqlCreateTableLikeConstraintNode [
+	self tableLikeConstraint notNil
+		ifTrue: [ self tableLikeConstraint parent: nil ].
+	tableLikeConstraint := aPsqlCreateTableLikeConstraintNode.
+	self tableLikeConstraint notNil
+		ifTrue: [ self tableLikeConstraint parent: self ]
 ]
 
 { #category : #generated }

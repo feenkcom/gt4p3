@@ -14,10 +14,66 @@ PsqlSchema >> addTable: aTable [
 ]
 
 { #category : #accessing }
+PsqlSchema >> gtEntityRelationshipDiagramFor: aView [
+	<gtView>
+	| container list fkeys |
+	^ aView mondrian
+		title: 'ER Diagram';
+		priority: 40;
+		painting: [ :view | 
+			view nodes
+				stencil: [ :aTable | 
+					container := BrVerticalPane new
+							exact: 200 @ 100;
+							margin: (BlInsets all: 10);
+							aptitude: BrShadowAptitude + BrGlamorousWithVerticalResizerAptitude
+									+ BrGlamorousWithHorizontalResizerAptitude;
+							padding: (BlInsets all: 5);
+							background: Color white.
+					container
+						addChild: (BrLabel new
+								text: aTable name;
+								margin: (BlInsets bottom: 5);
+								aptitude: BrGlamorousLabelAptitude new bold).
+					list := BrColumnedList new matchParent.
+					list column
+						title: 'Column';
+						cellStencil: [ BrLabel new hMatchParent beSmallSize aptitude: BrGlamorousLabelAptitude ];
+						dataBinder: [ :anItemElement :anItem | anItemElement text: anItem name ].
+					list column
+						title: 'Type';
+						cellStencil: [ BrLabel new hMatchParent beSmallSize
+								aptitude: (BrGlamorousLabelAptitude new foreground: Color gray) ];
+						dataBinder: [ :anItemElement :anItem | anItemElement text: anItem type ].
+					fkeys := aTable foreignKeyConstraints flatCollect: #columns.
+					list items: (aTable columns reject: [ :each | fkeys includes: each name ]).
+					container addChild: list.
+					container ];
+				with: self tables values.
+			view edges
+				stencil: [ :class | 
+					BlParabollaArcElement new
+						zIndex: -1;
+						curvatureFraction: 0.1;
+						border: (BlBorder paint: (BrGlamorousColors shadowColor alpha: 0.8) width: 2);
+						toHead: (BlArrowheadSimpleArrow new
+								border: (BlBorder builder
+										paint: (BrGlamorousColors shadowColor alpha: 0.8);
+										width: 2;
+										build)) ];
+				connectToAll: [ :n | n foreignKeyConstraints collect: #refTable ].
+			view layout
+				custom: (GtGradHorizontalDominanceTreeLayout new
+						levelDistance: 200;
+						nodeDistance: 10) ]
+]
+
+{ #category : #accessing }
 PsqlSchema >> gtItemsFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Tables';
+		priority: 10;
 		items: [ tables asSortedCollection: [ :a :b | a name < b name ] ];
 		column: 'Name' text: #name;
 		column: '# Columns'
@@ -30,6 +86,11 @@ PsqlSchema >> initialize [
 	super initialize.
 	tables := Dictionary new.
 	views := Dictionary new
+]
+
+{ #category : #accessing }
+PsqlSchema >> tableNamed: aName [
+	^ self tables detect: [ :each | each name sameAs: aName ] ifNone: [  ]
 ]
 
 { #category : #accessing }
