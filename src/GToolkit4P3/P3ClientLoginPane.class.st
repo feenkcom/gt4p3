@@ -34,7 +34,8 @@ P3ClientLoginPane >> databaseDescription [
 	^ MAStringDescription new
 		priority: 5;
 		label: 'Database';
-		accessor: #database
+		accessor: #database;
+		default: ''
 ]
 
 { #category : #examples }
@@ -59,7 +60,8 @@ P3ClientLoginPane >> hostDescription [
 	^ MAStringDescription new
 		priority: 1;
 		label: 'Host';
-		accessor: #host
+		accessor: #host;
+		default: 'localhost'
 ]
 
 { #category : #accessing }
@@ -71,6 +73,15 @@ P3ClientLoginPane >> initialize [
 	password := 'password'.
 	database := 'database'.
 	ssl := false
+]
+
+{ #category : #testing }
+P3ClientLoginPane >> isValidPsqlUrl: string [
+	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
+	
+	^ [ (P3Client url: string asUrl) url asString = string ]
+		on: Error
+		do: [ false ]
 ]
 
 { #category : #utils }
@@ -120,7 +131,8 @@ P3ClientLoginPane >> optionsDescription [
 		label: 'Options';
 		accessor: (MAPluggableAccessor
 				read: [ :aModel | aModel options ifNil: [ '' ] ]
-				write: [ :aModel :aValue | aModel options: (aValue isEmpty ifTrue: [ nil ] ifFalse: [ aValue ]) ])
+				write: [ :aModel :aValue | aModel options: (aValue isEmpty ifTrue: [ nil ] ifFalse: [ aValue ]) ]);
+		default: ''
 ]
 
 { #category : #accessing }
@@ -147,7 +159,8 @@ P3ClientLoginPane >> passwordDescription [
 	^ MAPasswordDescription new
 		priority: 4;
 		label: 'Password';
-		accessor: #password
+		accessor: #password;
+		default: ''
 ]
 
 { #category : #accessing }
@@ -168,7 +181,8 @@ P3ClientLoginPane >> portDescription [
 		label: 'Port';
 		accessor: #port;
 		beInteger;
-		bePositive
+		bePositive;
+		default: 5432
 ]
 
 { #category : #utils }
@@ -195,7 +209,8 @@ P3ClientLoginPane >> sslDescription [
 	^ MABooleanDescription new
 		priority: 6;
 		label: 'SSL';
-		accessor: #ssl
+		accessor: #ssl;
+		default: true
 ]
 
 { #category : #accessing }
@@ -205,6 +220,8 @@ P3ClientLoginPane >> url [
 
 { #category : #accessing }
 P3ClientLoginPane >> url: aUrlOrString [
+	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
+	
 	| p3Client |
 	p3Client := P3Client url: aUrlOrString.
 	self loadFrom: p3Client
@@ -213,12 +230,18 @@ P3ClientLoginPane >> url: aUrlOrString [
 { #category : #accessing }
 P3ClientLoginPane >> urlDescription [
 	<magritteDescription>
+	
+	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
+	
 	^ MAStringDescription new
 		priority: 10;
 		label: 'URL';
 		accessor: (MAPluggableAccessor
 				read: [ :aModel | aModel url asString ]
-				write: [ :aModel :aValue | aModel url: aValue ])
+				write: [ :aModel :aValue | aModel url: aValue ]);
+		addCondition: [ :string | self isValidPsqlUrl: string ]
+			labelled: 'Incorrect PostgreSQL connection URL';
+		default: ''
 ]
 
 { #category : #accessing }
@@ -237,5 +260,6 @@ P3ClientLoginPane >> userDescription [
 	^ MAStringDescription new
 		priority: 3;
 		label: 'User';
-		accessor: #user
+		accessor: #user;
+		default: ''
 ]
