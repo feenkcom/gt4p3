@@ -6,13 +6,7 @@ Class {
 		'columnNames',
 		'dataType',
 		'collation',
-		'checks',
-		'defaultExpressions',
-		'generationExpressions',
-		'refTables',
-		'refColumns',
-		'referentialActions',
-		'constraintNames',
+		'columnConstraints',
 		'using',
 		'defaultValue',
 		'sequenceOptions',
@@ -21,10 +15,8 @@ Class {
 		'attributeOptionNames',
 		'attributeOptionValues',
 		'compressionMethod',
-		'indexMethod',
-		'exclude',
-		'operatorTokens',
-		'predicate',
+		'tableConstraint',
+		'constraintName',
 		'indexName',
 		'triggerName',
 		'rewriteRuleName',
@@ -76,18 +68,6 @@ PsqlAlterTableActionNode >> attributeOptionValues: anOrderedCollection [
 ]
 
 { #category : #generated }
-PsqlAlterTableActionNode >> checks [
-	^ checks
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> checks: anOrderedCollection [
-	self setParents: self checks to: nil.
-	checks := anOrderedCollection.
-	self setParents: self checks to: self
-]
-
-{ #category : #generated }
 PsqlAlterTableActionNode >> collation [
 	^ collation
 ]
@@ -97,6 +77,18 @@ PsqlAlterTableActionNode >> collation: aPsqlExpressionNode [
 	self collation notNil ifTrue: [ self collation parent: nil ].
 	collation := aPsqlExpressionNode.
 	self collation notNil ifTrue: [ self collation parent: self ]
+]
+
+{ #category : #generated }
+PsqlAlterTableActionNode >> columnConstraints [
+	^ columnConstraints
+]
+
+{ #category : #generated }
+PsqlAlterTableActionNode >> columnConstraints: anOrderedCollection [
+	self setParents: self columnConstraints to: nil.
+	columnConstraints := anOrderedCollection.
+	self setParents: self columnConstraints to: self
 ]
 
 { #category : #generated }
@@ -113,12 +105,12 @@ PsqlAlterTableActionNode >> columnNames: anOrderedCollection [
 
 { #category : #generated }
 PsqlAlterTableActionNode >> compositeNodeVariables [
-	^ #(#columnNames #checks #defaultExpressions #generationExpressions #refTables #referentialActions #restarts #attributeOptionValues)
+	^ #(#columnNames #columnConstraints #restarts #attributeOptionValues)
 ]
 
 { #category : #generated }
 PsqlAlterTableActionNode >> compositeTokenVariables [
-	^ #(#_s #refColumns #constraintNames #sequenceOptions #attributeOptionNames #operatorTokens)
+	^ #(#_s #sequenceOptions #attributeOptionNames)
 ]
 
 { #category : #generated }
@@ -132,13 +124,13 @@ PsqlAlterTableActionNode >> compressionMethod: aSmaCCToken [
 ]
 
 { #category : #generated }
-PsqlAlterTableActionNode >> constraintNames [
-	^ constraintNames
+PsqlAlterTableActionNode >> constraintName [
+	^ constraintName
 ]
 
 { #category : #generated }
-PsqlAlterTableActionNode >> constraintNames: anOrderedCollection [
-	constraintNames := anOrderedCollection
+PsqlAlterTableActionNode >> constraintName: aSmaCCToken [
+	constraintName := aSmaCCToken
 ]
 
 { #category : #generated }
@@ -154,18 +146,6 @@ PsqlAlterTableActionNode >> dataType: aPsqlProgramNode [
 ]
 
 { #category : #generated }
-PsqlAlterTableActionNode >> defaultExpressions [
-	^ defaultExpressions
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> defaultExpressions: anOrderedCollection [
-	self setParents: self defaultExpressions to: nil.
-	defaultExpressions := anOrderedCollection.
-	self setParents: self defaultExpressions to: self
-]
-
-{ #category : #generated }
 PsqlAlterTableActionNode >> defaultValue [
 	^ defaultValue
 ]
@@ -175,40 +155,6 @@ PsqlAlterTableActionNode >> defaultValue: aPsqlExpressionNode [
 	self defaultValue notNil ifTrue: [ self defaultValue parent: nil ].
 	defaultValue := aPsqlExpressionNode.
 	self defaultValue notNil ifTrue: [ self defaultValue parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> exclude [
-	^ exclude
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> exclude: aPsqlExcludeElementNode [
-	self exclude notNil ifTrue: [ self exclude parent: nil ].
-	exclude := aPsqlExcludeElementNode.
-	self exclude notNil ifTrue: [ self exclude parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> generationExpressions [
-	^ generationExpressions
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> generationExpressions: anOrderedCollection [
-	self setParents: self generationExpressions to: nil.
-	generationExpressions := anOrderedCollection.
-	self setParents: self generationExpressions to: self
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> indexMethod [
-	^ indexMethod
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> indexMethod: aSmaCCToken [
-	indexMethod := aSmaCCToken
 ]
 
 { #category : #generated }
@@ -226,18 +172,11 @@ PsqlAlterTableActionNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
 	columnNames := OrderedCollection new: 2.
-	checks := OrderedCollection new: 2.
-	defaultExpressions := OrderedCollection new: 2.
-	generationExpressions := OrderedCollection new: 2.
-	refTables := OrderedCollection new: 2.
-	refColumns := OrderedCollection new: 2.
-	referentialActions := OrderedCollection new: 2.
-	constraintNames := OrderedCollection new: 2.
+	columnConstraints := OrderedCollection new: 2.
 	sequenceOptions := OrderedCollection new: 2.
 	restarts := OrderedCollection new: 2.
 	attributeOptionNames := OrderedCollection new: 2.
 	attributeOptionValues := OrderedCollection new: 2.
-	operatorTokens := OrderedCollection new: 2.
 	storageParameters := OrderedCollection new: 2.
 ]
 
@@ -273,17 +212,7 @@ PsqlAlterTableActionNode >> newTablespaceName: aSmaCCToken [
 
 { #category : #generated }
 PsqlAlterTableActionNode >> nodeVariables [
-	^ #(#dataType #collation #using #defaultValue #statistics #exclude #predicate #parentTable)
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> operatorTokens [
-	^ operatorTokens
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> operatorTokens: anOrderedCollection [
-	operatorTokens := anOrderedCollection
+	^ #(#dataType #collation #using #defaultValue #statistics #tableConstraint #parentTable)
 ]
 
 { #category : #generated }
@@ -301,52 +230,6 @@ PsqlAlterTableActionNode >> parentTable: aPsqlQualifiedNameNode [
 	self parentTable notNil ifTrue: [ self parentTable parent: nil ].
 	parentTable := aPsqlQualifiedNameNode.
 	self parentTable notNil ifTrue: [ self parentTable parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> predicate [
-	^ predicate
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> predicate: aPsqlExpressionNode [
-	self predicate notNil ifTrue: [ self predicate parent: nil ].
-	predicate := aPsqlExpressionNode.
-	self predicate notNil ifTrue: [ self predicate parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> refColumns [
-	^ refColumns
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> refColumns: anOrderedCollection [
-	refColumns := anOrderedCollection
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> refTables [
-	^ refTables
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> refTables: anOrderedCollection [
-	self setParents: self refTables to: nil.
-	refTables := anOrderedCollection.
-	self setParents: self refTables to: self
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> referentialActions [
-	^ referentialActions
-]
-
-{ #category : #generated }
-PsqlAlterTableActionNode >> referentialActions: anOrderedCollection [
-	self setParents: self referentialActions to: nil.
-	referentialActions := anOrderedCollection.
-	self setParents: self referentialActions to: self
 ]
 
 { #category : #generated }
@@ -406,8 +289,20 @@ PsqlAlterTableActionNode >> storageParameters: anOrderedCollection [
 ]
 
 { #category : #generated }
+PsqlAlterTableActionNode >> tableConstraint [
+	^ tableConstraint
+]
+
+{ #category : #generated }
+PsqlAlterTableActionNode >> tableConstraint: aPsqlTableConstraintNode [
+	self tableConstraint notNil ifTrue: [ self tableConstraint parent: nil ].
+	tableConstraint := aPsqlTableConstraintNode.
+	self tableConstraint notNil ifTrue: [ self tableConstraint parent: self ]
+]
+
+{ #category : #generated }
 PsqlAlterTableActionNode >> tokenVariables [
-	^ #(#compressionMethod #indexMethod #indexName #triggerName #rewriteRuleName #newAccessMethod #newTablespaceName #typeName #newOwner)
+	^ #(#compressionMethod #constraintName #indexName #triggerName #rewriteRuleName #newAccessMethod #newTablespaceName #typeName #newOwner)
 ]
 
 { #category : #generated }

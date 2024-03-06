@@ -108,6 +108,23 @@ PsqlTableConstraintNode >> initialize [
 	referentialActions := OrderedCollection new: 2.
 ]
 
+{ #category : #testing }
+PsqlTableConstraintNode >> isPrimaryKey [
+	^ self keywordsBeginsWith: #('PRIMARY' 'KEY')
+]
+
+{ #category : #testing }
+PsqlTableConstraintNode >> isUnique [
+	^ self keywordsBeginsWith: #('UNIQUE')
+]
+
+{ #category : #testing }
+PsqlTableConstraintNode >> keywordsBeginsWith: aCollection [
+	^ self _s size >= aCollection size
+		and: [ (1 to: aCollection size)
+				allSatisfy: [ :i | (self _s at: i) source sameAs: (aCollection at: i) ] ]
+]
+
 { #category : #generated }
 PsqlTableConstraintNode >> nodeVariables [
 	^ #(#check #exclude #predicate #refTable)

@@ -5,6 +5,7 @@ Class {
 		'_s',
 		'tableName',
 		'columns',
+		'tableConstraints',
 		'constraints',
 		'parentTables',
 		'columnNames',
@@ -15,17 +16,7 @@ Class {
 		'storageParameters',
 		'tablespaceName',
 		'typeName',
-		'checks',
-		'defaultExpressions',
-		'generationExpressions',
-		'refTables',
-		'refColumns',
-		'referentialActions',
-		'constraintNames',
-		'excludes',
-		'operatorTokens',
-		'indexMethods',
-		'predicates',
+		'columnConstraints',
 		'partitionBoundExprs',
 		'modulus',
 		'remainder'
@@ -49,18 +40,6 @@ PsqlCreateTableCommandNode >> acceptVisitor: aProgramVisitor [
 ]
 
 { #category : #generated }
-PsqlCreateTableCommandNode >> checks [
-	^ checks
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> checks: anOrderedCollection [
-	self setParents: self checks to: nil.
-	checks := anOrderedCollection.
-	self setParents: self checks to: self
-]
-
-{ #category : #generated }
 PsqlCreateTableCommandNode >> collation [
 	^ collation
 ]
@@ -70,6 +49,18 @@ PsqlCreateTableCommandNode >> collation: aPsqlExpressionNode [
 	self collation notNil ifTrue: [ self collation parent: nil ].
 	collation := aPsqlExpressionNode.
 	self collation notNil ifTrue: [ self collation parent: self ]
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> columnConstraints [
+	^ columnConstraints
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> columnConstraints: anOrderedCollection [
+	self setParents: self columnConstraints to: nil.
+	columnConstraints := anOrderedCollection.
+	self setParents: self columnConstraints to: self
 ]
 
 { #category : #generated }
@@ -98,22 +89,12 @@ PsqlCreateTableCommandNode >> columns: anOrderedCollection [
 
 { #category : #generated }
 PsqlCreateTableCommandNode >> compositeNodeVariables [
-	^ #(#columns #constraints #parentTables #columnNames #checks #defaultExpressions #generationExpressions #refTables #referentialActions #excludes #predicates #partitionBoundExprs)
+	^ #(#columns #tableConstraints #constraints #parentTables #columnNames #columnConstraints #partitionBoundExprs)
 ]
 
 { #category : #generated }
 PsqlCreateTableCommandNode >> compositeTokenVariables [
-	^ #(#_s #opclasses #refColumns #constraintNames #operatorTokens #indexMethods)
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> constraintNames [
-	^ constraintNames
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> constraintNames: anOrderedCollection [
-	constraintNames := anOrderedCollection
+	^ #(#_s #opclasses)
 ]
 
 { #category : #generated }
@@ -128,73 +109,18 @@ PsqlCreateTableCommandNode >> constraints: anOrderedCollection [
 	self setParents: self constraints to: self
 ]
 
-{ #category : #generated }
-PsqlCreateTableCommandNode >> defaultExpressions [
-	^ defaultExpressions
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> defaultExpressions: anOrderedCollection [
-	self setParents: self defaultExpressions to: nil.
-	defaultExpressions := anOrderedCollection.
-	self setParents: self defaultExpressions to: self
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> excludes [
-	^ excludes
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> excludes: anOrderedCollection [
-	self setParents: self excludes to: nil.
-	excludes := anOrderedCollection.
-	self setParents: self excludes to: self
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> generationExpressions [
-	^ generationExpressions
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> generationExpressions: anOrderedCollection [
-	self setParents: self generationExpressions to: nil.
-	generationExpressions := anOrderedCollection.
-	self setParents: self generationExpressions to: self
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> indexMethods [
-	^ indexMethods
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> indexMethods: anOrderedCollection [
-	indexMethods := anOrderedCollection
-]
-
 { #category : #'generated-initialize-release' }
 PsqlCreateTableCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
 	columns := OrderedCollection new: 2.
+	tableConstraints := OrderedCollection new: 2.
 	constraints := OrderedCollection new: 2.
 	parentTables := OrderedCollection new: 2.
 	columnNames := OrderedCollection new: 2.
 	opclasses := OrderedCollection new: 2.
 	storageParameters := OrderedCollection new: 2.
-	checks := OrderedCollection new: 2.
-	defaultExpressions := OrderedCollection new: 2.
-	generationExpressions := OrderedCollection new: 2.
-	refTables := OrderedCollection new: 2.
-	refColumns := OrderedCollection new: 2.
-	referentialActions := OrderedCollection new: 2.
-	constraintNames := OrderedCollection new: 2.
-	excludes := OrderedCollection new: 2.
-	operatorTokens := OrderedCollection new: 2.
-	indexMethods := OrderedCollection new: 2.
-	predicates := OrderedCollection new: 2.
+	columnConstraints := OrderedCollection new: 2.
 	partitionBoundExprs := OrderedCollection new: 2.
 ]
 
@@ -233,16 +159,6 @@ PsqlCreateTableCommandNode >> opclasses [
 { #category : #generated }
 PsqlCreateTableCommandNode >> opclasses: anOrderedCollection [
 	opclasses := anOrderedCollection
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> operatorTokens [
-	^ operatorTokens
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> operatorTokens: anOrderedCollection [
-	operatorTokens := anOrderedCollection
 ]
 
 { #category : #generated }
@@ -287,52 +203,6 @@ PsqlCreateTableCommandNode >> partitionBy: aPsqlExpressionNode [
 ]
 
 { #category : #generated }
-PsqlCreateTableCommandNode >> predicates [
-	^ predicates
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> predicates: anOrderedCollection [
-	self setParents: self predicates to: nil.
-	predicates := anOrderedCollection.
-	self setParents: self predicates to: self
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> refColumns [
-	^ refColumns
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> refColumns: anOrderedCollection [
-	refColumns := anOrderedCollection
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> refTables [
-	^ refTables
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> refTables: anOrderedCollection [
-	self setParents: self refTables to: nil.
-	refTables := anOrderedCollection.
-	self setParents: self refTables to: self
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> referentialActions [
-	^ referentialActions
-]
-
-{ #category : #generated }
-PsqlCreateTableCommandNode >> referentialActions: anOrderedCollection [
-	self setParents: self referentialActions to: nil.
-	referentialActions := anOrderedCollection.
-	self setParents: self referentialActions to: self
-]
-
-{ #category : #generated }
 PsqlCreateTableCommandNode >> remainder [
 	^ remainder
 ]
@@ -354,6 +224,18 @@ PsqlCreateTableCommandNode >> storageParameters: anOrderedCollection [
 	self setParent: self storageParameters to: nil.
 	storageParameters := anOrderedCollection.
 	self setParent: self storageParameters to: self
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> tableConstraints [
+	^ tableConstraints
+]
+
+{ #category : #generated }
+PsqlCreateTableCommandNode >> tableConstraints: anOrderedCollection [
+	self setParents: self tableConstraints to: nil.
+	tableConstraints := anOrderedCollection.
+	self setParents: self tableConstraints to: self
 ]
 
 { #category : #generated }

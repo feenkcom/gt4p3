@@ -3,26 +3,19 @@ Class {
 	#superclass : #PsqlProgramNode,
 	#instVars : [
 		'_s',
-		'columnNames',
+		'columnName',
 		'type',
-		'checks',
-		'refTables',
-		'defaultExpressions',
-		'generationExpressions',
-		'refColumns',
-		'referentialActions',
-		'constraintNames',
+		'columnConstraints',
 		'collation',
 		'dataType',
+		'defaultExpression',
 		'integer',
 		'attributeOptionNames',
 		'values',
 		'options',
 		'stringTokens',
-		'indexMethod',
-		'exclude',
-		'operatorTokens',
-		'predicate',
+		'tableConstraint',
+		'constraintName',
 		'triggerName',
 		'parentTable',
 		'newOwner'
@@ -56,18 +49,6 @@ PsqlAlterForeignTableActionNode >> attributeOptionNames: anOrderedCollection [
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> checks [
-	^ checks
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> checks: anOrderedCollection [
-	self setParents: self checks to: nil.
-	checks := anOrderedCollection.
-	self setParents: self checks to: self
-]
-
-{ #category : #generated }
 PsqlAlterForeignTableActionNode >> collation [
 	^ collation
 ]
@@ -80,35 +61,47 @@ PsqlAlterForeignTableActionNode >> collation: aPsqlExpressionNode [
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> columnNames [
-	^ columnNames
+PsqlAlterForeignTableActionNode >> columnConstraints [
+	^ columnConstraints
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> columnNames: anOrderedCollection [
-	self setParents: self columnNames to: nil.
-	columnNames := anOrderedCollection.
-	self setParents: self columnNames to: self
+PsqlAlterForeignTableActionNode >> columnConstraints: anOrderedCollection [
+	self setParents: self columnConstraints to: nil.
+	columnConstraints := anOrderedCollection.
+	self setParents: self columnConstraints to: self
+]
+
+{ #category : #generated }
+PsqlAlterForeignTableActionNode >> columnName [
+	^ columnName
+]
+
+{ #category : #generated }
+PsqlAlterForeignTableActionNode >> columnName: aPsqlQualifiedNameNode [
+	self columnName notNil ifTrue: [ self columnName parent: nil ].
+	columnName := aPsqlQualifiedNameNode.
+	self columnName notNil ifTrue: [ self columnName parent: self ]
 ]
 
 { #category : #generated }
 PsqlAlterForeignTableActionNode >> compositeNodeVariables [
-	^ #(#columnNames #checks #refTables #defaultExpressions #generationExpressions #referentialActions #values)
+	^ #(#columnConstraints #values)
 ]
 
 { #category : #generated }
 PsqlAlterForeignTableActionNode >> compositeTokenVariables [
-	^ #(#_s #refColumns #constraintNames #attributeOptionNames #options #stringTokens #operatorTokens)
+	^ #(#_s #attributeOptionNames #options #stringTokens)
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> constraintNames [
-	^ constraintNames
+PsqlAlterForeignTableActionNode >> constraintName [
+	^ constraintName
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> constraintNames: anOrderedCollection [
-	constraintNames := anOrderedCollection
+PsqlAlterForeignTableActionNode >> constraintName: aSmaCCToken [
+	constraintName := aSmaCCToken
 ]
 
 { #category : #generated }
@@ -124,68 +117,26 @@ PsqlAlterForeignTableActionNode >> dataType: aPsqlProgramNode [
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> defaultExpressions [
-	^ defaultExpressions
+PsqlAlterForeignTableActionNode >> defaultExpression [
+	^ defaultExpression
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> defaultExpressions: anOrderedCollection [
-	self setParents: self defaultExpressions to: nil.
-	defaultExpressions := anOrderedCollection.
-	self setParents: self defaultExpressions to: self
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> exclude [
-	^ exclude
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> exclude: aPsqlExcludeElementNode [
-	self exclude notNil ifTrue: [ self exclude parent: nil ].
-	exclude := aPsqlExcludeElementNode.
-	self exclude notNil ifTrue: [ self exclude parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> generationExpressions [
-	^ generationExpressions
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> generationExpressions: anOrderedCollection [
-	self setParents: self generationExpressions to: nil.
-	generationExpressions := anOrderedCollection.
-	self setParents: self generationExpressions to: self
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> indexMethod [
-	^ indexMethod
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> indexMethod: aSmaCCToken [
-	indexMethod := aSmaCCToken
+PsqlAlterForeignTableActionNode >> defaultExpression: aPsqlExpressionNode [
+	self defaultExpression notNil ifTrue: [ self defaultExpression parent: nil ].
+	defaultExpression := aPsqlExpressionNode.
+	self defaultExpression notNil ifTrue: [ self defaultExpression parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
 PsqlAlterForeignTableActionNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
-	columnNames := OrderedCollection new: 2.
-	checks := OrderedCollection new: 2.
-	refTables := OrderedCollection new: 2.
-	defaultExpressions := OrderedCollection new: 2.
-	generationExpressions := OrderedCollection new: 2.
-	refColumns := OrderedCollection new: 2.
-	referentialActions := OrderedCollection new: 2.
-	constraintNames := OrderedCollection new: 2.
+	columnConstraints := OrderedCollection new: 2.
 	attributeOptionNames := OrderedCollection new: 2.
 	values := OrderedCollection new: 2.
 	options := OrderedCollection new: 2.
 	stringTokens := OrderedCollection new: 2.
-	operatorTokens := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
@@ -212,17 +163,7 @@ PsqlAlterForeignTableActionNode >> newOwner: aSmaCCToken [
 
 { #category : #generated }
 PsqlAlterForeignTableActionNode >> nodeVariables [
-	^ #(#type #collation #dataType #integer #exclude #predicate #parentTable)
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> operatorTokens [
-	^ operatorTokens
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> operatorTokens: anOrderedCollection [
-	operatorTokens := anOrderedCollection
+	^ #(#columnName #type #collation #dataType #defaultExpression #integer #tableConstraint #parentTable)
 ]
 
 { #category : #generated }
@@ -248,52 +189,6 @@ PsqlAlterForeignTableActionNode >> parentTable: aPsqlQualifiedNameNode [
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableActionNode >> predicate [
-	^ predicate
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> predicate: aPsqlExpressionNode [
-	self predicate notNil ifTrue: [ self predicate parent: nil ].
-	predicate := aPsqlExpressionNode.
-	self predicate notNil ifTrue: [ self predicate parent: self ]
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> refColumns [
-	^ refColumns
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> refColumns: anOrderedCollection [
-	refColumns := anOrderedCollection
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> refTables [
-	^ refTables
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> refTables: anOrderedCollection [
-	self setParents: self refTables to: nil.
-	refTables := anOrderedCollection.
-	self setParents: self refTables to: self
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> referentialActions [
-	^ referentialActions
-]
-
-{ #category : #generated }
-PsqlAlterForeignTableActionNode >> referentialActions: anOrderedCollection [
-	self setParents: self referentialActions to: nil.
-	referentialActions := anOrderedCollection.
-	self setParents: self referentialActions to: self
-]
-
-{ #category : #generated }
 PsqlAlterForeignTableActionNode >> stringTokens [
 	^ stringTokens
 ]
@@ -304,8 +199,20 @@ PsqlAlterForeignTableActionNode >> stringTokens: anOrderedCollection [
 ]
 
 { #category : #generated }
+PsqlAlterForeignTableActionNode >> tableConstraint [
+	^ tableConstraint
+]
+
+{ #category : #generated }
+PsqlAlterForeignTableActionNode >> tableConstraint: aPsqlTableConstraintNode [
+	self tableConstraint notNil ifTrue: [ self tableConstraint parent: nil ].
+	tableConstraint := aPsqlTableConstraintNode.
+	self tableConstraint notNil ifTrue: [ self tableConstraint parent: self ]
+]
+
+{ #category : #generated }
 PsqlAlterForeignTableActionNode >> tokenVariables [
-	^ #(#indexMethod #triggerName #newOwner)
+	^ #(#constraintName #triggerName #newOwner)
 ]
 
 { #category : #generated }

@@ -361,6 +361,11 @@ TPsqlProgramNodeVisitor >> visitCollateExpression: aCollateExpression [
 ]
 
 { #category : #generated }
+TPsqlProgramNodeVisitor >> visitColumnConstraint: aColumnConstraint [
+	^ self visitProgram: aColumnConstraint
+]
+
+{ #category : #generated }
 TPsqlProgramNodeVisitor >> visitColumnDefinition: aColumnDefinition [
 	^ self visitProgram: aColumnDefinition
 ]
