@@ -17,6 +17,7 @@ LePostgresqlLoginSnippetElement >> defaultConnection [
 LePostgresqlLoginSnippetElement >> initialize [
 	| form formElement |
 	super initialize.
+
 	form := P3ClientLoginPane new.
 	form loadFrom: self defaultConnection.
 	formElement := form asGtMagritteViewModel asElement margin: (BlInsets all: 10).
@@ -25,11 +26,7 @@ LePostgresqlLoginSnippetElement >> initialize [
 		c frame vertical alignTop ].
 	formElement
 		hFitContent.
-	"indicatorElement := BrLabel new
-		aptitude: (BrGlamorousLabelAptitude new glamorousRegularSmallSize
-		foreground: BrGlamorousColors textMarkupColor);
-		margin: (BlInsets top: 5 right: 5);
-		text: 'PostgreSQL Login'."
+
 	indicatorElement := BrButton new
 		aptitude: BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
 		label: 'PostgreSQL Login';
@@ -40,6 +37,7 @@ LePostgresqlLoginSnippetElement >> initialize [
 	indicatorElement constraintsDo: [ :c |
 		c frame horizontal alignRight.
 		c frame vertical alignTop ].
+
 	contentElement := BrFrame new
 		hMatchParent;
 		vFitContent;
