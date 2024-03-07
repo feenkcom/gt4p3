@@ -8,7 +8,8 @@ Class {
 		'password',
 		'database',
 		'ssl',
-		'options'
+		'options',
+		'inspectAction'
 	],
 	#category : #'GToolkit4P3-UI'
 }
@@ -80,6 +81,18 @@ P3ClientLoginPane >> initialize [
 	ssl := false
 ]
 
+{ #category : #accessing }
+P3ClientLoginPane >> inspectAction [
+	^ inspectAction ifNil: [ 
+		[ :aModel :aButton :aMemento :aDescription |
+			aButton phlow spawnObject: self defaultConnection ] ]
+]
+
+{ #category : #accessing }
+P3ClientLoginPane >> inspectAction: aBlock [
+	inspectAction := aBlock
+]
+
 { #category : #testing }
 P3ClientLoginPane >> isValidPsqlUrl: string [
 	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
@@ -114,8 +127,7 @@ P3ClientLoginPane >> magritteInspectAction [
 		label: 'Inspect';
 		isLabelVisible: false;
 		blocIcon: BrGlamorousVectorIcons inspect;
-		action: [ :aModel :aButton :aMemento :aDescription | 
-			aButton inUIProcessDo: [ aButton phlow spawnObject: self defaultConnection ] ];
+		action: self inspectAction;
 		beToolbarAction
 ]
 

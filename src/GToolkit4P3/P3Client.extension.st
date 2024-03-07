@@ -89,7 +89,7 @@ P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
 		title: 'SQL';
-		priority: 20;
+		priority: 90;
 		aptitude: [ BrGlamorousCodeEditorAptitude new ];
 		text: [ '' asRopedText ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
@@ -131,7 +131,13 @@ P3Client >> gtViewDetailsIn: composite [
 			{ #database . self database }.
 			{ #ssl . self isSSL }.
 			{ #options . self startupOptions ifNil: [ '' ] . self startupOptions }.
-			{ #connected . self isConnected }.
+			{ #connected
+				. self isConnected in: [ :boolean | 
+					boolean asRopedText 
+						foreground: (boolean 
+							ifTrue: BrGlamorousColors successBorderColor 
+							ifFalse: BrGlamorousColors errorBorderColor) ]
+				. self isConnected }.
 			{ #session . self session ifNil: [ '' ]. self session }
 		} ];
 		column: 'Key' text: #first;

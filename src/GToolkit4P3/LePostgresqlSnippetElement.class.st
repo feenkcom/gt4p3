@@ -2,7 +2,8 @@ Class {
 	#name : #LePostgresqlSnippetElement,
 	#superclass : #LeExternalEvaluatedSnippetElement,
 	#instVars : [
-		'languageLabel'
+		'languageLabel',
+		'dropdownHandleButton'
 	],
 	#category : #'GToolkit4P3-Snippet'
 }
@@ -14,9 +15,22 @@ LePostgresqlSnippetElement >> defaultConnection [
 
 { #category : #initalization }
 LePostgresqlSnippetElement >> initializeLanguageElement [
+	| aptitude |
+	aptitude := BrGlamorousWithDropdownAptitude
+		handle: [
+			dropdownHandleButton := BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonWithLabelAptitude;
+				label: languageElement label;
+				beSmallSize ]
+		content: [ | form formElement |
+			form := P3ClientLoginPane new.
+			form loadFrom: self defaultConnection.
+			form inspectAction: [ :_ :aButton |
+				self phlow spawnObject: self defaultConnection.
+				aButton fireEvent: BrDropdownHideWish new ].
+			formElement := form asGtMagritteViewModel asElement ].
 	languageElement := BrButton new
-		aptitude: BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
-		action: [ :aButton | aButton phlow spawnObject: self defaultConnection ];
+		aptitude: BrGlamorousButtonWithLabelAptitude + aptitude - BrGlamorousButtonExteriorAptitude;
 		beSmallSize;
 		yourself.
 	self updateLanguageLabel.
@@ -26,6 +40,29 @@ LePostgresqlSnippetElement >> initializeLanguageElement [
 { #category : #private }
 LePostgresqlSnippetElement >> onConnectionEstablishedClosed: anAnnouncement [
 	self inUIProcessDo: [ self updateLanguageLabel]
+]
+
+{ #category : #'api - view' }
+LePostgresqlSnippetElement >> snippetToolbar [
+	| toolbar label editor |
+	toolbar := super snippetToolbar.
+	label := BrLabel new
+		text: 'Result:' asRopedText;
+		aptitude: (BrGlamorousLabelAptitude new glamorousRegularFontAndSize
+				foreground: Color gray;
+				fontSize: 12);
+		yourself.
+	label 
+		constraintsDo: [ :c | c linear vertical alignCenter ];
+		margin: (BlInsets top: 0 left: 100 bottom: 0 right: 3).
+	toolbar addChild: label.
+	editor := BrEditor new.
+	editor size: 200@20.
+	editor vFitContent.
+	"editor hMatchParent."
+	editor aptitude: (BrGlamorousEditableLabelAptitude new) + (BrGlamorousCodeEditorAptitude new).
+	toolbar addChild: editor.
+	^ toolbar
 ]
 
 { #category : #'api - snippet view model' }
@@ -59,5 +96,6 @@ LePostgresqlSnippetElement >> updateLanguageLabel [
 	label := 'PostgreSQL'.
 	p3Client isConnected
 		ifTrue: [ label := label , ':' , p3Client session asString ].
-	languageElement label: label
+	languageElement label: label.
+	dropdownHandleButton ifNotNil: [ dropdownHandleButton label: label ]
 ]
