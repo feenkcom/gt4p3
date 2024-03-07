@@ -38,6 +38,11 @@ P3ClientLoginPane >> databaseDescription [
 		default: ''
 ]
 
+{ #category : #accessing }
+P3ClientLoginPane >> defaultConnection [
+	^ GtP3ConnectionManager uniqueInstance defaultConnection
+]
+
 { #category : #examples }
 P3ClientLoginPane >> gtExampleF1 [
 	<gtExample>
@@ -110,7 +115,7 @@ P3ClientLoginPane >> magritteInspectAction [
 		isLabelVisible: false;
 		blocIcon: BrGlamorousVectorIcons inspect;
 		action: [ :aModel :aButton :aMemento :aDescription | 
-			aButton inUIProcessDo: [ aButton phlow spawnObject: GtP3ConnectionManager uniqueInstance defaultConnection ] ];
+			aButton inUIProcessDo: [ aButton phlow spawnObject: self defaultConnection ] ];
 		beToolbarAction
 ]
 
