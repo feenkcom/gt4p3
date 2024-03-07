@@ -1,0 +1,215 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:30:23.084824-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:36:10.123533-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "OzlcAXjPDQCCe0VAD0WO+g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "We can build a schema from .sql script files.  First, we clone the repository that sets up the database used in [[Exploring the database schema]]"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:36:23.846615-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:41:24.249026-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "MPzcFnjPDQCFia1ZD0WO+g=="
+				},
+				"code" : "rootDirectory := 'F1-MRD-Database-PSQL' asFileReference"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:36:05.681465-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:41:22.520202-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "oM3HFXjPDQCFeU6cD0WO+g=="
+				},
+				"code" : "rootDirectory ensureDeleteAll.\rrepository := IceRepositoryCreator\r\t\tfromUrl: 'git@github.com:svenvc/F1-MRD-Database-PSQL.git'\r\t\tto: rootDirectory"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:40:21.418899-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:40:53.882129-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Zw4GJXjPDQCGMIRYD0WO+g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Now, we can load the scripts and create a model of the schema:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:41:00.497041-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:41:19.930713-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "NktaJ3jPDQCHdS2eD0WO+g=="
+				},
+				"code" : "PsqlSchemaImporter new\r\timport: rootDirectory;\r\tdatabase"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-03-07T12:30:23.036503-06:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-03-07T12:30:23.036503-06:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Exploring a schema from files"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "3a7b5b01-78cf-0d00-827a-065e0f458efa"
+	}
+}

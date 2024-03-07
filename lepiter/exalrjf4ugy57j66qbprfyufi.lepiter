@@ -226,6 +226,43 @@
 					"__type" : "textStyle"
 				},
 				"string" : "{{gtPage:Using P3 to interact with the PostgreSQL Relational Database|db=exalrjcx7if2khjdnt9apw3eg}}"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:29:24.76595-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:30:20.507804-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "lVHi/XfPDQCBzpXzD0WO+g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "[[Exploring a schema from files]]"
 			}
 		]
 	},

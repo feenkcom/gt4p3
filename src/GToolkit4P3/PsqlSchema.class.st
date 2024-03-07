@@ -3,7 +3,8 @@ Class {
 	#superclass : #PsqlModel,
 	#instVars : [
 		'tables',
-		'views'
+		'views',
+		'database'
 	],
 	#category : #'GToolkit4P3-Importer'
 }
@@ -14,9 +15,39 @@ PsqlSchema >> addTable: aTable [
 ]
 
 { #category : #accessing }
+PsqlSchema >> addView: aView [
+	self views at: aView name asLowercase put: aView
+]
+
+{ #category : #accessing }
+PsqlSchema >> database [
+	^ database
+]
+
+{ #category : #accessing }
+PsqlSchema >> database: anObject [
+	database := anObject
+]
+
+{ #category : #accessing }
+PsqlSchema >> gtDatabaseViewsFor: aView [
+	<gtView>
+	views isEmpty ifTrue: [ ^ aView empty ].
+	^ aView columnedList
+		title: 'Views';
+		priority: 12;
+		items: [ views asSortedCollection: [ :a :b | a name < b name ] ];
+		column: 'Name' text: #name;
+		column: '# Columns'
+			text: [ :each | each columns size ]
+			width: 75
+]
+
+{ #category : #accessing }
 PsqlSchema >> gtEntityRelationshipDiagramFor: aView [
 	<gtView>
 	| container list fkeys |
+	tables isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
 		title: 'ER Diagram';
 		priority: 40;
@@ -69,8 +100,9 @@ PsqlSchema >> gtEntityRelationshipDiagramFor: aView [
 ]
 
 { #category : #accessing }
-PsqlSchema >> gtItemsFor: aView [
+PsqlSchema >> gtTablesFor: aView [
 	<gtView>
+	tables isEmpty ifTrue: [ ^ aView empty ].
 	^ aView columnedList
 		title: 'Tables';
 		priority: 10;
