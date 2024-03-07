@@ -15,9 +15,22 @@ LePostgresqlSnippetElement >> defaultConnection [
 
 { #category : #initalization }
 LePostgresqlSnippetElement >> initializeLanguageElement [
+	| aptitude |
+	aptitude := BrGlamorousWithDropdownAptitude
+		handle: [
+			dropdownHandleButton := BrButton new
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonWithLabelAptitude;
+				label: languageElement label;
+				beSmallSize ]
+		content: [ | form formElement |
+			form := P3ClientLoginPane new.
+			form loadFrom: self defaultConnection.
+			form inspectAction: [ :_ :aButton |
+				self phlow spawnObject: self defaultConnection.
+				aButton fireEvent: BrDropdownHideWish new ].
+			formElement := form asGtMagritteViewModel asElement ].
 	languageElement := BrButton new
-		aptitude: BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
-		action: [ :aButton | aButton phlow spawnObject: self defaultConnection ];
+		aptitude: BrGlamorousButtonWithLabelAptitude + aptitude - BrGlamorousButtonExteriorAptitude;
 		beSmallSize;
 		yourself.
 	self updateLanguageLabel.
@@ -83,5 +96,6 @@ LePostgresqlSnippetElement >> updateLanguageLabel [
 	label := 'PostgreSQL'.
 	p3Client isConnected
 		ifTrue: [ label := label , ':' , p3Client session asString ].
-	languageElement label: label
+	languageElement label: label.
+	dropdownHandleButton ifNotNil: [ dropdownHandleButton label: label ]
 ]
