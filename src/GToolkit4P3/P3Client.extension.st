@@ -7,21 +7,11 @@ P3Client >> databases [
 ]
 
 { #category : #'*GToolkit4P3' }
-P3Client >> gtCloseActionFor: anAction [
-	<gtAction>
-	^ anAction button
-		icon: BrGlamorousVectorIcons shutdown;
-		tooltip: 'Close PostgreSQL client connection';
-		priority: 10;
-		action: [ self close ]
-]
-
-{ #category : #'*GToolkit4P3' }
 P3Client >> gtDatabasesFor: aView [
 	<gtView>
 	^ aView list
 		title: 'Databases';
-		priority: 80;
+		priority: 45;
 		items: [ self ensureConnected; databases ]
 ]
 
@@ -89,7 +79,7 @@ P3Client >> gtSQLFor: aView [
 	<gtView>
 	^ aView textEditor
 		title: 'SQL';
-		priority: 90;
+		priority: 50;
 		aptitude: [ BrGlamorousCodeEditorAptitude new ];
 		text: [ '' asRopedText ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
@@ -111,8 +101,32 @@ P3Client >> gtSchemasFor: aView [
 	<gtView>
 	^ aView list
 		title: 'Schemas';
-		priority: 60;
+		priority: 40;
 		items: [ self ensureConnected; schemas ]
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Client >> gtStartStopActionFor: anAction [
+	<gtAction>
+	^ anAction button
+		icon: BrGlamorousVectorIcons shutdown;
+		tooltip: 'Start/stop PostgreSQL client connection';
+		priority: 10;
+		action: [ 
+			self isConnected 
+				ifTrue: [ self close ] 
+				ifFalse: [ self ensureConnected ] ]
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Client >> gtTablesFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Tables';
+		priority: 30;
+		items: [ self ensureConnected; tables ];
+		column: #Name text: #name;
+		column: #Type text: #type
 ]
 
 { #category : #'*GToolkit4P3' }
@@ -175,4 +189,9 @@ P3Client >> gtViewSettingsFor: aView [
 P3Client >> schemas [
 	^ self listSchemas collect: [ :each | 
 		P3ClientSchema new client: self; name: each ]
+]
+
+{ #category : #'*GToolkit4P3' }
+P3Client >> tables [
+	^ (P3ClientSchema new client: self; name: 'public') tables values
 ]
