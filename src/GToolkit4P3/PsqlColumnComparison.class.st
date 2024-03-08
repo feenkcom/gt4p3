@@ -9,6 +9,7 @@ PsqlColumnComparison >> gtDiffFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Diff';
+		priority: 10;
 		items: [ #(#('Position' ordinalPosition) #('Type' dataType type)) ];
 		column: 'Name' text: [ :each | each first ];
 		column: 'Database'

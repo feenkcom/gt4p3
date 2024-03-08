@@ -23,6 +23,7 @@ PsqlConstraintComparison >> gtDiffFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Diff';
+		priority: 10;
 		items: [ #(#('Table' tableName) #('Columns' constraintColumns))
 				, ((databaseObject class = P3ForeignKeyConstraint
 						or: [ scriptObject class = PsqlForeignKeyConstraint ])

@@ -26,6 +26,16 @@ PsqlModelComparison >> databaseObject: anObject [
 	databaseObject := anObject
 ]
 
+{ #category : #accessing }
+PsqlModelComparison >> gtSourceFor: aView [
+	<gtView>
+	(scriptObject isNil or: [ scriptObject node isNil ]) ifTrue: [ ^ aView empty ].
+	^ aView forward
+		title: 'Source';
+		object: [ scriptObject ];
+		view: #gtSourceFor:
+]
+
 { #category : #testing }
 PsqlModelComparison >> isMissingFromDatabase [
 	^ databaseObject isNil

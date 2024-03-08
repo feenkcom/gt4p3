@@ -68,6 +68,7 @@ PsqlTableOrViewComparison >> gtColumnDiffFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Column diff';
+		priority: 10;
 		items: [ self columns asSortedCollection: [ :a :b | a name < b name ] ];
 		column: 'Item' text: [ :each | each name ];
 		column: 'Only in database'
@@ -83,6 +84,7 @@ PsqlTableOrViewComparison >> gtConstraintDiffFor: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Constraint diff';
+		priority: 12;
 		items: [ self constraints asSortedCollection: [ :a :b | a name < b name ] ];
 		column: 'Item' text: [ :each | each name ];
 		column: 'Only in database'
