@@ -136,6 +136,11 @@ PsqlSchema >> tables: anObject [
 ]
 
 { #category : #accessing }
+PsqlSchema >> viewNamed: aName [
+	^ self views detect: [ :each | each name sameAs: aName ] ifNone: [  ]
+]
+
+{ #category : #accessing }
 PsqlSchema >> views [
 	^ views
 ]

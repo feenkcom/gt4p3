@@ -43,6 +43,11 @@ PsqlColumn >> nullable: aBoolean [
 ]
 
 { #category : #accessing }
+PsqlColumn >> ordinalPosition [
+	^ table columns identityIndexOf: self
+]
+
+{ #category : #accessing }
 PsqlColumn >> table [
 	^ table
 ]
