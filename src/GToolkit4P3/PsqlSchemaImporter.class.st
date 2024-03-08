@@ -2,23 +2,30 @@ Class {
 	#name : #PsqlSchemaImporter,
 	#superclass : #Object,
 	#instVars : [
-		'schema',
-		'asts'
+		'asts',
+		'database'
 	],
 	#category : #'GToolkit4P3-Importer'
 }
 
 { #category : #accessing }
-PsqlSchemaImporter >> createSchemaNamed: schemaName [
-	schema := PsqlSchema new.
-	schema name: schemaName
+PsqlSchemaImporter >> database [
+	^ database
+]
+
+{ #category : #accessing }
+PsqlSchemaImporter >> database: anObject [
+	database := anObject
+]
+
+{ #category : #accessing }
+PsqlSchemaImporter >> defaultSchema [
+	^ database defaultSchema
 ]
 
 { #category : #accessing }
 PsqlSchemaImporter >> import: aDirectory [
-	| schemaName |
-	schemaName := aDirectory asFileReference basenameWithoutExtension.
-	self createSchemaNamed: schemaName.
+	database := PsqlDatabase new.
 	self
 		importSchemaDefinitionFromFiles: (PsqlParser sourceFilesIn: aDirectory asFileReference)
 ]
@@ -37,11 +44,12 @@ PsqlSchemaImporter >> importForeignKeyConstraintsIn: aPsqlNode [
 										ifTrue: [ | constraint table refTable |
 											constraint := PsqlForeignKeyConstraint new.
 											tc constraintName ifNotNil: [ :name | constraint name: name source ].
-											table := schema tableNamed: each tableName name source.
+											table := (self schemaFor: each tableName)
+													tableNamed: each tableName name source.
 											constraint table: table.
 											constraint
 												columns: (tc columnNames collect: [ :e | table columnNamed: e name source ]).
-											refTable := schema tableNamed: ref name source.
+											refTable := (self schemaFor: ref) tableNamed: ref name source.
 											constraint refTable: refTable.
 											constraint
 												refColumns: (tc refColumns collect: [ :e | refTable columnNamed: e source ]).
@@ -52,7 +60,10 @@ PsqlSchemaImporter >> importForeignKeyConstraintsIn: aPsqlNode [
 { #category : #accessing }
 PsqlSchemaImporter >> importSchemaDefinitionFromFiles: files [
 	asts := files collect: [ :each | PsqlParser parseFileWithErrors: each ].
-	asts do: [ :each | self importTablesIn: each ].
+	asts
+		do: [ :each | 
+			self importTablesIn: each.
+			self importViewsIn: each ].
 	asts do: [ :each | self importForeignKeyConstraintsIn: each ]
 ]
 
@@ -95,7 +106,8 @@ PsqlSchemaImporter >> importTableConstraintsIn: table [
 PsqlSchemaImporter >> importTablesIn: aPsqlNode [
 	aPsqlNode // PsqlCreateTableCommandNode
 		do: [ :node | 
-			| table |
+			| table schema |
+			schema := self schemaFor: node tableName.
 			table := PsqlTable new.
 			table name: node tableName name source.
 			table schema: schema.
@@ -106,11 +118,66 @@ PsqlSchemaImporter >> importTablesIn: aPsqlNode [
 ]
 
 { #category : #accessing }
-PsqlSchemaImporter >> schema [
-	^ schema
+PsqlSchemaImporter >> importViewColumnsIn: view [
+	view node columnNames notEmpty
+		ifTrue: [ view node columnNames
+				do: [ :colNode | 
+					| column |
+					column := PsqlColumn new.
+					column name: colNode columnName name source.
+					column table: view.
+					column node: colNode.
+					view addColumn: column ] ]
+		ifFalse: [ (view node query isKindOf: PsqlSelectCommandNode)
+				ifTrue: [ view node query values
+						doWithIndex: [ :each :index | 
+							| nextIndex name column |
+							nextIndex := view node query values size = index
+									ifTrue: [ SmallInteger maxVal ]
+									ifFalse: [ (view node query values at: index + 1) startPosition ].
+							name := view node query outputNames
+									detect: [ :as | as startPosition between: each startPosition and: nextIndex ]
+									ifFound: [ :as | as source ]
+									ifNone: [ (each isKindOf: PsqlIdentifierNode)
+											ifTrue: [ each value source ]
+											ifFalse: [ (each isKindOf: PsqlFieldExpressionNode)
+													ifTrue: [ each name source ]
+													ifFalse: [ each source ] ] ].
+							column := PsqlColumn new.
+							column name: name.
+							column table: view.
+							column node: each.
+							view addColumn: column ] ] ]
 ]
 
 { #category : #accessing }
-PsqlSchemaImporter >> schema: anObject [
-	schema := anObject
+PsqlSchemaImporter >> importViewsIn: aPsqlNode [
+	aPsqlNode // PsqlCreateViewCommandNode
+		do: [ :node | 
+			| view schema |
+			schema := self schemaFor: node name.
+			view := PsqlView new.
+			view name: node name name source.
+			view schema: schema.
+			view node: node.
+			schema addView: view.
+			self importViewColumnsIn: view ].
+	aPsqlNode // PsqlCreateMaterializedViewCommandNode
+		do: [ :node | 
+			| view schema |
+			schema := self schemaFor: node name.
+			view := PsqlView new.
+			view name: node tableName name source.
+			view isMaterialized: true.
+			view schema: schema.
+			view node: node.
+			schema addView: view.
+			self importViewColumnsIn: view ]
+]
+
+{ #category : #accessing }
+PsqlSchemaImporter >> schemaFor: aQualifiedNameNode [
+	^ aQualifiedNameNode schema
+		ifNil: [ self defaultSchema ]
+		ifNotNil: [ database schemaNamed: aQualifiedNameNode schema source ]
 ]

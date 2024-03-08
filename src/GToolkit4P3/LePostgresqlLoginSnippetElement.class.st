@@ -29,7 +29,7 @@ LePostgresqlLoginSnippetElement >> initialize [
 
 	indicatorElement := BrButton new
 		aptitude: BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
-		label: 'PostgreSQL Login';
+		label: 'PostgreSQL login';
 		action: [ :aButton | aButton phlow spawnObject: self defaultConnection ];
 		beSmallSize;
 		margin: (BlInsets top: 5 right: 5);
@@ -90,6 +90,6 @@ LePostgresqlLoginSnippetElement >> updateIndicatorLabel [
 	label := 'PostgreSQL'.
 	label := p3Client isConnected
 		ifTrue: [ label , ':' , p3Client session asString ]
-		ifFalse: [ label , ' Login' ].
+		ifFalse: [ label , ' login' ].
 	indicatorElement label: label
 ]

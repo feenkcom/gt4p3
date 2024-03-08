@@ -156,6 +156,43 @@
 								"__type" : "textStyle"
 							},
 							"string" : "{{gtPage:Adding custom views to generic objects|db=exalrjcx7if2khjdnt9apw3eg}}"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-02-12T13:22:33.531846+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-02-12T13:22:34.082379+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "eYm4EZDNDQCneGHQCvrAoA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "{{gtPage:Going further with F1 data|db=exalrjcx7if2khjdnt9apw3eg}}"
 						}
 					]
 				},
@@ -189,6 +226,43 @@
 					"__type" : "textStyle"
 				},
 				"string" : "{{gtPage:Using P3 to interact with the PostgreSQL Relational Database|db=exalrjcx7if2khjdnt9apw3eg}}"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:29:24.76595-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-07T12:29:54.955809-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "lVHi/XfPDQCBzpXzD0WO+g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Exploring "
 			}
 		]
 	},

@@ -1,19 +1,12 @@
 Class {
 	#name : #PsqlTable,
-	#superclass : #PsqlModel,
+	#superclass : #PsqlTableLike,
 	#instVars : [
-		'columns',
 		'constraints',
-		'schema',
 		'incomingConstraints'
 	],
 	#category : #'GToolkit4P3-Importer'
 }
-
-{ #category : #accessing }
-PsqlTable >> addColumn: aColumn [
-	self columns add: aColumn
-]
 
 { #category : #accessing }
 PsqlTable >> addConstraint: aConstraint [
@@ -24,21 +17,6 @@ PsqlTable >> addConstraint: aConstraint [
 { #category : #accessing }
 PsqlTable >> addIncomingConstraint: aConstraint [
 	self incomingConstraints add: aConstraint
-]
-
-{ #category : #accessing }
-PsqlTable >> columnNamed: aString [
-	^ self columns detect: [ :each | each name sameAs: aString ] ifNone: [  ]
-]
-
-{ #category : #accessing }
-PsqlTable >> columns [
-	^ columns ifNil: [ columns := OrderedCollection new ]
-]
-
-{ #category : #accessing }
-PsqlTable >> columns: anObject [
-	columns := anObject
 ]
 
 { #category : #accessing }
@@ -141,14 +119,4 @@ PsqlTable >> incomingConstraints [
 { #category : #accessing }
 PsqlTable >> incomingConstraints: anObject [
 	incomingConstraints := anObject
-]
-
-{ #category : #accessing }
-PsqlTable >> schema [
-	^ schema
-]
-
-{ #category : #accessing }
-PsqlTable >> schema: anObject [
-	schema := anObject
 ]
