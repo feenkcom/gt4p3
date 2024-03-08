@@ -9,6 +9,16 @@ Class {
 }
 
 { #category : #accessing }
+PsqlForeignKeyConstraint >> foreignKeyColumns [
+	^ (self refColumns collect: #name) asArray
+]
+
+{ #category : #accessing }
+PsqlForeignKeyConstraint >> foreignKeyTable [
+	^ self refTable name
+]
+
+{ #category : #accessing }
 PsqlForeignKeyConstraint >> install [
 	super install.
 	refTable ifNotNil: [ refTable addIncomingConstraint: self ]

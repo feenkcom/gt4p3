@@ -252,7 +252,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-03-07T12:29:54.955809-06:00"
+						"dateAndTimeString" : "2024-03-07T12:30:20.507804-06:00"
 					}
 				},
 				"uid" : {
@@ -262,7 +262,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Exploring "
+				"string" : "[[Exploring a schema from files]]"
 			}
 		]
 	},

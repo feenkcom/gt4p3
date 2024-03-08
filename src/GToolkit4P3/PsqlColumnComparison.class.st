@@ -12,9 +12,15 @@ PsqlColumnComparison >> gtDiffFor: aView [
 		items: [ #(#('Position' ordinalPosition) #('Type' dataType type)) ];
 		column: 'Name' text: [ :each | each first ];
 		column: 'Database'
-			text: [ :each | (databaseObject ifNotNil: [ databaseObject perform: each second ]) ifNil: [ '' ] ];
+			text: [ :each | 
+				(databaseObject
+					ifNotNil: [ (databaseObject respondsTo: each second)
+							ifTrue: [ databaseObject perform: each second ] ]) ifNil: [ '' ] ];
 		column: 'Scripts'
-			text: [ :each | (scriptObject ifNotNil: [ scriptObject perform: each last ]) ifNil: [ '' ] ]
+			text: [ :each | 
+				(scriptObject
+					ifNotNil: [ (scriptObject respondsTo: each last)
+							ifTrue: [ scriptObject perform: each last ] ]) ifNil: [ '' ] ]
 ]
 
 { #category : #testing }
@@ -24,6 +30,8 @@ PsqlColumnComparison >> isForView [
 
 { #category : #testing }
 PsqlColumnComparison >> isModified [
+	(self isMissingFromDatabase or: [ self isMissingFromScripts ])
+		ifTrue: [ ^ false ].
 	^ self isPositionModified
 		or: [ self isForView not and: [ self isTypeModified ] ]
 ]
@@ -44,6 +52,7 @@ PsqlColumnComparison >> isTypeModified [
 PsqlColumnComparison >> normalizeTypeName: aString [
 	(aString sameAs: 'integer') ifTrue: [ ^ 'int' ].
 	(aString sameAs: 'float') ifTrue: [ ^ 'double precision' ].
+	(aString sameAs: 'time') ifTrue: [ ^ 'time without time zone' ].
 	('varchar(*)' match: aString) ifTrue: [ ^ 'character varying' ].
 	^ aString
 ]

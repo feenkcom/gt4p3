@@ -13,5 +13,5 @@ Metacello new
    baseline: 'GToolkit4P3';
    repository: 'github://feenkcom/gt4p3';
    load.
-#GToolkit4P3 asClass loadLepiter
+#BaselineOfGToolkit4P3 asClass loadLepiter
 ```

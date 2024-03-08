@@ -19,6 +19,11 @@ PsqlConstraint >> columns: anObject [
 ]
 
 { #category : #accessing }
+PsqlConstraint >> constraintColumns [
+	^ (self columns collect: #name) asArray
+]
+
+{ #category : #accessing }
 PsqlConstraint >> install [
 ]
 
@@ -45,4 +50,9 @@ PsqlConstraint >> table [
 { #category : #accessing }
 PsqlConstraint >> table: anObject [
 	table := anObject
+]
+
+{ #category : #accessing }
+PsqlConstraint >> tableName [
+	^ self table name
 ]

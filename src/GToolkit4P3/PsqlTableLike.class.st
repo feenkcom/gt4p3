@@ -15,7 +15,11 @@ PsqlTableLike >> addColumn: aColumn [
 
 { #category : #accessing }
 PsqlTableLike >> columnNamed: aString [
-	^ self columns detect: [ :each | each name sameAs: aString ] ifNone: [  ]
+	| columnName |
+	columnName := aString.
+	(columnName beginsWith: '"')
+		ifTrue: [ columnName := columnName allButFirst allButLast copyReplaceAll: '""' with: '"' ].
+	^ self columns detect: [ :each | each name sameAs: columnName ] ifNone: [  ]
 ]
 
 { #category : #accessing }

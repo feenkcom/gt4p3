@@ -1,0 +1,144 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:39:24.13-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:37.425-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "0O4GFo3PDQCzSykwCg+JBA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "We can compare the schema from the database to the scripts used to create the database. First we need to download the script files by evaluating the snippet in [[Exploring the database schema]]. Then we can execute:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "GCVbG43PDQC3mLZJCg+JBA=="
+				},
+				"code" : "rootDirectory := 'F1-MRD-Database-PSQL' asFileReference."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:48.192-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "AJ4JG43PDQC3jKA7Cg+JBA=="
+				},
+				"code" : "scriptsSchema := (PsqlSchemaImporter new\r\t\timport: rootDirectory;\r\t\tdatabase) schemaNamed: 'public'.\rdbSchema := GtP3F1DemoExamples p3Client schemas\r\t\tdetect: [ :each | each name = 'public' ].\rPsqlSchemaComparison compareScript: scriptsSchema toDatabase: dbSchema"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-03-08T13:39:24.099-06:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-03-08T13:39:24.099-06:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Comparing database and script schemas"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "b8750616-8dcf-0d00-b34a-b45c0a0f8904"
+	}
+}

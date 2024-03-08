@@ -25,6 +25,8 @@ PsqlSchemaComparison >> gtDiffFor: aView [
 
 { #category : #testing }
 PsqlSchemaComparison >> isModified [
+	(self isMissingFromDatabase or: [ self isMissingFromScripts ])
+		ifTrue: [ ^ false ].
 	^ (self tables
 		anySatisfy: [ :each | 
 			each isMissingFromDatabase
