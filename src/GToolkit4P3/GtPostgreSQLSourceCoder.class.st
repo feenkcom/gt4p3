@@ -11,14 +11,14 @@ GtPostgreSQLSourceCoder >> asCoderViewModel [
 
 { #category : #'api - ast' }
 GtPostgreSQLSourceCoder >> computeAst: theSourceString [
-	^ theSourceString
+	^ PsqlParser parseWithErrors: theSourceString startingAt: PsqlParser startingStateForCommand
 ]
 
 { #category : #initalization }
 GtPostgreSQLSourceCoder >> initializeAddOns: addOns [
 	super initializeAddOns: addOns.
 	
-	"addOns addStyler: (GtCoderAstSmaCCParserStyler new smaccStyler: PythonParser gtStyler)."
+	addOns addStyler: (GtCoderAstSmaCCParserStyler new smaccStyler: PsqlParser gtStyler).
 	
 	addOns
 		addMainAction: 'Evaluate' translated
