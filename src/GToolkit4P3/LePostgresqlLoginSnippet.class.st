@@ -9,7 +9,7 @@ LePostgresqlLoginSnippet class >> contextMenuItemSpecification [
 	<leSnippetSpecification>
 	^ LeContextMenuItemSpecification new
 		snippetClass: self;
-		title: 'PostgreSQL Login'
+		title: 'PostgreSQL login'
 ]
 
 { #category : #accessing }

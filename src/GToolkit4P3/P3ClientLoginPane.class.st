@@ -114,9 +114,9 @@ P3ClientLoginPane >> loadFrom: p3Client [
 P3ClientLoginPane >> magritteAcceptAction [
 	<magritteActionDescription>
 	^ super magritteAcceptAction
-		onSuccessCallback: (GtMagritteCallback new
+		"onSuccessCallback: (GtMagritteCallback new
 				action: [ :aModel :aButton :aMemento :aDescription |
-					self saveTo: GtP3ConnectionManager uniqueInstance defaultConnection ])
+					self saveTo: GtP3ConnectionManager uniqueInstance defaultConnection ])"
 ]
 
 { #category : #accessing }
@@ -247,7 +247,7 @@ P3ClientLoginPane >> url: aUrlOrString [
 
 { #category : #accessing }
 P3ClientLoginPane >> urlDescription [
-	<magritteDescription>
+	"<magritteDescription>"
 	
 	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
 	
