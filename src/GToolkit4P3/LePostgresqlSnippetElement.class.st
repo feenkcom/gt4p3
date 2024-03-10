@@ -46,7 +46,7 @@ LePostgresqlSnippetElement >> onConnectionEstablishedClosed: anAnnouncement [
 LePostgresqlSnippetElement >> snippetToolbar [
 	| toolbar label editor |
 	toolbar := super snippetToolbar.
-	label := BrLabel new
+	"label := BrLabel new
 		text: 'Result:' asRopedText;
 		aptitude: (BrGlamorousLabelAptitude new glamorousRegularFontAndSize
 				foreground: Color gray;
@@ -59,9 +59,8 @@ LePostgresqlSnippetElement >> snippetToolbar [
 	editor := BrEditor new.
 	editor size: 200@20.
 	editor vFitContent.
-	"editor hMatchParent."
 	editor aptitude: (BrGlamorousEditableLabelAptitude new) + (BrGlamorousCodeEditorAptitude new).
-	toolbar addChild: editor.
+	toolbar addChild: editor."
 	^ toolbar
 ]
 

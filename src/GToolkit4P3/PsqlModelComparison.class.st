@@ -31,7 +31,7 @@ PsqlModelComparison >> gtSourceFor: aView [
 	<gtView>
 	(scriptObject isNil or: [ scriptObject node isNil ]) ifTrue: [ ^ aView empty ].
 	^ aView forward
-		title: 'Source';
+		title: 'Script source';
 		object: [ scriptObject ];
 		view: #gtSourceFor:
 ]

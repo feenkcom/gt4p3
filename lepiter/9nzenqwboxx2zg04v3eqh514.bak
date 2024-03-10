@@ -55,6 +55,40 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "GCVbG43PDQC3mLZJCg+JBA=="
+				},
+				"code" : "rootDirectory := 'F1-MRD-Database-PSQL' asFileReference."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-03-08T13:40:48.192-06:00"
 					}
 				},
@@ -66,14 +100,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-03-08T13:40:50.132-06:00"
+						"dateAndTimeString" : "2024-03-08T13:40:53.535-06:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "AJ4JG43PDQC3jKA7Cg+JBA=="
 				},
-				"code" : "rootDirectory := 'F1-MRD-Database-PSQL' asFileReference.\rscriptsSchema := (PsqlSchemaImporter new\r\t\timport: rootDirectory;\r\t\tdatabase) schemaNamed: 'public'.\rdbSchema := GtP3F1DemoExamples p3Client schemas\r\t\tdetect: [ :each | each name = 'public' ].\rPsqlSchemaComparison compareScript: scriptsSchema toDatabase: dbSchema"
+				"code" : "scriptsSchema := (PsqlSchemaImporter new\r\t\timport: rootDirectory;\r\t\tdatabase) schemaNamed: 'public'.\rdbSchema := GtP3F1DemoExamples p3Client schemas\r\t\tdetect: [ :each | each name = 'public' ].\rPsqlSchemaComparison compareScript: scriptsSchema toDatabase: dbSchema"
 			}
 		]
 	},
