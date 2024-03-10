@@ -21,32 +21,17 @@ LePostgresqlLoginSnippetElement >> initialize [
 	form := P3ClientLoginPane new.
 	form loadFrom: self defaultConnection.
 	formElement := form asGtMagritteViewModel asElement margin: (BlInsets all: 10).
-	formElement constraintsDo: [ :c |
-		c frame horizontal alignLeft.
-		c frame vertical alignTop ].
 	formElement
-		hFitContent.
-
-	indicatorElement := BrButton new
-		aptitude: BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
-		label: 'PostgreSQL login';
-		action: [ :aButton | aButton phlow spawnObject: self defaultConnection ];
-		beSmallSize;
-		margin: (BlInsets top: 5 right: 5);
-		yourself.
-	indicatorElement constraintsDo: [ :c |
-		c frame horizontal alignRight.
-		c frame vertical alignTop ].
-
-	contentElement := BrFrame new
-		hMatchParent;
-		vFitContent;
-		addChildren: { formElement. indicatorElement }
+		constraintsDo: [ :c | 
+			c frame horizontal alignLeft.
+			c frame vertical alignTop ].
+	formElement hMatchParent.
+	contentElement := formElement
 ]
 
 { #category : #private }
 LePostgresqlLoginSnippetElement >> onConnectionEstablishedClosed: anAnnouncement [
-	self inUIProcessDo: [ self updateIndicatorLabel]
+	self inUIProcessDo: [ "self updateIndicatorLabel"]
 ]
 
 { #category : #accessing }
@@ -81,15 +66,4 @@ LePostgresqlLoginSnippetElement >> unsubscribeFromSnippetViewModel [
 	super unsubscribeFromSnippetViewModel.
 	
 	P3LogEvent announcer unsubscribe: self
-]
-
-{ #category : #private }
-LePostgresqlLoginSnippetElement >> updateIndicatorLabel [
-	| p3Client label |
-	p3Client := self defaultConnection.
-	label := 'PostgreSQL'.
-	label := p3Client isConnected
-		ifTrue: [ label , ':' , p3Client session asString ]
-		ifFalse: [ label , ' login' ].
-	indicatorElement label: label
 ]
