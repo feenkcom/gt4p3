@@ -23,6 +23,7 @@ P3Result >> gtSourceFor: aView [
 		title: 'Source';
 		priority: 45;
 		aptitude: BrGlamorousCodeEditorAptitude;
+		styler: PsqlParser gtStyler;
 		text: [ self source ]
 ]
 
