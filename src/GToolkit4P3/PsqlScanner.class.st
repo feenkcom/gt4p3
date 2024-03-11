@@ -7,7 +7,7 @@ Class {
 { #category : #'generated-initialization' }
 PsqlScanner class >> initializeKeywordMap [
 	keywordMap := Dictionary new.
-	#(#(509 '/*' 513) #(509 '=>' 13) #(510 '=>' 13) #(505 'ABORT' 14) #(505 'ABSOLUTE' 15) #(505 'ACCESS' 16) #(505 'ACTION' 17) #(505 'ADD' 18) #(505 'ADMIN' 19) #(505 'AFTER' 20) #(505 'AGGREGATE' 21) #(505 'ALIGNMENT' 22) #(505 'ALL' 23) #(505 'ALLOW_CONNECTIONS' 24) #(505 'ALSO' 25) #(505 'ALTER' 26) #(505 'ALWAYS' 27) #(505 'ANALYZE' 28) #(505 'AND' 29) #(505 'ARRAY' 30) #(505 'AS' 31) #(505 'ASC' 32) #(505 'ASENSITIVE' 33) #(505 'ASSIGNMENT' 34) #(505 'ATTACH' 35) #(505 'ATTRIBUTE' 36) #(505 'AUTHORIZATION' 37) #(505 'AUTO' 38) #(505 'BACKWARD' 39) #(505 'BASETYPE' 40) #(505 'BEFORE' 41) #(505 'BEGIN' 42) #(505 'BETWEEEN' 43) #(505 'BETWEEN' 44) #(505 'BINARY' 45) #(505 'BIT' 46) #(505 'BOTH' 47) #(505 'BREADTH' 48) #(505 'BUFFERS' 49) #(505 'BUFFER_USAGE_LIMIT' 50) #(505 'BY' 51) #(505 'BYPASSRLS' 52) #(505 'CACHE' 53) #(505 'CALL' 54) #(505 'CALLED' 55) #(505 'CANONICAL' 56) #(505 'CASCADE' 57) #(505 'CASCADED' 58) #(505 'CASE' 59) #(505 'CAST' 60) #(505 'CATEGORY' 61) #(505 'CHAIN' 62) #(505 'CHARACTER' 63) #(505 'CHARACTERISTICS' 64) #(505 'CHECK' 65) #(505 'CHECKPOINT' 66) #(505 'CLASS' 67) #(505 'CLOSE' 68) #(505 'CLUSTER' 69) #(505 'COLLATABLE' 70) #(505 'COLLATE' 71) #(505 'COLLATION' 72) #(505 'COLLATION_VERSION' 73) #(505 'COLUMN' 74) #(505 'COMBINEFUNC' 75) #(505 'COMMENT' 76) #(505 'COMMENTS' 77) #(505 'COMMIT' 78) #(505 'COMMITTED' 79) #(505 'COMMUTATOR' 80) #(505 'COMPRESSION' 81) #(505 'CONCURRENTLY' 82) #(505 'CONFIGURATION' 83) #(505 'CONFLICT' 84) #(505 'CONNECT' 85) #(505 'CONNECTION' 86) #(505 'CONSTRAINT' 87) #(505 'CONSTRAINTS' 88) #(505 'CONTINUE' 89) #(505 'CONVERSION' 90) #(505 'COPY' 91) #(505 'COST' 92) #(505 'COSTS' 93) #(505 'CREATE' 94) #(505 'CREATEDB' 95) #(505 'CREATEROLE' 96) #(505 'CROSS' 97) #(505 'CUBE' 98) #(505 'CURRENT' 99) #(505 'CURRENT_ROLE' 100) #(505 'CURRENT_SCHEMA' 101) #(505 'CURRENT_USER' 102) #(505 'CURSOR' 103) #(505 'CYCLE' 104) #(505 'DATA' 105) #(505 'DATABASE' 106) #(505 'DEALLOCATE' 107) #(505 'DECLARE' 108) #(505 'DEFAULT' 109) #(505 'DEFAULTS' 110) #(505 'DEFERRABLE' 111) #(505 'DEFERRED' 112) #(505 'DEFINER' 113) #(505 'DELETE' 114) #(505 'DELIMITER' 115) #(505 'DEPENDS' 116) #(505 'DEPTH' 117) #(505 'DESC' 118) #(505 'DESERIALFUNC' 119) #(505 'DETACH' 120) #(505 'DETERMINISTIC' 121) #(505 'DICTIONARY' 122) #(505 'DISABLE' 123) #(505 'DISABLE_PAGE_SKIPPING' 124) #(505 'DISCARD' 125) #(505 'DISTINCT' 126) #(505 'DO' 127) #(505 'DOMAIN' 128) #(505 'DOUBLE' 129) #(505 'DROP' 130) #(505 'EACH' 131) #(505 'ELEMENT' 132) #(505 'ELSE' 133) #(505 'ENABLE' 134) #(505 'ENCODING' 135) #(505 'ENCRYPTED' 136) #(505 'END' 137) #(505 'ENUM' 138) #(505 'EVENT' 139) #(505 'EXCEPT' 140) #(505 'EXCLUDE' 141) #(505 'EXCLUDING' 142) #(505 'EXCLUSIVE' 143) #(505 'EXECUTE' 144) #(505 'EXISTS' 145) #(505 'EXPLAIN' 146) #(505 'EXPRESSION' 147) #(505 'EXTENDED' 148) #(505 'EXTENSION' 149) #(505 'EXTERNAL' 150) #(505 'FALSE' 151) #(505 'FAMILY' 152) #(505 'FETCH' 153) #(505 'FILTER' 154) #(505 'FINALFUNC' 155) #(505 'FINALFUNC_EXTRA' 156) #(505 'FINALFUNC_MODIFY' 157) #(505 'FINALIZE' 158) #(505 'FIRST' 159) #(505 'FOLLOWING' 160) #(505 'FOR' 161) #(505 'FORCE' 162) #(505 'FOREIGN' 163) #(505 'FORMAT' 164) #(505 'FORWARD' 165) #(505 'FREEZE' 166) #(505 'FROM' 167) #(505 'FULL' 168) #(505 'FUNCTION' 169) #(505 'FUNCTIONS' 170) #(505 'GENERATED' 171) #(505 'GENERIC_PLAN' 172) #(505 'GETTOKEN' 173) #(505 'GLOBAL' 174) #(505 'GRANT' 175) #(505 'GRANTED' 176) #(505 'GROUP' 177) #(505 'GROUPING' 178) #(505 'GROUPS' 179) #(505 'HANDLER' 180) #(505 'HASH' 181) #(505 'HASHES' 182) #(505 'HAVING' 183) #(505 'HEADLINE' 184) #(505 'HOLD' 185) #(505 'HYPOTHETICAL' 186) #(505 'ICU_LOCALE' 187) #(505 'ICU_RULES' 188) #(505 'IDENTITY' 189) #(505 'IF' 190) #(505 'ILIKE' 191) #(505 'IMMEDIATE' 192) #(505 'IMMUTABLE' 193) #(505 'IMPLICIT' 194) #(505 'IMPORT' 195) #(505 'IN' 196) #(505 'INCLUDE' 197) #(505 'INCLUDING' 198) #(505 'INCREMENT' 199) #(505 'INDEX' 200) #(505 'INDEXES' 201) #(505 'INDEX_CLEANUP' 202) #(505 'INHERIT' 203) #(505 'INHERITS' 204) #(505 'INIT' 205) #(505 'INITCOND' 206) #(505 'INITIALLY' 207) #(505 'INLINE' 208) #(505 'INNER' 209) #(505 'INOUT' 210) #(505 'INPUT' 211) #(505 'INSENSITIVE' 212) #(505 'INSERT' 213) #(505 'INSTEAD' 214) #(505 'INTERNALLENGTH' 215) #(505 'INTERSECT' 216) #(505 'INTO' 217) #(505 'INVOKER' 218) #(505 'IS' 219) #(505 'ISOLATION' 220) #(505 'IS_TEMPLATE' 221) #(505 'JOIN' 222) #(505 'JSON' 223) #(505 'KEY' 224) #(505 'LABEL' 225) #(505 'LANGUAGE' 226) #(505 'LARGE' 227) #(505 'LAST' 228) #(505 'LATERAL' 229) #(505 'LC_COLLATE' 230) #(505 'LC_CTYPE' 231) #(505 'LEADING' 232) #(505 'LEAKPROOF' 233) #(505 'LEFT' 234) #(505 'LEFTARG' 235) #(505 'LEVEL' 236) #(505 'LEXIZE' 237) #(505 'LEXTYPES' 238) #(505 'LIKE' 239) #(505 'LIMIT' 240) #(505 'LIST' 241) #(505 'LISTEN' 242) #(505 'LOAD' 243) #(505 'LOCAL' 244) #(505 'LOCALE' 245) #(505 'LOCALE_PROVIDER' 246) #(505 'LOCATION' 247) #(505 'LOCK' 248) #(505 'LOCKED' 249) #(505 'LOGGED' 250) #(505 'LOGIN' 251) #(505 'MAIN' 252) #(505 'MAPPING' 253) #(505 'MATCH' 254) #(505 'MATCHED' 255) #(505 'MATERIALIZED' 256) #(505 'MAXVALUE' 257) #(505 'MERGE' 258) #(505 'MERGES' 259) #(505 'METHOD' 260) #(505 'MFINALFUNC' 261) #(505 'MFINALFUNC_EXTRA' 262) #(505 'MFINALFUNC_MODIFY' 263) #(505 'MINITCOND' 264) #(505 'MINVALUE' 265) #(505 'MINVFUNC' 266) #(505 'MODE' 267) #(505 'MODULUS' 268) #(505 'MOVE' 269) #(505 'MSFUNC' 270) #(505 'MSSPACE' 271) #(505 'MSTYPE' 272) #(505 'MULTIRANGE_TYPE_NAME' 273) #(505 'NATURAL' 274) #(505 'NEGATOR' 275) #(505 'NEW' 276) #(505 'NEXT' 277) #(505 'NO' 278) #(505 'NOBYPASSRLS' 279) #(505 'NOCREATEDB' 280) #(505 'NOCREATEROLE' 281) #(505 'NOINHERIT' 282) #(505 'NOLOGIN' 283) #(505 'NONE' 284) #(505 'NOREPLICATION' 285) #(505 'NOSUPERUSER' 286) #(505 'NOT' 287) #(505 'NOTHING' 288) #(505 'NOTIFY' 289) #(505 'NOWAIT' 290) #(505 'NULL' 291) #(505 'NULLS' 292) #(505 'OBJECT' 293) #(505 'OF' 294) #(505 'OFF' 295) #(505 'OFFSET' 296) #(505 'OID' 297) #(505 'OIDS' 298) #(505 'OLD' 299) #(505 'ON' 300) #(505 'ONLY' 301) #(505 'ONLY_DATABASE_STATS' 302) #(505 'OPERATOR' 303) #(505 'OPTION' 304) #(505 'OPTIONS' 305) #(505 'OR' 306) #(505 'ORDER' 307) #(505 'ORDINALITY' 308) #(505 'OTHERS' 309) #(505 'OUTER' 310) #(505 'OUTPUT' 311) #(505 'OVER' 312) #(505 'OVERLAY' 313) #(505 'OVERRIDING' 314) #(505 'OWNED' 315) #(505 'OWNER' 316) #(505 'PARALLEL' 317) #(505 'PARAMETER' 318) #(505 'PARSER' 319) #(505 'PARTIAL' 320) #(505 'PARTITION' 321) #(505 'PASSEDBYVALUE' 322) #(505 'PASSWORD' 323) #(505 'PERMISSIVE' 324) #(505 'PLACING' 325) #(505 'PLAIN' 326) #(505 'PLANS' 327) #(505 'POLICY' 328) #(505 'POSITION' 329) #(505 'PRECEDING' 330) #(505 'PRECISION' 331) #(505 'PREFERRED' 332) #(505 'PREPARE' 333) #(505 'PREPARED' 334) #(505 'PRESERVE' 335) #(505 'PRIMARY' 336) #(505 'PRIOR' 337) #(505 'PRIVILEGES' 338) #(505 'PROCEDURAL' 339) #(505 'PROCEDURE' 340) #(505 'PROCEDURES' 341) #(505 'PROCESS_MAIN' 342) #(505 'PROCESS_TOAST' 343) #(505 'PROGRAM' 344) #(505 'PROVIDER' 345) #(505 'PUBLIC' 346) #(505 'PUBLICATION' 347) #(505 'RANGE' 348) #(505 'READ' 349) #(505 'READ_ONLY' 350) #(505 'READ_WRITE' 351) #(505 'REASSIGN' 352) #(505 'RECEIVE' 353) #(505 'RECURSIVE' 354) #(505 'REFERENCES' 355) #(505 'REFERENCING' 356) #(505 'REFRESH' 357) #(505 'REINDEX' 358) #(505 'RELATIVE' 359) #(505 'RELEASE' 360) #(505 'REMAINDER' 361) #(505 'RENAME' 362) #(505 'REPEATABLE' 363) #(505 'REPLACE' 364) #(505 'REPLICA' 365) #(505 'REPLICATION' 366) #(505 'RESET' 367) #(505 'RESTART' 368) #(505 'RESTRICT' 369) #(505 'RESTRICTED' 370) #(505 'RESTRICTIVE' 371) #(505 'RETURNING' 372) #(505 'RETURNS' 373) #(505 'REVOKE' 374) #(505 'RIGHT' 375) #(505 'RIGHTARG' 376) #(505 'ROLE' 377) #(505 'ROLLBACK' 378) #(505 'ROLLUP' 379) #(505 'ROUTINE' 380) #(505 'ROUTINES' 381) #(505 'ROW' 382) #(505 'ROWS' 383) #(505 'RULE' 384) #(505 'RULES' 385) #(505 'SAFE' 386) #(505 'SAVEPOINT' 387) #(505 'SCHEMA' 388) #(505 'SCHEMAS' 389) #(505 'SCROLL' 390) #(505 'SEARCH' 391) #(505 'SECURITY' 392) #(505 'SELECT' 393) #(505 'SEND' 394) #(505 'SEQUENCE' 395) #(505 'SEQUENCES' 396) #(505 'SERIALFUNC' 397) #(505 'SERIALIZABLE' 398) #(505 'SERVER' 399) #(505 'SESSION' 400) #(505 'SESSION_USER' 401) #(505 'SET' 402) #(505 'SETS' 403) #(505 'SETTINGS' 404) #(505 'SFUNC' 405) #(505 'SHARE' 406) #(505 'SHAREABLE' 407) #(505 'SHOW' 408) #(505 'SIMPLE' 409) #(505 'SKIP' 410) #(505 'SKIP_DATABASE_STATS' 411) #(505 'SKIP_LOCKED' 412) #(505 'SNAPSHOT' 413) #(505 'SORTOP' 414) #(505 'SQL' 415) #(505 'SSPACE' 416) #(505 'STABLE' 417) #(505 'START' 418) #(505 'STATEMENT' 419) #(505 'STATISTICS' 420) #(505 'STDIN' 421) #(505 'STDOUT' 422) #(505 'STORAGE' 423) #(505 'STORED' 424) #(505 'STRATEGY' 425) #(505 'STRICT' 426) #(505 'STYPE' 427) #(505 'SUBSCRIPT' 428) #(505 'SUBSCRIPTION' 429) #(505 'SUBSTRING' 430) #(505 'SUBTYPE' 431) #(505 'SUBTYPE_DIFF' 432) #(505 'SUBTYPE_OPCLASS' 433) #(505 'SUMMARY' 434) #(505 'SUPERUSER' 435) #(505 'SUPPORT' 436) #(505 'SYSID' 437) #(505 'SYSTEM' 438) #(505 'TABLE' 439) #(505 'TABLES' 440) #(505 'TABLESAMPLE' 441) #(505 'TABLESPACE' 442) #(505 'TEMP' 443) #(505 'TEMPLATE' 444) #(505 'TEMPORARY' 445) #(505 'TEXT' 446) #(505 'THEN' 447) #(505 'TIES' 448) #(505 'TIME' 449) #(505 'TIMING' 450) #(505 'TO' 451) #(505 'TRAILING' 452) #(505 'TRANSACTION' 453) #(505 'TRANSFORM' 454) #(505 'TRIGGER' 455) #(505 'TRIM' 456) #(505 'TRUE' 457) #(505 'TRUNCATE' 458) #(505 'TRUSTED' 459) #(505 'TYPE' 460) #(505 'TYPES' 461) #(505 'TYPMOD_IN' 462) #(505 'TYPMOD_OUT' 463) #(505 'UNBOUNDED' 464) #(505 'UNCOMMITTED' 465) #(505 'UNION' 466) #(505 'UNIQUE' 467) #(505 'UNLISTEN' 468) #(505 'UNLOGGED' 469) #(505 'UNSAFE' 470) #(505 'UNTIL' 471) #(505 'UPDATE' 472) #(505 'USAGE' 473) #(505 'USER' 474) #(505 'USING' 475) #(505 'VACUUM' 476) #(505 'VALID' 477) #(505 'VALIDATE' 478) #(505 'VALIDATOR' 479) #(505 'VALUE' 480) #(505 'VALUES' 481) #(505 'VARIABLE' 482) #(505 'VARIADIC' 483) #(505 'VARYING' 484) #(505 'VERBOSE' 485) #(505 'VERSION' 486) #(505 'VIEW' 487) #(505 'VOLATILE' 488) #(505 'WAL' 489) #(505 'WHEN' 490) #(505 'WHERE' 491) #(505 'WINDOW' 492) #(505 'WITH' 493) #(505 'WITHIN' 494) #(505 'WITHOUT' 495) #(505 'WORK' 496) #(505 'WRAPPER' 497) #(505 'WRITE' 498) #(505 'XML' 499) #(505 'YAML' 500) #(505 'ZONE' 501))
+	#(#(505 '/*' 509) #(505 '=>' 13) #(506 '=>' 13) #(501 'ABORT' 14) #(501 'ABSOLUTE' 15) #(501 'ACCESS' 16) #(501 'ACTION' 17) #(501 'ADD' 18) #(501 'ADMIN' 19) #(501 'AFTER' 20) #(501 'AGGREGATE' 21) #(501 'ALIGNMENT' 22) #(501 'ALL' 23) #(501 'ALLOW_CONNECTIONS' 24) #(501 'ALSO' 25) #(501 'ALTER' 26) #(501 'ALWAYS' 27) #(501 'ANALYZE' 28) #(501 'AND' 29) #(501 'ARRAY' 30) #(501 'AS' 31) #(501 'ASC' 32) #(501 'ASENSITIVE' 33) #(501 'ASSIGNMENT' 34) #(501 'ATTACH' 35) #(501 'ATTRIBUTE' 36) #(501 'AUTHORIZATION' 37) #(501 'AUTO' 38) #(501 'BACKWARD' 39) #(501 'BASETYPE' 40) #(501 'BEFORE' 41) #(501 'BEGIN' 42) #(501 'BETWEEEN' 43) #(501 'BETWEEN' 44) #(501 'BINARY' 45) #(501 'BIT' 46) #(501 'BOTH' 47) #(501 'BREADTH' 48) #(501 'BUFFERS' 49) #(501 'BUFFER_USAGE_LIMIT' 50) #(501 'BY' 51) #(501 'BYPASSRLS' 52) #(501 'CACHE' 53) #(501 'CALL' 54) #(501 'CALLED' 55) #(501 'CANONICAL' 56) #(501 'CASCADE' 57) #(501 'CASCADED' 58) #(501 'CASE' 59) #(501 'CAST' 60) #(501 'CATEGORY' 61) #(501 'CHAIN' 62) #(501 'CHARACTER' 63) #(501 'CHARACTERISTICS' 64) #(501 'CHECK' 65) #(501 'CHECKPOINT' 66) #(501 'CLASS' 67) #(501 'CLOSE' 68) #(501 'CLUSTER' 69) #(501 'COLLATABLE' 70) #(501 'COLLATE' 71) #(501 'COLLATION' 72) #(501 'COLLATION_VERSION' 73) #(501 'COLUMN' 74) #(501 'COMBINEFUNC' 75) #(501 'COMMENT' 76) #(501 'COMMENTS' 77) #(501 'COMMIT' 78) #(501 'COMMITTED' 79) #(501 'COMMUTATOR' 80) #(501 'COMPRESSION' 81) #(501 'CONCURRENTLY' 82) #(501 'CONFIGURATION' 83) #(501 'CONFLICT' 84) #(501 'CONNECT' 85) #(501 'CONNECTION' 86) #(501 'CONSTRAINT' 87) #(501 'CONSTRAINTS' 88) #(501 'CONTINUE' 89) #(501 'CONVERSION' 90) #(501 'COPY' 91) #(501 'COST' 92) #(501 'COSTS' 93) #(501 'CREATE' 94) #(501 'CREATEDB' 95) #(501 'CREATEROLE' 96) #(501 'CROSS' 97) #(501 'CUBE' 98) #(501 'CURRENT' 99) #(501 'CURRENT_ROLE' 100) #(501 'CURRENT_SCHEMA' 101) #(501 'CURRENT_USER' 102) #(501 'CURSOR' 103) #(501 'CYCLE' 104) #(501 'DATA' 105) #(501 'DATABASE' 106) #(501 'DEALLOCATE' 107) #(501 'DECLARE' 108) #(501 'DEFAULT' 109) #(501 'DEFAULTS' 110) #(501 'DEFERRABLE' 111) #(501 'DEFERRED' 112) #(501 'DEFINER' 113) #(501 'DELETE' 114) #(501 'DELIMITER' 115) #(501 'DEPENDS' 116) #(501 'DEPTH' 117) #(501 'DESC' 118) #(501 'DESERIALFUNC' 119) #(501 'DETACH' 120) #(501 'DETERMINISTIC' 121) #(501 'DICTIONARY' 122) #(501 'DISABLE' 123) #(501 'DISABLE_PAGE_SKIPPING' 124) #(501 'DISCARD' 125) #(501 'DISTINCT' 126) #(501 'DO' 127) #(501 'DOMAIN' 128) #(501 'DOUBLE' 129) #(501 'DROP' 130) #(501 'EACH' 131) #(501 'ELEMENT' 132) #(501 'ELSE' 133) #(501 'ENABLE' 134) #(501 'ENCODING' 135) #(501 'ENCRYPTED' 136) #(501 'END' 137) #(501 'ENUM' 138) #(501 'EVENT' 139) #(501 'EXCEPT' 140) #(501 'EXCLUDE' 141) #(501 'EXCLUDING' 142) #(501 'EXCLUSIVE' 143) #(501 'EXECUTE' 144) #(501 'EXISTS' 145) #(501 'EXPLAIN' 146) #(501 'EXPRESSION' 147) #(501 'EXTENDED' 148) #(501 'EXTENSION' 149) #(501 'EXTERNAL' 150) #(501 'FALSE' 151) #(501 'FAMILY' 152) #(501 'FETCH' 153) #(501 'FILTER' 154) #(501 'FINALFUNC' 155) #(501 'FINALFUNC_EXTRA' 156) #(501 'FINALFUNC_MODIFY' 157) #(501 'FINALIZE' 158) #(501 'FIRST' 159) #(501 'FOLLOWING' 160) #(501 'FOR' 161) #(501 'FORCE' 162) #(501 'FOREIGN' 163) #(501 'FORMAT' 164) #(501 'FORWARD' 165) #(501 'FREEZE' 166) #(501 'FROM' 167) #(501 'FULL' 168) #(501 'FUNCTION' 169) #(501 'FUNCTIONS' 170) #(501 'GENERATED' 171) #(501 'GENERIC_PLAN' 172) #(501 'GETTOKEN' 173) #(501 'GLOBAL' 174) #(501 'GRANT' 175) #(501 'GRANTED' 176) #(501 'GROUP' 177) #(501 'GROUPING' 178) #(501 'GROUPS' 179) #(501 'HANDLER' 180) #(501 'HASH' 181) #(501 'HASHES' 182) #(501 'HAVING' 183) #(501 'HEADLINE' 184) #(501 'HOLD' 185) #(501 'HYPOTHETICAL' 186) #(501 'ICU_LOCALE' 187) #(501 'ICU_RULES' 188) #(501 'IDENTITY' 189) #(501 'IF' 190) #(501 'ILIKE' 191) #(501 'IMMEDIATE' 192) #(501 'IMMUTABLE' 193) #(501 'IMPLICIT' 194) #(501 'IMPORT' 195) #(501 'IN' 196) #(501 'INCLUDE' 197) #(501 'INCLUDING' 198) #(501 'INCREMENT' 199) #(501 'INDEX' 200) #(501 'INDEXES' 201) #(501 'INDEX_CLEANUP' 202) #(501 'INHERIT' 203) #(501 'INHERITS' 204) #(501 'INIT' 205) #(501 'INITCOND' 206) #(501 'INITIALLY' 207) #(501 'INLINE' 208) #(501 'INNER' 209) #(501 'INOUT' 210) #(501 'INPUT' 211) #(501 'INSENSITIVE' 212) #(501 'INSERT' 213) #(501 'INSTEAD' 214) #(501 'INTERNALLENGTH' 215) #(501 'INTERSECT' 216) #(501 'INTO' 217) #(501 'INVOKER' 218) #(501 'IS' 219) #(501 'ISOLATION' 220) #(501 'IS_TEMPLATE' 221) #(501 'JOIN' 222) #(501 'JSON' 223) #(501 'KEY' 224) #(501 'LABEL' 225) #(501 'LANGUAGE' 226) #(501 'LARGE' 227) #(501 'LAST' 228) #(501 'LATERAL' 229) #(501 'LC_COLLATE' 230) #(501 'LC_CTYPE' 231) #(501 'LEADING' 232) #(501 'LEAKPROOF' 233) #(501 'LEFT' 234) #(501 'LEFTARG' 235) #(501 'LEVEL' 236) #(501 'LEXIZE' 237) #(501 'LEXTYPES' 238) #(501 'LIKE' 239) #(501 'LIMIT' 240) #(501 'LIST' 241) #(501 'LISTEN' 242) #(501 'LOAD' 243) #(501 'LOCAL' 244) #(501 'LOCALE' 245) #(501 'LOCALE_PROVIDER' 246) #(501 'LOCATION' 247) #(501 'LOCK' 248) #(501 'LOCKED' 249) #(501 'LOGGED' 250) #(501 'LOGIN' 251) #(501 'MAIN' 252) #(501 'MAPPING' 253) #(501 'MATCH' 254) #(501 'MATCHED' 255) #(501 'MATERIALIZED' 256) #(501 'MAXVALUE' 257) #(501 'MERGE' 258) #(501 'MERGES' 259) #(501 'METHOD' 260) #(501 'MFINALFUNC' 261) #(501 'MFINALFUNC_EXTRA' 262) #(501 'MFINALFUNC_MODIFY' 263) #(501 'MINITCOND' 264) #(501 'MINVALUE' 265) #(501 'MINVFUNC' 266) #(501 'MODE' 267) #(501 'MODULUS' 268) #(501 'MOVE' 269) #(501 'MSFUNC' 270) #(501 'MSSPACE' 271) #(501 'MSTYPE' 272) #(501 'MULTIRANGE_TYPE_NAME' 273) #(501 'NATURAL' 274) #(501 'NEGATOR' 275) #(501 'NEW' 276) #(501 'NEXT' 277) #(501 'NO' 278) #(501 'NOBYPASSRLS' 279) #(501 'NOCREATEDB' 280) #(501 'NOCREATEROLE' 281) #(501 'NOINHERIT' 282) #(501 'NOLOGIN' 283) #(501 'NONE' 284) #(501 'NOREPLICATION' 285) #(501 'NOSUPERUSER' 286) #(501 'NOT' 287) #(501 'NOTHING' 288) #(501 'NOTIFY' 289) #(501 'NOWAIT' 290) #(501 'NULL' 291) #(501 'NULLS' 292) #(501 'OBJECT' 293) #(501 'OF' 294) #(501 'OFF' 295) #(501 'OFFSET' 296) #(501 'OID' 297) #(501 'OIDS' 298) #(501 'OLD' 299) #(501 'ON' 300) #(501 'ONLY' 301) #(501 'ONLY_DATABASE_STATS' 302) #(501 'OPERATOR' 303) #(501 'OPTION' 304) #(501 'OPTIONS' 305) #(501 'OR' 306) #(501 'ORDER' 307) #(501 'ORDINALITY' 308) #(501 'OTHERS' 309) #(501 'OUTER' 310) #(501 'OUTPUT' 311) #(501 'OVER' 312) #(501 'OVERRIDING' 313) #(501 'OWNED' 314) #(501 'OWNER' 315) #(501 'PARALLEL' 316) #(501 'PARAMETER' 317) #(501 'PARSER' 318) #(501 'PARTIAL' 319) #(501 'PARTITION' 320) #(501 'PASSEDBYVALUE' 321) #(501 'PASSWORD' 322) #(501 'PERMISSIVE' 323) #(501 'PLACING' 324) #(501 'PLAIN' 325) #(501 'PLANS' 326) #(501 'POLICY' 327) #(501 'PRECEDING' 328) #(501 'PRECISION' 329) #(501 'PREFERRED' 330) #(501 'PREPARE' 331) #(501 'PREPARED' 332) #(501 'PRESERVE' 333) #(501 'PRIMARY' 334) #(501 'PRIOR' 335) #(501 'PRIVILEGES' 336) #(501 'PROCEDURAL' 337) #(501 'PROCEDURE' 338) #(501 'PROCEDURES' 339) #(501 'PROCESS_MAIN' 340) #(501 'PROCESS_TOAST' 341) #(501 'PROGRAM' 342) #(501 'PROVIDER' 343) #(501 'PUBLIC' 344) #(501 'PUBLICATION' 345) #(501 'RANGE' 346) #(501 'READ' 347) #(501 'READ_ONLY' 348) #(501 'READ_WRITE' 349) #(501 'REASSIGN' 350) #(501 'RECEIVE' 351) #(501 'RECURSIVE' 352) #(501 'REFERENCES' 353) #(501 'REFERENCING' 354) #(501 'REFRESH' 355) #(501 'REINDEX' 356) #(501 'RELATIVE' 357) #(501 'RELEASE' 358) #(501 'REMAINDER' 359) #(501 'RENAME' 360) #(501 'REPEATABLE' 361) #(501 'REPLACE' 362) #(501 'REPLICA' 363) #(501 'REPLICATION' 364) #(501 'RESET' 365) #(501 'RESTART' 366) #(501 'RESTRICT' 367) #(501 'RESTRICTED' 368) #(501 'RESTRICTIVE' 369) #(501 'RETURNING' 370) #(501 'RETURNS' 371) #(501 'REVOKE' 372) #(501 'RIGHT' 373) #(501 'RIGHTARG' 374) #(501 'ROLE' 375) #(501 'ROLLBACK' 376) #(501 'ROLLUP' 377) #(501 'ROUTINE' 378) #(501 'ROUTINES' 379) #(501 'ROW' 380) #(501 'ROWS' 381) #(501 'RULE' 382) #(501 'RULES' 383) #(501 'SAFE' 384) #(501 'SAVEPOINT' 385) #(501 'SCHEMA' 386) #(501 'SCHEMAS' 387) #(501 'SCROLL' 388) #(501 'SEARCH' 389) #(501 'SECURITY' 390) #(501 'SELECT' 391) #(501 'SEND' 392) #(501 'SEQUENCE' 393) #(501 'SEQUENCES' 394) #(501 'SERIALFUNC' 395) #(501 'SERIALIZABLE' 396) #(501 'SERVER' 397) #(501 'SESSION' 398) #(501 'SESSION_USER' 399) #(501 'SET' 400) #(501 'SETS' 401) #(501 'SETTINGS' 402) #(501 'SFUNC' 403) #(501 'SHARE' 404) #(501 'SHAREABLE' 405) #(501 'SHOW' 406) #(501 'SIMPLE' 407) #(501 'SKIP' 408) #(501 'SKIP_DATABASE_STATS' 409) #(501 'SKIP_LOCKED' 410) #(501 'SNAPSHOT' 411) #(501 'SORTOP' 412) #(501 'SQL' 413) #(501 'SSPACE' 414) #(501 'STABLE' 415) #(501 'START' 416) #(501 'STATEMENT' 417) #(501 'STATISTICS' 418) #(501 'STDIN' 419) #(501 'STDOUT' 420) #(501 'STORAGE' 421) #(501 'STORED' 422) #(501 'STRATEGY' 423) #(501 'STRICT' 424) #(501 'STYPE' 425) #(501 'SUBSCRIPT' 426) #(501 'SUBSCRIPTION' 427) #(501 'SUBTYPE' 428) #(501 'SUBTYPE_DIFF' 429) #(501 'SUBTYPE_OPCLASS' 430) #(501 'SUMMARY' 431) #(501 'SUPERUSER' 432) #(501 'SUPPORT' 433) #(501 'SYSID' 434) #(501 'SYSTEM' 435) #(501 'TABLE' 436) #(501 'TABLES' 437) #(501 'TABLESAMPLE' 438) #(501 'TABLESPACE' 439) #(501 'TEMP' 440) #(501 'TEMPLATE' 441) #(501 'TEMPORARY' 442) #(501 'TEXT' 443) #(501 'THEN' 444) #(501 'TIES' 445) #(501 'TIME' 446) #(501 'TIMING' 447) #(501 'TO' 448) #(501 'TRAILING' 449) #(501 'TRANSACTION' 450) #(501 'TRANSFORM' 451) #(501 'TRIGGER' 452) #(501 'TRUE' 453) #(501 'TRUNCATE' 454) #(501 'TRUSTED' 455) #(501 'TYPE' 456) #(501 'TYPES' 457) #(501 'TYPMOD_IN' 458) #(501 'TYPMOD_OUT' 459) #(501 'UNBOUNDED' 460) #(501 'UNCOMMITTED' 461) #(501 'UNION' 462) #(501 'UNIQUE' 463) #(501 'UNLISTEN' 464) #(501 'UNLOGGED' 465) #(501 'UNSAFE' 466) #(501 'UNTIL' 467) #(501 'UPDATE' 468) #(501 'USAGE' 469) #(501 'USER' 470) #(501 'USING' 471) #(501 'VACUUM' 472) #(501 'VALID' 473) #(501 'VALIDATE' 474) #(501 'VALIDATOR' 475) #(501 'VALUE' 476) #(501 'VALUES' 477) #(501 'VARIABLE' 478) #(501 'VARIADIC' 479) #(501 'VARYING' 480) #(501 'VERBOSE' 481) #(501 'VERSION' 482) #(501 'VIEW' 483) #(501 'VOLATILE' 484) #(501 'WAL' 485) #(501 'WHEN' 486) #(501 'WHERE' 487) #(501 'WINDOW' 488) #(501 'WITH' 489) #(501 'WITHIN' 490) #(501 'WITHOUT' 491) #(501 'WORK' 492) #(501 'WRAPPER' 493) #(501 'WRITE' 494) #(501 'XML' 495) #(501 'YAML' 496) #(501 'ZONE' 497))
 		do: [ :each | 
 			(keywordMap at: each first ifAbsentPut: [ Dictionary new ])
 				at: (each at: 2)
@@ -30,7 +30,7 @@ PsqlScanner >> checkOperator [
 
 { #category : #generated }
 PsqlScanner >> dollarStringId [
-	^ 1868
+	^ 1861
 ]
 
 { #category : #private }
@@ -44,12 +44,12 @@ PsqlScanner >> dollarStringStart [
 
 { #category : #generated }
 PsqlScanner >> emptySymbolTokenId [
-	^ 1869
+	^ 1862
 ]
 
 { #category : #generated }
 PsqlScanner >> errorTokenId [
-	^ 1870
+	^ 1863
 ]
 
 { #category : #generated }
@@ -78,12 +78,12 @@ PsqlScanner >> multilineComment [
 
 { #category : #generated }
 PsqlScanner >> operatorId [
-	^ 510
+	^ 506
 ]
 
 { #category : #generated }
 PsqlScanner >> scan1 [
-	[ self recordMatch: #(509).
+	[ self recordMatch: #(505).
 	self step.
 	('-/' includes: currentCharacter) ifTrue: [ ^ self scan2 ].
 	('!#' includes: currentCharacter)
@@ -96,7 +96,7 @@ PsqlScanner >> scan1 [
 
 { #category : #generated }
 PsqlScanner >> scan10 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $_ ifTrue: [ ^ self scan9 ].
 	currentCharacter isDigit ] whileTrue.
@@ -105,7 +105,7 @@ PsqlScanner >> scan10 [
 
 { #category : #generated }
 PsqlScanner >> scan11 [
-	self recordMatch: #(508).
+	self recordMatch: #(504).
 	self step.
 	currentCharacter isDigit ifTrue: [ ^ self scan7 ].
 	('Ee' includes: currentCharacter) ifTrue: [ ^ self scan8 ].
@@ -114,7 +114,7 @@ PsqlScanner >> scan11 [
 
 { #category : #generated }
 PsqlScanner >> scan12 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $. ifTrue: [ ^ self scan11 ].
 	currentCharacter == $_ ifTrue: [ ^ self scan13 ].
@@ -132,7 +132,7 @@ PsqlScanner >> scan13 [
 
 { #category : #generated }
 PsqlScanner >> scan14 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $_ ifTrue: [ ^ self scan15 ].
 	currentCharacter between: $0 and: $1 ] whileTrue.
@@ -148,7 +148,7 @@ PsqlScanner >> scan15 [
 
 { #category : #generated }
 PsqlScanner >> scan16 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $_ ifTrue: [ ^ self scan17 ].
 	currentCharacter between: $0 and: $7 ] whileTrue.
@@ -164,7 +164,7 @@ PsqlScanner >> scan17 [
 
 { #category : #generated }
 PsqlScanner >> scan18 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $_ ifTrue: [ ^ self scan19 ].
 	currentCharacter isDigit
@@ -184,7 +184,7 @@ PsqlScanner >> scan19 [
 
 { #category : #generated }
 PsqlScanner >> scan2 [
-	self recordMatch: #(509).
+	self recordMatch: #(505).
 	self step.
 	currentCharacter == $/ ifTrue: [ ^ self scan3 ].
 	(('!#' includes: currentCharacter)
@@ -200,7 +200,7 @@ PsqlScanner >> scan2 [
 PsqlScanner >> scan20 [
 	[ self step.
 	currentCharacter == $"
-		ifTrue: [ self recordMatch: #(505).
+		ifTrue: [ self recordMatch: #(501).
 			self step.
 			currentCharacter == $" ifTrue: [ ^ self scan20 ].
 			('Uu' includes: currentCharacter) ifTrue: [ ^ self scan21 ].
@@ -248,7 +248,7 @@ PsqlScanner >> scan21 [
 PsqlScanner >> scan22 [
 	[ self step.
 	currentCharacter == $'
-		ifTrue: [ self recordMatch: #(505).
+		ifTrue: [ self recordMatch: #(501).
 			self step.
 			currentCharacter == $' ifTrue: [ ^ self scan22 ].
 			^ self reportLastMatch ].
@@ -259,7 +259,7 @@ PsqlScanner >> scan22 [
 PsqlScanner >> scan23 [
 	[ self step.
 	currentCharacter == $'
-		ifTrue: [ self recordMatch: #(505).
+		ifTrue: [ self recordMatch: #(501).
 			self step.
 			currentCharacter == $' ifTrue: [ ^ self scan23 ].
 			('Uu' includes: currentCharacter) ifTrue: [ ^ self scan24 ].
@@ -300,7 +300,7 @@ PsqlScanner >> scan24 [
 PsqlScanner >> scan25 [
 	[ self step.
 	currentCharacter == $'
-		ifTrue: [ self recordMatch: #(504).
+		ifTrue: [ self recordMatch: #(500).
 			self step.
 			currentCharacter == $' ifTrue: [ ^ self scan25 ].
 			('Uu' includes: currentCharacter) ifTrue: [ ^ self scan26 ].
@@ -354,7 +354,7 @@ PsqlScanner >> scan3 [
 PsqlScanner >> scan4 [
 	[ self step.
 	currentCharacter == $"
-		ifTrue: [ self recordMatch: #(505).
+		ifTrue: [ self recordMatch: #(501).
 			self step.
 			currentCharacter == $" ifTrue: [ ^ self scan4 ].
 			^ self reportLastMatch ].
@@ -365,7 +365,7 @@ PsqlScanner >> scan4 [
 { #category : #generated }
 PsqlScanner >> scan5 [
 	[ self step.
-	currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(507) ].
+	currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(503) ].
 	true ] whileTrue
 ]
 
@@ -373,7 +373,7 @@ PsqlScanner >> scan5 [
 PsqlScanner >> scan6 [
 	[ self step.
 	currentCharacter == $'
-		ifTrue: [ self recordMatch: #(504).
+		ifTrue: [ self recordMatch: #(500).
 			self step.
 			currentCharacter == $' ifTrue: [ ^ self scan6 ].
 			^ self reportLastMatch ].
@@ -382,7 +382,7 @@ PsqlScanner >> scan6 [
 
 { #category : #generated }
 PsqlScanner >> scan7 [
-	[ self recordMatch: #(508).
+	[ self recordMatch: #(504).
 	self step.
 	currentCharacter == $_
 		ifTrue: [ self step.
@@ -418,7 +418,7 @@ PsqlScanner >> scanForToken [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX1 [
-	self recordMatch: #(6 508).
+	self recordMatch: #(6 504).
 	self step.
 	currentCharacter == $. ifTrue: [ ^ self scan11 ].
 	currentCharacter == $_ ifTrue: [ ^ self scan13 ].
@@ -437,7 +437,7 @@ PsqlScanner >> scanForTokenX1 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX10 [
-	[ self recordMatch: #(511).
+	[ self recordMatch: #(507).
 	self step.
 	currentCharacter isSeparator or: [ currentCharacter == Character pageUp ] ]
 		whileTrue.
@@ -446,7 +446,7 @@ PsqlScanner >> scanForTokenX10 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX11 [
-	[ self recordMatch: #(505).
+	[ self recordMatch: #(501).
 	self step.
 	currentCharacter isAlphaNumeric or: [ '$_' includes: currentCharacter ] ]
 		whileTrue
@@ -463,8 +463,8 @@ PsqlScanner >> scanForTokenX12 [
 { #category : #generated }
 PsqlScanner >> scanForTokenX13 [
 	currentCharacter == $= ifTrue: [ ^ self scanForTokenX3 ].
-	currentCharacter == $[ ifTrue: [ ^ self recordAndReportMatch: #(502) ].
-	currentCharacter == $] ifTrue: [ ^ self recordAndReportMatch: #(503) ].
+	currentCharacter == $[ ifTrue: [ ^ self recordAndReportMatch: #(498) ].
+	currentCharacter == $] ifTrue: [ ^ self recordAndReportMatch: #(499) ].
 	currentCharacter isDigit ifTrue: [ ^ self scan12 ].
 	('Bb' includes: currentCharacter) ifTrue: [ ^ self scanForTokenX5 ].
 	('Uu' includes: currentCharacter) ifTrue: [ ^ self scanForTokenX6 ].
@@ -512,10 +512,10 @@ PsqlScanner >> scanForTokenX1X2 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX2 [
-	self recordMatch: #(509).
+	self recordMatch: #(505).
 	self step.
 	currentCharacter == $-
-		ifTrue: [ [ self recordMatch: #(512).
+		ifTrue: [ [ self recordMatch: #(508).
 			self step.
 			currentCharacter <= Character tab
 				or: [ (currentCharacter between: Character pageUp and: Character newPage)
@@ -533,10 +533,10 @@ PsqlScanner >> scanForTokenX2 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX3 [
-	self recordMatch: #(12 509 510).
+	self recordMatch: #(12 505 506).
 	self step.
 	currentCharacter == $>
-		ifTrue: [ self recordMatch: #(509 510).
+		ifTrue: [ self recordMatch: #(505 506).
 			self step ].
 	('-/' includes: currentCharacter) ifTrue: [ ^ self scan2 ].
 	(('!#' includes: currentCharacter)
@@ -550,7 +550,7 @@ PsqlScanner >> scanForTokenX3 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX4 [
-	self recordMatch: #(3 509 510).
+	self recordMatch: #(3 505 506).
 	self step.
 	('-/' includes: currentCharacter) ifTrue: [ ^ self scan2 ].
 	(('!#' includes: currentCharacter)
@@ -564,15 +564,15 @@ PsqlScanner >> scanForTokenX4 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX5 [
-	self recordMatch: #(505).
+	self recordMatch: #(501).
 	self step.
 	currentCharacter == $'
 		ifTrue: [ [ self step.
-			currentCharacter == $' ifTrue: [ ^ self recordAndReportMatch: #(506) ].
+			currentCharacter == $' ifTrue: [ ^ self recordAndReportMatch: #(502) ].
 			currentCharacter between: $0 and: $1 ] whileTrue.
 			^ self reportLastMatch ].
 	(currentCharacter isAlphaNumeric or: [ '$_' includes: currentCharacter ])
-		ifTrue: [ [ self recordMatch: #(505).
+		ifTrue: [ [ self recordMatch: #(501).
 			self step.
 			currentCharacter isAlphaNumeric or: [ '$_' includes: currentCharacter ] ]
 				whileTrue ].
@@ -581,7 +581,7 @@ PsqlScanner >> scanForTokenX5 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX6 [
-	self recordMatch: #(505).
+	self recordMatch: #(501).
 	self step.
 	currentCharacter == $&
 		ifTrue: [ self step.
@@ -589,7 +589,7 @@ PsqlScanner >> scanForTokenX6 [
 			currentCharacter == $' ifTrue: [ ^ self scan25 ].
 			^ self reportLastMatch ].
 	(currentCharacter isAlphaNumeric or: [ '$_' includes: currentCharacter ])
-		ifTrue: [ [ self recordMatch: #(505).
+		ifTrue: [ [ self recordMatch: #(501).
 			self step.
 			currentCharacter isAlphaNumeric or: [ '$_' includes: currentCharacter ] ]
 				whileTrue ].
@@ -598,7 +598,7 @@ PsqlScanner >> scanForTokenX6 [
 
 { #category : #generated }
 PsqlScanner >> scanForTokenX7 [
-	self recordMatch: #(7 508).
+	self recordMatch: #(7 504).
 	self step.
 	currentCharacter == $. ifTrue: [ ^ self scan11 ].
 	currentCharacter == $_ ifTrue: [ ^ self scan13 ].
@@ -610,11 +610,11 @@ PsqlScanner >> scanForTokenX7 [
 { #category : #generated }
 PsqlScanner >> scanForTokenX8 [
 	self step.
-	currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(507) ].
+	currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(503) ].
 	(currentCharacter between: $1 and: $9)
-		ifTrue: [ [ self recordMatch: #(514).
+		ifTrue: [ [ self recordMatch: #(510).
 			self step.
-			currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(507) ].
+			currentCharacter == $$ ifTrue: [ ^ self recordAndReportMatch: #(503) ].
 			currentCharacter isDigit ] whileTrue ].
 	^ self scan5
 ]
@@ -630,7 +630,7 @@ PsqlScanner >> scanForTokenX9 [
 
 { #category : #generated }
 PsqlScanner >> tokenActions [
-	^ #(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil #dollarStringStart nil #checkOperator nil #whitespace #comment #multilineComment)
+	^ #(nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil #dollarStringStart nil #checkOperator nil #whitespace #comment #multilineComment)
 ]
 
 { #category : #generated }
