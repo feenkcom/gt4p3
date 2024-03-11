@@ -19,16 +19,16 @@ LePostgresqlSnippetElement >> initializeLanguageElement [
 	aptitude := BrGlamorousWithDropdownAptitude
 		handle: [
 			dropdownHandleButton := BrButton new
-				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonWithLabelAptitude;
+				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
 				label: languageElement label;
 				beSmallSize ]
-		content: [ | form formElement |
+		content: [ | form |
 			form := P3ClientLoginPane new.
 			form loadFrom: self defaultConnection.
 			form inspectAction: [ :_ :aButton |
 				self phlow spawnObject: self defaultConnection.
 				aButton fireEvent: BrDropdownHideWish new ].
-			formElement := form asGtMagritteViewModel asElement ].
+			form asGtMagritteViewModel asElement padding: (BlInsets all: 10) ].
 	languageElement := BrButton new
 		aptitude: BrGlamorousButtonWithLabelAptitude + aptitude - BrGlamorousButtonExteriorAptitude;
 		beSmallSize;

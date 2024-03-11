@@ -8,7 +8,8 @@ Class {
 		'password',
 		'database',
 		'ssl',
-		'options'
+		'options',
+		'inspectAction'
 	],
 	#category : #'GToolkit4P3-UI'
 }
@@ -80,6 +81,18 @@ P3ClientLoginPane >> initialize [
 	ssl := false
 ]
 
+{ #category : #accessing }
+P3ClientLoginPane >> inspectAction [
+	^ inspectAction ifNil: [ 
+		[ :aModel :aButton :aMemento :aDescription |
+			aButton phlow spawnObject: self defaultConnection ] ]
+]
+
+{ #category : #accessing }
+P3ClientLoginPane >> inspectAction: anAction [
+	inspectAction := anAction
+]
+
 { #category : #testing }
 P3ClientLoginPane >> isValidPsqlUrl: string [
 	"postgresql://username:password@localhost:5432/databasename?sslmode=require"
@@ -102,6 +115,7 @@ P3ClientLoginPane >> magritteAcceptAction [
 	<magritteActionDescription>
 	^ super magritteAcceptAction
 		beAlwaysEnabled;
+		label: 'Accept the changes and initialize a new connection';
 		onSuccessCallback: (GtMagritteCallback new
 				action: [ :aModel :aButton :aMemento :aDescription |
 					self saveTo: GtP3ConnectionManager uniqueInstance defaultConnection.
@@ -112,6 +126,18 @@ P3ClientLoginPane >> magritteAcceptAction [
 P3ClientLoginPane >> magritteCancelAction [
 	<magritteActionDescription>
 	^ nil
+]
+
+{ #category : #accessing }
+P3ClientLoginPane >> magritteInspectAction [
+	<magritteActionDescription>
+	^ MAActionDescription new
+		priority: 20;
+		label: 'Inspect the current connection';
+		isLabelVisible: false;
+		blocIcon: BrGlamorousVectorIcons inspect;
+		action: self inspectAction;
+		beToolbarAction
 ]
 
 { #category : #accessing }
