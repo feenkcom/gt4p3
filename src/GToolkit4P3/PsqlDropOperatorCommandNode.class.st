@@ -3,9 +3,10 @@ Class {
 	#superclass : #PsqlCommandNode,
 	#instVars : [
 		'_s',
-		'names',
+		'operatorName',
 		'leftTypes',
-		'rightTypes'
+		'rightTypes',
+		'names'
 	],
 	#category : #'GToolkit4P3-Parser'
 }
@@ -39,9 +40,9 @@ PsqlDropOperatorCommandNode >> compositeTokenVariables [
 PsqlDropOperatorCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
-	names := OrderedCollection new: 2.
 	leftTypes := OrderedCollection new: 2.
 	rightTypes := OrderedCollection new: 2.
+	names := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
@@ -67,6 +68,16 @@ PsqlDropOperatorCommandNode >> names: anOrderedCollection [
 ]
 
 { #category : #generated }
+PsqlDropOperatorCommandNode >> operatorName [
+	^ operatorName
+]
+
+{ #category : #generated }
+PsqlDropOperatorCommandNode >> operatorName: aSmaCCToken [
+	operatorName := aSmaCCToken
+]
+
+{ #category : #generated }
 PsqlDropOperatorCommandNode >> rightTypes [
 	^ rightTypes
 ]
@@ -74,4 +85,9 @@ PsqlDropOperatorCommandNode >> rightTypes [
 { #category : #generated }
 PsqlDropOperatorCommandNode >> rightTypes: anOrderedCollection [
 	rightTypes := anOrderedCollection
+]
+
+{ #category : #generated }
+PsqlDropOperatorCommandNode >> tokenVariables [
+	^ #(#operatorName)
 ]

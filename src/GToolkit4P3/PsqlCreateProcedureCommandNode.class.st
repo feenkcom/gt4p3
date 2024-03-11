@@ -58,12 +58,12 @@ PsqlCreateProcedureCommandNode >> argTypes: anOrderedCollection [
 
 { #category : #generated }
 PsqlCreateProcedureCommandNode >> compositeNodeVariables [
-	^ #(#values #sqlBodies #argTypes #defaultExpressions)
+	^ #(#values #definitions #objFiles #linkSymbols #sqlBodies #argTypes #defaultExpressions)
 ]
 
 { #category : #generated }
 PsqlCreateProcedureCommandNode >> compositeTokenVariables [
-	^ #(#_s #langNames #typeNames #configurationParameters #definitions #objFiles #linkSymbols #argNames)
+	^ #(#_s #langNames #typeNames #configurationParameters #argNames)
 ]
 
 { #category : #generated }
@@ -95,7 +95,9 @@ PsqlCreateProcedureCommandNode >> definitions [
 
 { #category : #generated }
 PsqlCreateProcedureCommandNode >> definitions: anOrderedCollection [
-	definitions := anOrderedCollection
+	self setParents: self definitions to: nil.
+	definitions := anOrderedCollection.
+	self setParents: self definitions to: self
 ]
 
 { #category : #'generated-initialize-release' }
@@ -132,7 +134,9 @@ PsqlCreateProcedureCommandNode >> linkSymbols [
 
 { #category : #generated }
 PsqlCreateProcedureCommandNode >> linkSymbols: anOrderedCollection [
-	linkSymbols := anOrderedCollection
+	self setParents: self linkSymbols to: nil.
+	linkSymbols := anOrderedCollection.
+	self setParents: self linkSymbols to: self
 ]
 
 { #category : #generated }
@@ -159,7 +163,9 @@ PsqlCreateProcedureCommandNode >> objFiles [
 
 { #category : #generated }
 PsqlCreateProcedureCommandNode >> objFiles: anOrderedCollection [
-	objFiles := anOrderedCollection
+	self setParents: self objFiles to: nil.
+	objFiles := anOrderedCollection.
+	self setParents: self objFiles to: self
 ]
 
 { #category : #generated }

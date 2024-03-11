@@ -936,6 +936,11 @@ TPsqlProgramNodeVisitor >> visitInsertCommand: anInsertCommand [
 ]
 
 { #category : #generated }
+TPsqlProgramNodeVisitor >> visitIntervalExpression: anIntervalExpression [
+	^ self visitExpression: anIntervalExpression
+]
+
+{ #category : #generated }
 TPsqlProgramNodeVisitor >> visitListExpression: aListExpression [
 	^ self visitExpression: aListExpression
 ]
