@@ -14,7 +14,7 @@ Class {
 	#category : #'GToolkit4P3-UI'
 }
 
-{ #category : #accessing }
+{ #category : #converting }
 P3ClientLoginPane >> asElement [
 	^ self asGtMagritteViewModel asElement padding: (BlInsets all: 10)
 ]
@@ -29,7 +29,7 @@ P3ClientLoginPane >> database: anObject [
 	database := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> databaseDescription [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -60,7 +60,7 @@ P3ClientLoginPane >> host: aString [
 	host := aString
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> hostDescription [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -110,7 +110,7 @@ P3ClientLoginPane >> loadFrom: p3Client [
 	self options: p3Client startupOptions
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> magritteAcceptAction [
 	<magritteActionDescription>
 	^ super magritteAcceptAction
@@ -118,17 +118,17 @@ P3ClientLoginPane >> magritteAcceptAction [
 		label: 'Accept the changes and initialize a new connection';
 		onSuccessCallback: (GtMagritteCallback new
 				action: [ :aModel :aButton :aMemento :aDescription |
-					self saveTo: GtP3ConnectionManager uniqueInstance defaultConnection.
+					self saveToDefaultConnection.
 					aButton phlow spawnObject: self defaultConnection ])
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> magritteCancelAction [
 	<magritteActionDescription>
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> magritteInspectAction [
 	<magritteActionDescription>
 	^ MAActionDescription new
@@ -150,7 +150,7 @@ P3ClientLoginPane >> options: aString [
 	options := aString
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> optionsDescription [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -162,7 +162,7 @@ P3ClientLoginPane >> optionsDescription [
 		default: ''
 ]
 
-{ #category : #accessing }
+{ #category : #converting }
 P3ClientLoginPane >> p3Client [
 	| p3Client |
 	p3Client := P3Client new.
@@ -180,7 +180,7 @@ P3ClientLoginPane >> password: aString [
 	password := aString
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> passwordDescription [
 	<magritteDescription>
 	^ MAPasswordDescription new
@@ -200,7 +200,7 @@ P3ClientLoginPane >> port: anInteger [
 	port := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> portDescription [
 	<magritteDescription>
 	^ MANumberDescription new
@@ -220,6 +220,20 @@ P3ClientLoginPane >> saveTo: p3Client [
 	p3Client startupOptions: self options
 ]
 
+{ #category : #utils }
+P3ClientLoginPane >> saveToDefaultConnection [
+	"Apply the login/connection settings that I hold to the default connection.
+	If necessary close the existing default connection.
+	Enforce opening the connection to make sure it works."
+	
+	| p3Client |
+	p3Client := self defaultConnection.
+	p3Client isConnected ifTrue: [ p3Client close ].
+	self saveTo: p3Client.
+	p3Client ensureConnected.
+	self assert: p3Client isWorking
+]
+
 { #category : #accessing }
 P3ClientLoginPane >> ssl [
 	^ ssl
@@ -230,7 +244,7 @@ P3ClientLoginPane >> ssl: aBoolean [
 	ssl := aBoolean
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> sslDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -254,7 +268,7 @@ P3ClientLoginPane >> url: aUrlOrString [
 	self loadFrom: p3Client
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> urlDescription [
 	"<magritteDescription>"
 	
@@ -281,7 +295,7 @@ P3ClientLoginPane >> user: aString [
 	user := aString
 ]
 
-{ #category : #accessing }
+{ #category : #magritte }
 P3ClientLoginPane >> userDescription [
 	<magritteDescription>
 	^ MAStringDescription new

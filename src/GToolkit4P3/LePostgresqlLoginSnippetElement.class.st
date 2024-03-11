@@ -26,12 +26,20 @@ LePostgresqlLoginSnippetElement >> initialize [
 			c frame horizontal alignLeft.
 			c frame vertical alignTop ].
 	formElement hMatchParent.
-	contentElement := formElement
-]
-
-{ #category : #private }
-LePostgresqlLoginSnippetElement >> onConnectionEstablishedClosed: anAnnouncement [
-	self inUIProcessDo: [ "self updateIndicatorLabel"]
+	
+	indicatorElement := BrLabel new
+		aptitude: (BrGlamorousLabelAptitude new glamorousRegularSmallSize
+		foreground: BrGlamorousColors textMarkupColor);
+		margin: (BlInsets top: 5 right: 5);
+		text: 'PostgreSQL login'.
+	indicatorElement constraintsDo: [ :c |
+		c frame horizontal alignRight.
+		c frame vertical alignTop ].
+		
+	contentElement := BrFrame new
+		hMatchParent;
+		vFitContent;
+		addChildren: { formElement. indicatorElement }
 ]
 
 { #category : #accessing }
@@ -42,28 +50,4 @@ LePostgresqlLoginSnippetElement >> snippetContent [
 { #category : #accessing }
 LePostgresqlLoginSnippetElement >> snippetToolbar [
 	^ nil
-]
-
-{ #category : #'api - snippet view model' }
-LePostgresqlLoginSnippetElement >> subscribeToSnippetViewModel [
-	"Is sent after a new Snippet view model is assigned to the element.
-	It is required to unsubscribe from the view model or domain model by implementing
-	#unsubscribeFromSnippetViewModel if elements subscribe to them"
-	
-	super subscribeToSnippetViewModel.
-	
-	P3LogEvent announcer weak
-		when: P3ConnectionEstablishedEvent , P3ConnectionClosedEvent
-		send: #onConnectionEstablishedClosed:
-		to: self
-]
-
-{ #category : #'api - snippet view model' }
-LePostgresqlLoginSnippetElement >> unsubscribeFromSnippetViewModel [
-	"Is sent before a new Snippet view model is assigned to the element.
-	Elements that subscribe to Snippet view model in domain model are required to implement this methods"
-	
-	super unsubscribeFromSnippetViewModel.
-	
-	P3LogEvent announcer unsubscribe: self
 ]
