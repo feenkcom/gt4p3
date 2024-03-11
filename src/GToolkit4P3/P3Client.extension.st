@@ -106,6 +106,17 @@ P3Client >> gtSchemasFor: aView [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Client >> gtSpotterTablesFor: aSearch [
+	<gtSearch>
+	^ aSearch list
+		priority: 10;
+		title: 'Tables';
+		items: [ self tables ];
+		itemName: [ :table | table name ];
+		filterBySubstring
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Client >> gtStartStopActionFor: anAction [
 	<gtAction>
 	^ anAction button
