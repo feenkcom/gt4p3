@@ -45,7 +45,7 @@ PsqlColumnComparison >> isPositionModified [
 
 { #category : #testing }
 PsqlColumnComparison >> isTypeModified [
-	^ (scriptObject ifNotNil: [ self normalizeTypeName: scriptObject type ])
+	^ (scriptObject ifNotNil: [ self normalizeTypeName: scriptObject dataType ])
 		~= (databaseObject ifNotNil: [ self normalizeTypeName: databaseObject dataType ])
 ]
 

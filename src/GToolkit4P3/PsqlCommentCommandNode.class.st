@@ -139,8 +139,10 @@ PsqlCommentCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCommentCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCommentCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #generated }
@@ -195,7 +197,7 @@ PsqlCommentCommandNode >> leftType: aSmaCCToken [
 
 { #category : #generated }
 PsqlCommentCommandNode >> nodeVariables [
-	^ #(#aggregateSignature #column #tableName #largeObjectOid)
+	^ #(#aggregateSignature #column #tableName #functionName #largeObjectOid)
 ]
 
 { #category : #generated }
@@ -312,7 +314,7 @@ PsqlCommentCommandNode >> targetType: aSmaCCToken [
 
 { #category : #generated }
 PsqlCommentCommandNode >> tokenVariables [
-	^ #(#objectName #stringLiteral #aggregateName #sourceType #targetType #constraintName #domainName #functionName #operatorName #leftType #rightType #indexMethod #policyName #procedureName #routineName #ruleName #typeName #langName #triggerName)
+	^ #(#objectName #stringLiteral #aggregateName #sourceType #targetType #constraintName #domainName #operatorName #leftType #rightType #indexMethod #policyName #procedureName #routineName #ruleName #typeName #langName #triggerName)
 ]
 
 { #category : #generated }

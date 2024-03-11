@@ -106,8 +106,10 @@ PsqlSecurityLabelCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlSecurityLabelCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlSecurityLabelCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -132,7 +134,7 @@ PsqlSecurityLabelCommandNode >> largeObjectOid: aPsqlExpressionNode [
 
 { #category : #generated }
 PsqlSecurityLabelCommandNode >> nodeVariables [
-	^ #(#columnName #aggregateSignature #largeObjectOid)
+	^ #(#columnName #aggregateSignature #functionName #largeObjectOid)
 ]
 
 { #category : #generated }
@@ -187,5 +189,5 @@ PsqlSecurityLabelCommandNode >> stringLiteral: aSmaCCToken [
 
 { #category : #generated }
 PsqlSecurityLabelCommandNode >> tokenVariables [
-	^ #(#objectName #stringLiteral #aggregateName #functionName #procedureName #routineName #provider)
+	^ #(#objectName #stringLiteral #aggregateName #procedureName #routineName #provider)
 ]

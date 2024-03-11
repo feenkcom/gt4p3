@@ -24,6 +24,13 @@ PsqlConstraint >> constraintColumns [
 ]
 
 { #category : #accessing }
+PsqlConstraint >> constraintName [
+	^ name
+		ifNil: [ (self class name allButFirst: 4) asString , '_'
+				, self node startPosition printString ]
+]
+
+{ #category : #accessing }
 PsqlConstraint >> install [
 ]
 

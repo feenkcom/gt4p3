@@ -74,12 +74,12 @@ PsqlRevokeCommandNode >> columnNames: anOrderedCollection [
 
 { #category : #generated }
 PsqlRevokeCommandNode >> compositeNodeVariables [
-	^ #(#tableNames #columnNames)
+	^ #(#tableNames #columnNames #functionNames)
 ]
 
 { #category : #generated }
 PsqlRevokeCommandNode >> compositeTokenVariables [
-	^ #(#_s #userNames #schemaNames #sequenceNames #databaseNames #domainNames #fdwNames #serverNames #functionNames #argNames #argTypes #langNames #loids #configurationParameters #tablespaceNames #typeNames #roleNames)
+	^ #(#_s #userNames #schemaNames #sequenceNames #databaseNames #domainNames #fdwNames #serverNames #argNames #argTypes #langNames #loids #configurationParameters #tablespaceNames #typeNames #roleNames)
 ]
 
 { #category : #generated }
@@ -129,7 +129,9 @@ PsqlRevokeCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlRevokeCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #'generated-initialize-release' }

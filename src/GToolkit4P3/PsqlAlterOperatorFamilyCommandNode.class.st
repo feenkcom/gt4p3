@@ -46,12 +46,12 @@ PsqlAlterOperatorFamilyCommandNode >> argumentTypes: anOrderedCollection [
 
 { #category : #generated }
 PsqlAlterOperatorFamilyCommandNode >> compositeNodeVariables [
-	^ #(#strategyNumbers #supportNumbers)
+	^ #(#strategyNumbers #supportNumbers #functionNames)
 ]
 
 { #category : #generated }
 PsqlAlterOperatorFamilyCommandNode >> compositeTokenVariables [
-	^ #(#_s #operatorNames #opTypes #sortFamilyNames #functionNames #argumentTypes)
+	^ #(#_s #operatorNames #opTypes #sortFamilyNames #argumentTypes)
 ]
 
 { #category : #generated }
@@ -61,7 +61,9 @@ PsqlAlterOperatorFamilyCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlAlterOperatorFamilyCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #generated }

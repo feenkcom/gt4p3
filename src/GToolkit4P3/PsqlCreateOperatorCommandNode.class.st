@@ -51,8 +51,10 @@ PsqlCreateOperatorCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCreateOperatorCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCreateOperatorCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -105,7 +107,7 @@ PsqlCreateOperatorCommandNode >> negOp: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateOperatorCommandNode >> nodeVariables [
-	^ #(#name)
+	^ #(#name #functionName)
 ]
 
 { #category : #generated }
@@ -130,5 +132,5 @@ PsqlCreateOperatorCommandNode >> rightType: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateOperatorCommandNode >> tokenVariables [
-	^ #(#functionName #rightType #comOp #negOp #resProc #joinProc #leftType)
+	^ #(#rightType #comOp #negOp #resProc #joinProc #leftType)
 ]

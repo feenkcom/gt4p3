@@ -84,12 +84,12 @@ PsqlDeleteCommandNode >> columnDefinitions: anOrderedCollection [
 
 { #category : #generated }
 PsqlDeleteCommandNode >> compositeNodeVariables [
-	^ #(#tableNames #args #seeds #selects #joinConditions #outputExpressions #withQueries)
+	^ #(#tableNames #args #seeds #selects #functionNames #joinConditions #outputExpressions #withQueries)
 ]
 
 { #category : #generated }
 PsqlDeleteCommandNode >> compositeTokenVariables [
-	^ #(#_s #aliases #columnAliases #samplingMethods #withQueryNames #functionNames #columnDefinitions #joinColumns #joinUsingAliases #outputNames)
+	^ #(#_s #aliases #columnAliases #samplingMethods #withQueryNames #columnDefinitions #joinColumns #joinUsingAliases #outputNames)
 ]
 
 { #category : #generated }
@@ -121,7 +121,9 @@ PsqlDeleteCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlDeleteCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #'generated-initialize-release' }

@@ -95,12 +95,12 @@ PsqlSelectCommandNode >> columnDefinitions: anOrderedCollection [
 
 { #category : #generated }
 PsqlSelectCommandNode >> compositeNodeVariables [
-	^ #(#values #tableNames #args #seeds #selects #joinConditions #groupBies #orderBies #precedings #followings #partitionBies #usingExpressions #withQueries)
+	^ #(#values #tableNames #args #seeds #selects #functionNames #joinConditions #groupBies #orderBies #precedings #followings #partitionBies #usingExpressions #withQueries)
 ]
 
 { #category : #generated }
 PsqlSelectCommandNode >> compositeTokenVariables [
-	^ #(#_s #outputNames #aliases #columnAliases #samplingMethods #withQueryNames #functionNames #columnDefinitions #joinColumns #joinUsingAliases #windowNames #operators)
+	^ #(#_s #outputNames #aliases #columnAliases #samplingMethods #withQueryNames #columnDefinitions #joinColumns #joinUsingAliases #windowNames #operators)
 ]
 
 { #category : #generated }
@@ -134,7 +134,9 @@ PsqlSelectCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlSelectCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #generated }

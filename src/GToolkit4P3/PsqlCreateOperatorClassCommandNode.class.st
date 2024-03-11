@@ -46,12 +46,12 @@ PsqlCreateOperatorClassCommandNode >> argumentTypes: anOrderedCollection [
 
 { #category : #generated }
 PsqlCreateOperatorClassCommandNode >> compositeNodeVariables [
-	^ #(#strategyNumbers #supportNumbers #storageTypes)
+	^ #(#strategyNumbers #supportNumbers #functionNames #storageTypes)
 ]
 
 { #category : #generated }
 PsqlCreateOperatorClassCommandNode >> compositeTokenVariables [
-	^ #(#_s #operatorNames #opTypes #sortFamilyNames #functionNames #argumentTypes)
+	^ #(#_s #operatorNames #opTypes #sortFamilyNames #argumentTypes)
 ]
 
 { #category : #generated }
@@ -83,7 +83,9 @@ PsqlCreateOperatorClassCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlCreateOperatorClassCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #generated }

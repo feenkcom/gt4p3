@@ -1176,6 +1176,11 @@ TPsqlProgramNodeVisitor >> visitTableConstraint: aTableConstraint [
 ]
 
 { #category : #generated }
+TPsqlProgramNodeVisitor >> visitTimeTypeExpression: aTimeTypeExpression [
+	^ self visitProgram: aTimeTypeExpression
+]
+
+{ #category : #generated }
 TPsqlProgramNodeVisitor >> visitTransactionMode: aTransactionMode [
 	^ self visitProgram: aTransactionMode
 ]

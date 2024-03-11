@@ -4,13 +4,13 @@ Class {
 	#instVars : [
 		'_s',
 		'sequenceName',
-		'dataType',
-		'increment',
-		'minValue',
-		'maxValue',
-		'startWith',
-		'cache',
-		'ownedBy'
+		'dataTypes',
+		'increments',
+		'minValues',
+		'maxValues',
+		'startWiths',
+		'caches',
+		'ownedBies'
 	],
 	#category : #'GToolkit4P3-Parser'
 }
@@ -31,15 +31,20 @@ PsqlCreateSequenceCommandNode >> acceptVisitor: aProgramVisitor [
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> cache [
-	^ cache
+PsqlCreateSequenceCommandNode >> caches [
+	^ caches
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> cache: aPsqlExpressionNode [
-	self cache notNil ifTrue: [ self cache parent: nil ].
-	cache := aPsqlExpressionNode.
-	self cache notNil ifTrue: [ self cache parent: self ]
+PsqlCreateSequenceCommandNode >> caches: anOrderedCollection [
+	self setParents: self caches to: nil.
+	caches := anOrderedCollection.
+	self setParents: self caches to: self
+]
+
+{ #category : #generated }
+PsqlCreateSequenceCommandNode >> compositeNodeVariables [
+	^ #(#dataTypes #increments #minValues #maxValues #startWiths #caches #ownedBies)
 ]
 
 { #category : #generated }
@@ -48,74 +53,81 @@ PsqlCreateSequenceCommandNode >> compositeTokenVariables [
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> dataType [
-	^ dataType
+PsqlCreateSequenceCommandNode >> dataTypes [
+	^ dataTypes
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> dataType: aPsqlProgramNode [
-	self dataType notNil ifTrue: [ self dataType parent: nil ].
-	dataType := aPsqlProgramNode.
-	self dataType notNil ifTrue: [ self dataType parent: self ]
+PsqlCreateSequenceCommandNode >> dataTypes: anOrderedCollection [
+	self setParents: self dataTypes to: nil.
+	dataTypes := anOrderedCollection.
+	self setParents: self dataTypes to: self
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> increment [
-	^ increment
+PsqlCreateSequenceCommandNode >> increments [
+	^ increments
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> increment: aPsqlExpressionNode [
-	self increment notNil ifTrue: [ self increment parent: nil ].
-	increment := aPsqlExpressionNode.
-	self increment notNil ifTrue: [ self increment parent: self ]
+PsqlCreateSequenceCommandNode >> increments: anOrderedCollection [
+	self setParents: self increments to: nil.
+	increments := anOrderedCollection.
+	self setParents: self increments to: self
 ]
 
 { #category : #'generated-initialize-release' }
 PsqlCreateSequenceCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
+	dataTypes := OrderedCollection new: 2.
+	increments := OrderedCollection new: 2.
+	minValues := OrderedCollection new: 2.
+	maxValues := OrderedCollection new: 2.
+	startWiths := OrderedCollection new: 2.
+	caches := OrderedCollection new: 2.
+	ownedBies := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> maxValue [
-	^ maxValue
+PsqlCreateSequenceCommandNode >> maxValues [
+	^ maxValues
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> maxValue: aPsqlExpressionNode [
-	self maxValue notNil ifTrue: [ self maxValue parent: nil ].
-	maxValue := aPsqlExpressionNode.
-	self maxValue notNil ifTrue: [ self maxValue parent: self ]
+PsqlCreateSequenceCommandNode >> maxValues: anOrderedCollection [
+	self setParents: self maxValues to: nil.
+	maxValues := anOrderedCollection.
+	self setParents: self maxValues to: self
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> minValue [
-	^ minValue
+PsqlCreateSequenceCommandNode >> minValues [
+	^ minValues
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> minValue: aPsqlExpressionNode [
-	self minValue notNil ifTrue: [ self minValue parent: nil ].
-	minValue := aPsqlExpressionNode.
-	self minValue notNil ifTrue: [ self minValue parent: self ]
+PsqlCreateSequenceCommandNode >> minValues: anOrderedCollection [
+	self setParents: self minValues to: nil.
+	minValues := anOrderedCollection.
+	self setParents: self minValues to: self
 ]
 
 { #category : #generated }
 PsqlCreateSequenceCommandNode >> nodeVariables [
-	^ #(#sequenceName #dataType #increment #minValue #maxValue #startWith #cache #ownedBy)
+	^ #(#sequenceName)
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> ownedBy [
-	^ ownedBy
+PsqlCreateSequenceCommandNode >> ownedBies [
+	^ ownedBies
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> ownedBy: aPsqlQualifiedNameNode [
-	self ownedBy notNil ifTrue: [ self ownedBy parent: nil ].
-	ownedBy := aPsqlQualifiedNameNode.
-	self ownedBy notNil ifTrue: [ self ownedBy parent: self ]
+PsqlCreateSequenceCommandNode >> ownedBies: anOrderedCollection [
+	self setParents: self ownedBies to: nil.
+	ownedBies := anOrderedCollection.
+	self setParents: self ownedBies to: self
 ]
 
 { #category : #generated }
@@ -131,13 +143,13 @@ PsqlCreateSequenceCommandNode >> sequenceName: aPsqlQualifiedNameNode [
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> startWith [
-	^ startWith
+PsqlCreateSequenceCommandNode >> startWiths [
+	^ startWiths
 ]
 
 { #category : #generated }
-PsqlCreateSequenceCommandNode >> startWith: aPsqlExpressionNode [
-	self startWith notNil ifTrue: [ self startWith parent: nil ].
-	startWith := aPsqlExpressionNode.
-	self startWith notNil ifTrue: [ self startWith parent: self ]
+PsqlCreateSequenceCommandNode >> startWiths: anOrderedCollection [
+	self setParents: self startWiths to: nil.
+	startWiths := anOrderedCollection.
+	self setParents: self startWiths to: self
 ]

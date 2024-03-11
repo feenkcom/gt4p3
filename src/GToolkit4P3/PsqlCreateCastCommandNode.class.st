@@ -47,8 +47,10 @@ PsqlCreateCastCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCreateCastCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCreateCastCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -56,6 +58,11 @@ PsqlCreateCastCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
 	argumentTypes := OrderedCollection new: 2.
+]
+
+{ #category : #generated }
+PsqlCreateCastCommandNode >> nodeVariables [
+	^ #(#functionName)
 ]
 
 { #category : #generated }
@@ -80,5 +87,5 @@ PsqlCreateCastCommandNode >> targetType: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateCastCommandNode >> tokenVariables [
-	^ #(#sourceType #targetType #functionName)
+	^ #(#sourceType #targetType)
 ]
