@@ -7,6 +7,11 @@ P3Client >> databases [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Client >> defaultSchema [
+	^ self publicSchema
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Client >> gtDatabasesFor: aView [
 	<gtView>
 	^ aView list
@@ -197,12 +202,28 @@ P3Client >> gtViewSettingsFor: aView [
 ]
 
 { #category : #'*GToolkit4P3' }
+P3Client >> publicSchema [
+	^ properties
+		at: #public_schema
+		ifAbsentPut: [ 
+			P3ClientSchema new
+				client: self;
+				name: 'public' ]
+]
+
+{ #category : #'*GToolkit4P3' }
 P3Client >> schemas [
-	^ self listSchemas collect: [ :each | 
-		P3ClientSchema new client: self; name: each ]
+	^ self listSchemas
+		collect: [ :each | 
+			each = 'public'
+				ifTrue: [ self publicSchema ]
+				ifFalse: [ 
+					P3ClientSchema new
+						client: self;
+						name: each ] ]
 ]
 
 { #category : #'*GToolkit4P3' }
 P3Client >> tables [
-	^ (P3ClientSchema new client: self; name: 'public') tables values
+	^ self publicSchema tables values
 ]
