@@ -8,13 +8,11 @@ Class {
 PsqlConstraintComparison >> areColumnsModified [
 	(databaseObject isNil
 		or: [ scriptObject isNil
-				or: [ databaseObject constraintColumns size ~= scriptObject columns size ] ])
+				or: [ databaseObject constraintColumns size ~= scriptObject constraintColumns size ] ])
 		ifTrue: [ ^ true ].
-	1
-		to: scriptObject columns size
-		do: [ :i | 
-			((databaseObject constraintColumns at: i)
-				sameAs: (scriptObject columns at: i) name) ifFalse: [ ^ true ] ].
+	databaseObject constraintColumns
+		with: scriptObject constraintColumns
+		do: [ :dbCol :scrCol | (dbCol sameAs: scrCol) ifFalse: [ ^ true ] ].
 	^ false
 ]
 
@@ -46,13 +44,11 @@ PsqlConstraintComparison >> isModified [
 { #category : #testing }
 PsqlConstraintComparison >> isTableModified [
 	(databaseObject isNil or: [ scriptObject isNil ]) ifTrue: [ ^ true ].
-	^ (databaseObject tableName sameAs: scriptObject table name) not
+	^ (databaseObject tableName sameAs: scriptObject tableName) not
 ]
 
 { #category : #accessing }
 PsqlConstraintComparison >> name [
 	^ (databaseObject ifNotNil: [ databaseObject constraintName ])
-		ifNil: [ (scriptObject ifNotNil: [ scriptObject name ])
-				ifNil: [ (scriptObject class name allButFirst: 4) asString , '_'
-						, scriptObject node startPosition printString ] ]
+		ifNil: [ scriptObject ifNotNil: [ scriptObject constraintName ] ]
 ]

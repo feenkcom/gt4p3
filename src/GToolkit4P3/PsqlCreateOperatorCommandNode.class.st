@@ -3,7 +3,7 @@ Class {
 	#superclass : #PsqlCommandNode,
 	#instVars : [
 		'_s',
-		'name',
+		'operatorName',
 		'functionName',
 		'rightType',
 		'comOp',
@@ -51,8 +51,10 @@ PsqlCreateOperatorCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCreateOperatorCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCreateOperatorCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -82,18 +84,6 @@ PsqlCreateOperatorCommandNode >> leftType: aSmaCCToken [
 ]
 
 { #category : #generated }
-PsqlCreateOperatorCommandNode >> name [
-	^ name
-]
-
-{ #category : #generated }
-PsqlCreateOperatorCommandNode >> name: aPsqlQualifiedNameNode [
-	self name notNil ifTrue: [ self name parent: nil ].
-	name := aPsqlQualifiedNameNode.
-	self name notNil ifTrue: [ self name parent: self ]
-]
-
-{ #category : #generated }
 PsqlCreateOperatorCommandNode >> negOp [
 	^ negOp
 ]
@@ -105,7 +95,17 @@ PsqlCreateOperatorCommandNode >> negOp: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateOperatorCommandNode >> nodeVariables [
-	^ #(#name)
+	^ #(#functionName)
+]
+
+{ #category : #generated }
+PsqlCreateOperatorCommandNode >> operatorName [
+	^ operatorName
+]
+
+{ #category : #generated }
+PsqlCreateOperatorCommandNode >> operatorName: aSmaCCToken [
+	operatorName := aSmaCCToken
 ]
 
 { #category : #generated }
@@ -130,5 +130,5 @@ PsqlCreateOperatorCommandNode >> rightType: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateOperatorCommandNode >> tokenVariables [
-	^ #(#functionName #rightType #comOp #negOp #resProc #joinProc #leftType)
+	^ #(#operatorName #rightType #comOp #negOp #resProc #joinProc #leftType)
 ]

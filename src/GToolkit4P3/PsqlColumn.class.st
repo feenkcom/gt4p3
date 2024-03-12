@@ -11,6 +11,11 @@ Class {
 }
 
 { #category : #accessing }
+PsqlColumn >> dataType [
+	^ self type
+]
+
+{ #category : #accessing }
 PsqlColumn >> defaultValue [
 	^ defaultValue
 ]

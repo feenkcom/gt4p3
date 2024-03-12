@@ -99,12 +99,12 @@ PsqlUpdateCommandNode >> columnNames: anOrderedCollection [
 
 { #category : #generated }
 PsqlUpdateCommandNode >> compositeNodeVariables [
-	^ #(#tableNames #columnNames #values #selects #args #seeds #joinConditions #outputExpressions #withQueries)
+	^ #(#tableNames #columnNames #values #selects #args #seeds #functionNames #joinConditions #outputExpressions #withQueries)
 ]
 
 { #category : #generated }
 PsqlUpdateCommandNode >> compositeTokenVariables [
-	^ #(#_s #aliases #columnAliases #samplingMethods #withQueryNames #functionNames #columnDefinitions #joinColumns #joinUsingAliases #outputNames)
+	^ #(#_s #aliases #columnAliases #samplingMethods #withQueryNames #columnDefinitions #joinColumns #joinUsingAliases #outputNames)
 ]
 
 { #category : #generated }
@@ -136,7 +136,9 @@ PsqlUpdateCommandNode >> functionNames [
 
 { #category : #generated }
 PsqlUpdateCommandNode >> functionNames: anOrderedCollection [
-	functionNames := anOrderedCollection
+	self setParents: self functionNames to: nil.
+	functionNames := anOrderedCollection.
+	self setParents: self functionNames to: self
 ]
 
 { #category : #'generated-initialize-release' }

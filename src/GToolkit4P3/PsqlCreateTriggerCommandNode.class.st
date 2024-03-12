@@ -93,8 +93,10 @@ PsqlCreateTriggerCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCreateTriggerCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCreateTriggerCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -121,7 +123,7 @@ PsqlCreateTriggerCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateTriggerCommandNode >> nodeVariables [
-	^ #(#name #tableName #condition)
+	^ #(#name #tableName #condition #functionName)
 ]
 
 { #category : #generated }
@@ -148,7 +150,7 @@ PsqlCreateTriggerCommandNode >> tableName: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateTriggerCommandNode >> tokenVariables [
-	^ #(#referencedTableName #functionName)
+	^ #(#referencedTableName)
 ]
 
 { #category : #generated }

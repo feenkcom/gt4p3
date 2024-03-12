@@ -98,8 +98,10 @@ PsqlMemberObjectNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlMemberObjectNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlMemberObjectNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #generated }
@@ -142,7 +144,7 @@ PsqlMemberObjectNode >> leftType: aSmaCCToken [
 
 { #category : #generated }
 PsqlMemberObjectNode >> nodeVariables [
-	^ #(#aggregateSignature)
+	^ #(#aggregateSignature #functionName)
 ]
 
 { #category : #generated }
@@ -217,7 +219,7 @@ PsqlMemberObjectNode >> targetType: aSmaCCToken [
 
 { #category : #generated }
 PsqlMemberObjectNode >> tokenVariables [
-	^ #(#objectName #aggregateName #sourceType #targetType #functionName #operatorName #leftType #rightType #indexMethod #procedureName #routineName #typeName #langName)
+	^ #(#objectName #aggregateName #sourceType #targetType #operatorName #leftType #rightType #indexMethod #procedureName #routineName #typeName #langName)
 ]
 
 { #category : #generated }

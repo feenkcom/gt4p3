@@ -110,12 +110,12 @@ PsqlCreateFunctionCommandNode >> commaTokens: anOrderedCollection [
 
 { #category : #generated }
 PsqlCreateFunctionCommandNode >> compositeNodeVariables [
-	^ #(#columnNames #columnTypes #executionCosts #resultRowses #supportFunctions #values #definitions #sqlBodies #argTypes #defaultExpressions)
+	^ #(#columnNames #columnTypes #executionCosts #resultRowses #supportFunctions #values #definitions #objFiles #linkSymbols #sqlBodies #argTypes #defaultExpressions)
 ]
 
 { #category : #generated }
 PsqlCreateFunctionCommandNode >> compositeTokenVariables [
-	^ #(#_s #langNames #typeNames #configurationParameters #aSTokens #objFiles #commaTokens #linkSymbols #argNames)
+	^ #(#_s #langNames #typeNames #configurationParameters #aSTokens #commaTokens #argNames)
 ]
 
 { #category : #generated }
@@ -205,7 +205,9 @@ PsqlCreateFunctionCommandNode >> linkSymbols [
 
 { #category : #generated }
 PsqlCreateFunctionCommandNode >> linkSymbols: anOrderedCollection [
-	linkSymbols := anOrderedCollection
+	self setParents: self linkSymbols to: nil.
+	linkSymbols := anOrderedCollection.
+	self setParents: self linkSymbols to: self
 ]
 
 { #category : #generated }
@@ -232,7 +234,9 @@ PsqlCreateFunctionCommandNode >> objFiles [
 
 { #category : #generated }
 PsqlCreateFunctionCommandNode >> objFiles: anOrderedCollection [
-	objFiles := anOrderedCollection
+	self setParents: self objFiles to: nil.
+	objFiles := anOrderedCollection.
+	self setParents: self objFiles to: self
 ]
 
 { #category : #generated }

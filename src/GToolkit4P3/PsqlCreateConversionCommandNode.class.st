@@ -47,8 +47,10 @@ PsqlCreateConversionCommandNode >> functionName [
 ]
 
 { #category : #generated }
-PsqlCreateConversionCommandNode >> functionName: aSmaCCToken [
-	functionName := aSmaCCToken
+PsqlCreateConversionCommandNode >> functionName: aPsqlQualifiedNameNode [
+	self functionName notNil ifTrue: [ self functionName parent: nil ].
+	functionName := aPsqlQualifiedNameNode.
+	self functionName notNil ifTrue: [ self functionName parent: self ]
 ]
 
 { #category : #'generated-initialize-release' }
@@ -71,7 +73,7 @@ PsqlCreateConversionCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateConversionCommandNode >> nodeVariables [
-	^ #(#name)
+	^ #(#name #functionName)
 ]
 
 { #category : #generated }
@@ -86,5 +88,5 @@ PsqlCreateConversionCommandNode >> sourceEncoding: aSmaCCToken [
 
 { #category : #generated }
 PsqlCreateConversionCommandNode >> tokenVariables [
-	^ #(#sourceEncoding #destEncoding #functionName)
+	^ #(#sourceEncoding #destEncoding)
 ]

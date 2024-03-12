@@ -209,7 +209,7 @@ PsqlCreateAggregateCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> nodeVariables [
-	^ #(#name #stateDataType #stateDataSize #mstateDataType #mstateDataSize #sortOperator)
+	^ #(#name #sfunc #stateDataType #stateDataSize #mstateDataType #mstateDataSize #sortOperator)
 ]
 
 { #category : #generated }
@@ -228,8 +228,10 @@ PsqlCreateAggregateCommandNode >> sfunc [
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> sfunc: aSmaCCToken [
-	sfunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> sfunc: aPsqlQualifiedNameNode [
+	self sfunc notNil ifTrue: [ self sfunc parent: nil ].
+	sfunc := aPsqlQualifiedNameNode.
+	self sfunc notNil ifTrue: [ self sfunc parent: self ]
 ]
 
 { #category : #generated }
@@ -270,5 +272,5 @@ PsqlCreateAggregateCommandNode >> stateDataType: aPsqlProgramNode [
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> tokenVariables [
-	^ #(#sfunc #ffunc #combinefunc #serialfunc #deserialfunc #initialCondition #msfunc #minvfunc #mffunc #minitialCondition #baseType)
+	^ #(#ffunc #combinefunc #serialfunc #deserialfunc #initialCondition #msfunc #minvfunc #mffunc #minitialCondition #baseType)
 ]
