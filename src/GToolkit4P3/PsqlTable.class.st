@@ -91,8 +91,8 @@ PsqlTable >> gtEntityRelationshipDiagramFor: aView [
 					list items: (aTable columns reject: [ :each | fkeys includes: each name ]).
 					container addChild: list.
 					container ];
-				with: {self} , (self foreignKeyConstraints collect: [ :fkc | fkc refTable ])
-						, (self incomingConstraints collect: [ :fkc | fkc table ]).
+				with: ({self} , (self foreignKeyConstraints collect: [ :fkc | fkc refTable ])
+						, (self incomingConstraints collect: [ :fkc | fkc table ])) asSet.
 			view edges
 				stencil: [ :class | 
 					BlParabollaArcElement new

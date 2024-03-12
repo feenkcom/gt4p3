@@ -109,6 +109,11 @@ PsqlTableConstraintNode >> initialize [
 ]
 
 { #category : #testing }
+PsqlTableConstraintNode >> isForeignKey [
+	^ self keywordsBeginsWith: #('FOREIGN' 'KEY')
+]
+
+{ #category : #testing }
 PsqlTableConstraintNode >> isPrimaryKey [
 	^ self keywordsBeginsWith: #('PRIMARY' 'KEY')
 ]

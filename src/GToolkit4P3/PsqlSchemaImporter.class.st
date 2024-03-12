@@ -54,6 +54,28 @@ PsqlSchemaImporter >> importForeignKeyConstraintsIn: aPsqlNode [
 											constraint
 												refColumns: (tc refColumns collect: [ :e | refTable columnNamed: e source ]).
 											constraint node: each.
+											table addConstraint: constraint ] ] ] ] ].
+	aPsqlNode // PsqlCreateTableCommandNode
+		do: [ :node | 
+			node tableConstraints
+				do: [ :tc | 
+					tc isForeignKey
+						ifTrue: [ tc refTable
+								ifNotNil: [ :ref | 
+									tc columnNames size = tc refColumns size
+										ifTrue: [ | constraint table refTable |
+											constraint := PsqlForeignKeyConstraint new.
+											tc constraintName ifNotNil: [ :name | constraint name: name source ].
+											table := (self schemaFor: node tableName)
+													tableNamed: node tableName name source.
+											constraint table: table.
+											constraint
+												columns: (tc columnNames collect: [ :e | table columnNamed: e name source ]).
+											refTable := (self schemaFor: ref) tableNamed: ref name source.
+											constraint refTable: refTable.
+											constraint
+												refColumns: (tc refColumns collect: [ :e | refTable columnNamed: e source ]).
+											constraint node: tc.
 											table addConstraint: constraint ] ] ] ] ]
 ]
 
