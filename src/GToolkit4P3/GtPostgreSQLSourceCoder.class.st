@@ -40,6 +40,15 @@ GtPostgreSQLSourceCoder >> initializeAddOns: addOns [
 		id: GtSourceCoderDoItAndGoActionId.
 ]
 
+{ #category : #initalization }
+GtPostgreSQLSourceCoder >> initializeShortcuts: addOns [
+	super initializeShortcuts: addOns.
+
+	addOns
+		addShortcut: GtSourceCoderDoItShortcut new;
+		addShortcut: GtSourceCoderDoItAndInspectShortcut new
+]
+
 { #category : #'private - actions' }
 GtPostgreSQLSourceCoder >> primitiveEvaluate: aSourceString inContext: aGtSourceCoderEvaluationContext onFailDo: anEvaluationFailBlock [
 	| p3Client |
