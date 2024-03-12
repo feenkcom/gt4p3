@@ -9,10 +9,24 @@ Class {
 		'database',
 		'ssl',
 		'options',
-		'inspectAction'
+		'inspectAction',
+		'acceptAction'
 	],
 	#category : #'GToolkit4P3-UI'
 }
+
+{ #category : #accessing }
+P3ClientLoginPane >> acceptAction [
+	^ acceptAction ifNil: [ 
+		[ :aModel :aButton :aMemento :aDescription |
+			self saveToDefaultConnection.
+			aButton phlow spawnObject: self defaultConnection ] ]
+]
+
+{ #category : #accessing }
+P3ClientLoginPane >> acceptAction: anAction [
+	acceptAction := anAction
+]
 
 { #category : #converting }
 P3ClientLoginPane >> asElement [
@@ -116,10 +130,7 @@ P3ClientLoginPane >> magritteAcceptAction [
 	^ super magritteAcceptAction
 		beAlwaysEnabled;
 		label: 'Accept the changes and initialize a new connection';
-		onSuccessCallback: (GtMagritteCallback new
-				action: [ :aModel :aButton :aMemento :aDescription |
-					self saveToDefaultConnection.
-					aButton phlow spawnObject: self defaultConnection ])
+		onSuccessCallback: (GtMagritteCallback new action: self acceptAction)
 ]
 
 { #category : #magritte }
@@ -136,7 +147,7 @@ P3ClientLoginPane >> magritteInspectAction [
 		label: 'Inspect the current connection';
 		isLabelVisible: false;
 		blocIcon: BrGlamorousVectorIcons inspect;
-		action: self inspectAction;
+		action: (GtMagritteCallback new action: self inspectAction);
 		beToolbarAction
 ]
 

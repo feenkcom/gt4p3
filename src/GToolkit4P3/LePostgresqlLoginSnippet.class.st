@@ -1,6 +1,9 @@
 Class {
 	#name : #LePostgresqlLoginSnippet,
 	#superclass : #LeSnippet,
+	#instVars : [
+		'postgresqlUrl'
+	],
 	#category : #'GToolkit4P3-Snippet'
 }
 
@@ -18,6 +21,13 @@ LePostgresqlLoginSnippet class >> empty [
 ]
 
 { #category : #accessing }
+LePostgresqlLoginSnippet class >> leJsonV4AttributeMapping [
+	^ super leJsonV4AttributeMapping
+		add: (#postgresqlUrlString -> #postgresqlUrl);
+		yourself 
+]
+
+{ #category : #accessing }
 LePostgresqlLoginSnippet class >> leJsonV4Name [
 	^ 'postgresqlLoginSnippet'
 ]
@@ -30,10 +40,40 @@ LePostgresqlLoginSnippet >> asSnippetViewModel [
 
 { #category : #accessing }
 LePostgresqlLoginSnippet >> contentAsString [
-	^ String new
+	^ self postgresqlUrl
+		ifNotNil: [ self postgresqlUrlString ]
+		ifNil: [ String new ]
 ]
 
 { #category : #accessing }
 LePostgresqlLoginSnippet >> defaultConnection [
 	^ GtP3ConnectionManager uniqueInstance defaultConnection
+]
+
+{ #category : #accessing }
+LePostgresqlLoginSnippet >> postgresqlUrl [
+	^ postgresqlUrl
+]
+
+{ #category : #accessing }
+LePostgresqlLoginSnippet >> postgresqlUrl: aPostgresqlUrl [
+	aPostgresqlUrl ifNil: [ ^ postgresqlUrl := nil ].
+	
+	postgresqlUrl := aPostgresqlUrl asUrl
+]
+
+{ #category : #accessing }
+LePostgresqlLoginSnippet >> postgresqlUrlString [
+	"We remove the password for our external representation"
+
+	^ self postgresqlUrl
+		ifNotNil: [ :url | 
+			(url copy
+				password: nil;
+				yourself) asString ]
+]
+
+{ #category : #accessing }
+LePostgresqlLoginSnippet >> postgresqlUrlString: aString [
+	self postgresqlUrl: aString
 ]

@@ -17,5 +17,6 @@ GtP3ConnectionManager class >> uniqueInstance [
 
 { #category : #accessing }
 GtP3ConnectionManager >> defaultConnection [
-	^ default ifNil: [ default := P3Client url: 'postgresql://user:password@host:5432/database' asUrl ]
+	^ default
+		ifNil: [ default := P3Client url: 'postgresql://user:password@host:5432/database' asUrl ]
 ]
