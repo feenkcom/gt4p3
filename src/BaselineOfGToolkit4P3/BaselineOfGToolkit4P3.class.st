@@ -24,6 +24,6 @@ BaselineOfGToolkit4P3 >> baseline: spec [
 	spec
 		for: #common
 		do: [
-			spec baseline: 'P3' with: [ spec repository: 'github://feenkcom/P3' ].
-			spec package: 'GToolkit4P3' with: [ spec requires: #(P3) ] ]
+			spec baseline: 'P3ForGToolkit' with: [ spec repository: 'github://feenkcom/P3' ].
+			spec package: 'GToolkit4P3' with: [ spec requires: #(P3ForGToolkit) ] ]
 ]
