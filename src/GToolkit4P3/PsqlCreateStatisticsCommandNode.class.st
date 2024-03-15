@@ -6,8 +6,7 @@ Class {
 		'values',
 		'tableName',
 		'statisticsName',
-		'statisticsKinds',
-		'columnNames'
+		'statisticsKinds'
 	],
 	#category : #'GToolkit4P3-Parser'
 }
@@ -28,20 +27,8 @@ PsqlCreateStatisticsCommandNode >> acceptVisitor: aProgramVisitor [
 ]
 
 { #category : #generated }
-PsqlCreateStatisticsCommandNode >> columnNames [
-	^ columnNames
-]
-
-{ #category : #generated }
-PsqlCreateStatisticsCommandNode >> columnNames: anOrderedCollection [
-	self setParents: self columnNames to: nil.
-	columnNames := anOrderedCollection.
-	self setParents: self columnNames to: self
-]
-
-{ #category : #generated }
 PsqlCreateStatisticsCommandNode >> compositeNodeVariables [
-	^ #(#values #columnNames)
+	^ #(#values)
 ]
 
 { #category : #generated }
@@ -55,7 +42,6 @@ PsqlCreateStatisticsCommandNode >> initialize [
 	_s := OrderedCollection new: 2.
 	values := OrderedCollection new: 2.
 	statisticsKinds := OrderedCollection new: 2.
-	columnNames := OrderedCollection new: 2.
 ]
 
 { #category : #generated }

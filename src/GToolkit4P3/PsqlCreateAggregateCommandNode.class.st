@@ -6,21 +6,21 @@ Class {
 		'name',
 		'argNames',
 		'argDataTypes',
-		'sfunc',
-		'stateDataType',
-		'stateDataSize',
-		'ffunc',
-		'combinefunc',
-		'serialfunc',
-		'deserialfunc',
-		'initialCondition',
-		'msfunc',
-		'minvfunc',
-		'mstateDataType',
-		'mstateDataSize',
-		'mffunc',
-		'minitialCondition',
-		'sortOperator',
+		'sfuncs',
+		'stateDataTypes',
+		'stateDataSizes',
+		'ffuncs',
+		'combinefuncs',
+		'serialfuncs',
+		'deserialfuncs',
+		'initialConditions',
+		'msfuncs',
+		'minvfuncs',
+		'mstateDataTypes',
+		'mstateDataSizes',
+		'mffuncs',
+		'minitialConditions',
+		'sortOperators',
 		'baseType'
 	],
 	#category : #'GToolkit4P3-Parser'
@@ -74,53 +74,53 @@ PsqlCreateAggregateCommandNode >> baseType: aSmaCCToken [
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> combinefunc [
-	^ combinefunc
+PsqlCreateAggregateCommandNode >> combinefuncs [
+	^ combinefuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> combinefunc: aSmaCCToken [
-	combinefunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> combinefuncs: anOrderedCollection [
+	combinefuncs := anOrderedCollection
 ]
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> compositeNodeVariables [
-	^ #(#argDataTypes)
+	^ #(#argDataTypes #sfuncs #stateDataTypes #stateDataSizes #mstateDataTypes #mstateDataSizes #sortOperators)
 ]
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> compositeTokenVariables [
-	^ #(#_s #argNames)
+	^ #(#_s #argNames #ffuncs #combinefuncs #serialfuncs #deserialfuncs #initialConditions #msfuncs #minvfuncs #mffuncs #minitialConditions)
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> deserialfunc [
-	^ deserialfunc
+PsqlCreateAggregateCommandNode >> deserialfuncs [
+	^ deserialfuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> deserialfunc: aSmaCCToken [
-	deserialfunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> deserialfuncs: anOrderedCollection [
+	deserialfuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> ffunc [
-	^ ffunc
+PsqlCreateAggregateCommandNode >> ffuncs [
+	^ ffuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> ffunc: aSmaCCToken [
-	ffunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> ffuncs: anOrderedCollection [
+	ffuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> initialCondition [
-	^ initialCondition
+PsqlCreateAggregateCommandNode >> initialConditions [
+	^ initialConditions
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> initialCondition: aSmaCCToken [
-	initialCondition := aSmaCCToken
+PsqlCreateAggregateCommandNode >> initialConditions: anOrderedCollection [
+	initialConditions := anOrderedCollection
 ]
 
 { #category : #'generated-initialize-release' }
@@ -129,70 +129,85 @@ PsqlCreateAggregateCommandNode >> initialize [
 	_s := OrderedCollection new: 2.
 	argNames := OrderedCollection new: 2.
 	argDataTypes := OrderedCollection new: 2.
+	sfuncs := OrderedCollection new: 2.
+	stateDataTypes := OrderedCollection new: 2.
+	stateDataSizes := OrderedCollection new: 2.
+	ffuncs := OrderedCollection new: 2.
+	combinefuncs := OrderedCollection new: 2.
+	serialfuncs := OrderedCollection new: 2.
+	deserialfuncs := OrderedCollection new: 2.
+	initialConditions := OrderedCollection new: 2.
+	msfuncs := OrderedCollection new: 2.
+	minvfuncs := OrderedCollection new: 2.
+	mstateDataTypes := OrderedCollection new: 2.
+	mstateDataSizes := OrderedCollection new: 2.
+	mffuncs := OrderedCollection new: 2.
+	minitialConditions := OrderedCollection new: 2.
+	sortOperators := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mffunc [
-	^ mffunc
+PsqlCreateAggregateCommandNode >> mffuncs [
+	^ mffuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mffunc: aSmaCCToken [
-	mffunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> mffuncs: anOrderedCollection [
+	mffuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> minitialCondition [
-	^ minitialCondition
+PsqlCreateAggregateCommandNode >> minitialConditions [
+	^ minitialConditions
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> minitialCondition: aSmaCCToken [
-	minitialCondition := aSmaCCToken
+PsqlCreateAggregateCommandNode >> minitialConditions: anOrderedCollection [
+	minitialConditions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> minvfunc [
-	^ minvfunc
+PsqlCreateAggregateCommandNode >> minvfuncs [
+	^ minvfuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> minvfunc: aSmaCCToken [
-	minvfunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> minvfuncs: anOrderedCollection [
+	minvfuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> msfunc [
-	^ msfunc
+PsqlCreateAggregateCommandNode >> msfuncs [
+	^ msfuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> msfunc: aSmaCCToken [
-	msfunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> msfuncs: anOrderedCollection [
+	msfuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mstateDataSize [
-	^ mstateDataSize
+PsqlCreateAggregateCommandNode >> mstateDataSizes [
+	^ mstateDataSizes
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mstateDataSize: aPsqlNumberNode [
-	self mstateDataSize notNil ifTrue: [ self mstateDataSize parent: nil ].
-	mstateDataSize := aPsqlNumberNode.
-	self mstateDataSize notNil ifTrue: [ self mstateDataSize parent: self ]
+PsqlCreateAggregateCommandNode >> mstateDataSizes: anOrderedCollection [
+	self setParents: self mstateDataSizes to: nil.
+	mstateDataSizes := anOrderedCollection.
+	self setParents: self mstateDataSizes to: self
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mstateDataType [
-	^ mstateDataType
+PsqlCreateAggregateCommandNode >> mstateDataTypes [
+	^ mstateDataTypes
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> mstateDataType: aPsqlProgramNode [
-	self mstateDataType notNil ifTrue: [ self mstateDataType parent: nil ].
-	mstateDataType := aPsqlProgramNode.
-	self mstateDataType notNil ifTrue: [ self mstateDataType parent: self ]
+PsqlCreateAggregateCommandNode >> mstateDataTypes: anOrderedCollection [
+	self setParents: self mstateDataTypes to: nil.
+	mstateDataTypes := anOrderedCollection.
+	self setParents: self mstateDataTypes to: self
 ]
 
 { #category : #generated }
@@ -209,68 +224,68 @@ PsqlCreateAggregateCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> nodeVariables [
-	^ #(#name #sfunc #stateDataType #stateDataSize #mstateDataType #mstateDataSize #sortOperator)
+	^ #(#name)
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> serialfunc [
-	^ serialfunc
+PsqlCreateAggregateCommandNode >> serialfuncs [
+	^ serialfuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> serialfunc: aSmaCCToken [
-	serialfunc := aSmaCCToken
+PsqlCreateAggregateCommandNode >> serialfuncs: anOrderedCollection [
+	serialfuncs := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> sfunc [
-	^ sfunc
+PsqlCreateAggregateCommandNode >> sfuncs [
+	^ sfuncs
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> sfunc: aPsqlQualifiedNameNode [
-	self sfunc notNil ifTrue: [ self sfunc parent: nil ].
-	sfunc := aPsqlQualifiedNameNode.
-	self sfunc notNil ifTrue: [ self sfunc parent: self ]
+PsqlCreateAggregateCommandNode >> sfuncs: anOrderedCollection [
+	self setParents: self sfuncs to: nil.
+	sfuncs := anOrderedCollection.
+	self setParents: self sfuncs to: self
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> sortOperator [
-	^ sortOperator
+PsqlCreateAggregateCommandNode >> sortOperators [
+	^ sortOperators
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> sortOperator: aPsqlQualifiedNameNode [
-	self sortOperator notNil ifTrue: [ self sortOperator parent: nil ].
-	sortOperator := aPsqlQualifiedNameNode.
-	self sortOperator notNil ifTrue: [ self sortOperator parent: self ]
+PsqlCreateAggregateCommandNode >> sortOperators: anOrderedCollection [
+	self setParents: self sortOperators to: nil.
+	sortOperators := anOrderedCollection.
+	self setParents: self sortOperators to: self
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> stateDataSize [
-	^ stateDataSize
+PsqlCreateAggregateCommandNode >> stateDataSizes [
+	^ stateDataSizes
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> stateDataSize: aPsqlNumberNode [
-	self stateDataSize notNil ifTrue: [ self stateDataSize parent: nil ].
-	stateDataSize := aPsqlNumberNode.
-	self stateDataSize notNil ifTrue: [ self stateDataSize parent: self ]
+PsqlCreateAggregateCommandNode >> stateDataSizes: anOrderedCollection [
+	self setParents: self stateDataSizes to: nil.
+	stateDataSizes := anOrderedCollection.
+	self setParents: self stateDataSizes to: self
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> stateDataType [
-	^ stateDataType
+PsqlCreateAggregateCommandNode >> stateDataTypes [
+	^ stateDataTypes
 ]
 
 { #category : #generated }
-PsqlCreateAggregateCommandNode >> stateDataType: aPsqlProgramNode [
-	self stateDataType notNil ifTrue: [ self stateDataType parent: nil ].
-	stateDataType := aPsqlProgramNode.
-	self stateDataType notNil ifTrue: [ self stateDataType parent: self ]
+PsqlCreateAggregateCommandNode >> stateDataTypes: anOrderedCollection [
+	self setParents: self stateDataTypes to: nil.
+	stateDataTypes := anOrderedCollection.
+	self setParents: self stateDataTypes to: self
 ]
 
 { #category : #generated }
 PsqlCreateAggregateCommandNode >> tokenVariables [
-	^ #(#ffunc #combinefunc #serialfunc #deserialfunc #initialCondition #msfunc #minvfunc #mffunc #minitialCondition #baseType)
+	^ #(#baseType)
 ]
