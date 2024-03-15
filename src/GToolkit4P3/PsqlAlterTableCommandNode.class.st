@@ -54,9 +54,9 @@ PsqlAlterTableCommandNode >> columnName [
 ]
 
 { #category : #generated }
-PsqlAlterTableCommandNode >> columnName: aPsqlQualifiedNameNode [
+PsqlAlterTableCommandNode >> columnName: aPsqlExpressionNode [
 	self columnName notNil ifTrue: [ self columnName parent: nil ].
-	columnName := aPsqlQualifiedNameNode.
+	columnName := aPsqlExpressionNode.
 	self columnName notNil ifTrue: [ self columnName parent: self ]
 ]
 

@@ -30,7 +30,7 @@ PsqlScanner >> checkOperator [
 
 { #category : #generated }
 PsqlScanner >> dollarStringId [
-	^ 1857
+	^ 1827
 ]
 
 { #category : #private }
@@ -44,12 +44,12 @@ PsqlScanner >> dollarStringStart [
 
 { #category : #generated }
 PsqlScanner >> emptySymbolTokenId [
-	^ 1858
+	^ 1828
 ]
 
 { #category : #generated }
 PsqlScanner >> errorTokenId [
-	^ 1859
+	^ 1829
 ]
 
 { #category : #generated }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'withQueryName',
 		'_s',
-		'withQuery',
+		'withQueries',
 		'columnNames',
 		'searchSeqColName',
 		'cycleMarkColName',
@@ -44,7 +44,7 @@ PsqlWithQueryNode >> columnNames: anOrderedCollection [
 
 { #category : #generated }
 PsqlWithQueryNode >> compositeNodeVariables [
-	^ #(#columnNames)
+	^ #(#withQueries #columnNames)
 ]
 
 { #category : #generated }
@@ -100,12 +100,13 @@ PsqlWithQueryNode >> cyclePathColName: aSmaCCToken [
 PsqlWithQueryNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
+	withQueries := OrderedCollection new: 2.
 	columnNames := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
 PsqlWithQueryNode >> nodeVariables [
-	^ #(#withQuery #cycleMarkValue #cycleMarkDefault)
+	^ #(#cycleMarkValue #cycleMarkDefault)
 ]
 
 { #category : #generated }
@@ -124,15 +125,15 @@ PsqlWithQueryNode >> tokenVariables [
 ]
 
 { #category : #generated }
-PsqlWithQueryNode >> withQuery [
-	^ withQuery
+PsqlWithQueryNode >> withQueries [
+	^ withQueries
 ]
 
 { #category : #generated }
-PsqlWithQueryNode >> withQuery: aPsqlProgramNode [
-	self withQuery notNil ifTrue: [ self withQuery parent: nil ].
-	withQuery := aPsqlProgramNode.
-	self withQuery notNil ifTrue: [ self withQuery parent: self ]
+PsqlWithQueryNode >> withQueries: anOrderedCollection [
+	self setParents: self withQueries to: nil.
+	withQueries := anOrderedCollection.
+	self setParents: self withQueries to: self
 ]
 
 { #category : #generated }

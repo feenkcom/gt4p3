@@ -15,7 +15,7 @@ PsqlCastExpressionNode >> acceptVisitor: aProgramVisitor [
 
 { #category : #generated }
 PsqlCastExpressionNode >> nodeVariables [
-	^ #(#value #type)
+	^ #(#type #value)
 ]
 
 { #category : #generated }

@@ -46,9 +46,9 @@ PsqlAlterForeignTableCommandNode >> columnName [
 ]
 
 { #category : #generated }
-PsqlAlterForeignTableCommandNode >> columnName: aPsqlQualifiedNameNode [
+PsqlAlterForeignTableCommandNode >> columnName: aPsqlExpressionNode [
 	self columnName notNil ifTrue: [ self columnName parent: nil ].
-	columnName := aPsqlQualifiedNameNode.
+	columnName := aPsqlExpressionNode.
 	self columnName notNil ifTrue: [ self columnName parent: self ]
 ]
 

@@ -4,13 +4,13 @@ Class {
 	#instVars : [
 		'_s',
 		'name',
-		'lcCollate',
-		'lcCtype',
-		'provider',
-		'boolean',
-		'rules',
-		'version',
-		'locale',
+		'locales',
+		'lcCollates',
+		'lcCtypes',
+		'providers',
+		'booleans',
+		'ruleses',
+		'versions',
 		'existingCollation'
 	],
 	#category : #'GToolkit4P3-Parser'
@@ -32,20 +32,25 @@ PsqlCreateCollationCommandNode >> acceptVisitor: aProgramVisitor [
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> boolean [
-	^ boolean
+PsqlCreateCollationCommandNode >> booleans [
+	^ booleans
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> boolean: aPsqlBooleanNode [
-	self boolean notNil ifTrue: [ self boolean parent: nil ].
-	boolean := aPsqlBooleanNode.
-	self boolean notNil ifTrue: [ self boolean parent: self ]
+PsqlCreateCollationCommandNode >> booleans: anOrderedCollection [
+	self setParents: self booleans to: nil.
+	booleans := anOrderedCollection.
+	self setParents: self booleans to: self
+]
+
+{ #category : #generated }
+PsqlCreateCollationCommandNode >> compositeNodeVariables [
+	^ #(#booleans)
 ]
 
 { #category : #generated }
 PsqlCreateCollationCommandNode >> compositeTokenVariables [
-	^ #(#_s)
+	^ #(#_s #locales #lcCollates #lcCtypes #providers #ruleses #versions)
 ]
 
 { #category : #generated }
@@ -62,36 +67,43 @@ PsqlCreateCollationCommandNode >> existingCollation: aSmaCCToken [
 PsqlCreateCollationCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
+	locales := OrderedCollection new: 2.
+	lcCollates := OrderedCollection new: 2.
+	lcCtypes := OrderedCollection new: 2.
+	providers := OrderedCollection new: 2.
+	booleans := OrderedCollection new: 2.
+	ruleses := OrderedCollection new: 2.
+	versions := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> lcCollate [
-	^ lcCollate
+PsqlCreateCollationCommandNode >> lcCollates [
+	^ lcCollates
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> lcCollate: aSmaCCToken [
-	lcCollate := aSmaCCToken
+PsqlCreateCollationCommandNode >> lcCollates: anOrderedCollection [
+	lcCollates := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> lcCtype [
-	^ lcCtype
+PsqlCreateCollationCommandNode >> lcCtypes [
+	^ lcCtypes
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> lcCtype: aSmaCCToken [
-	lcCtype := aSmaCCToken
+PsqlCreateCollationCommandNode >> lcCtypes: anOrderedCollection [
+	lcCtypes := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> locale [
-	^ locale
+PsqlCreateCollationCommandNode >> locales [
+	^ locales
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> locale: aSmaCCToken [
-	locale := aSmaCCToken
+PsqlCreateCollationCommandNode >> locales: anOrderedCollection [
+	locales := anOrderedCollection
 ]
 
 { #category : #generated }
@@ -108,40 +120,40 @@ PsqlCreateCollationCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateCollationCommandNode >> nodeVariables [
-	^ #(#name #boolean)
+	^ #(#name)
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> provider [
-	^ provider
+PsqlCreateCollationCommandNode >> providers [
+	^ providers
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> provider: aSmaCCToken [
-	provider := aSmaCCToken
+PsqlCreateCollationCommandNode >> providers: anOrderedCollection [
+	providers := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> rules [
-	^ rules
+PsqlCreateCollationCommandNode >> ruleses [
+	^ ruleses
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> rules: aSmaCCToken [
-	rules := aSmaCCToken
+PsqlCreateCollationCommandNode >> ruleses: anOrderedCollection [
+	ruleses := anOrderedCollection
 ]
 
 { #category : #generated }
 PsqlCreateCollationCommandNode >> tokenVariables [
-	^ #(#lcCollate #lcCtype #provider #rules #version #locale #existingCollation)
+	^ #(#existingCollation)
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> version [
-	^ version
+PsqlCreateCollationCommandNode >> versions [
+	^ versions
 ]
 
 { #category : #generated }
-PsqlCreateCollationCommandNode >> version: aSmaCCToken [
-	version := aSmaCCToken
+PsqlCreateCollationCommandNode >> versions: anOrderedCollection [
+	versions := anOrderedCollection
 ]

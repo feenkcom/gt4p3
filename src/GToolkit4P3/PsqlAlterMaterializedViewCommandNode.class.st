@@ -49,9 +49,9 @@ PsqlAlterMaterializedViewCommandNode >> columnName [
 ]
 
 { #category : #generated }
-PsqlAlterMaterializedViewCommandNode >> columnName: aPsqlQualifiedNameNode [
+PsqlAlterMaterializedViewCommandNode >> columnName: aPsqlExpressionNode [
 	self columnName notNil ifTrue: [ self columnName parent: nil ].
-	columnName := aPsqlQualifiedNameNode.
+	columnName := aPsqlExpressionNode.
 	self columnName notNil ifTrue: [ self columnName parent: self ]
 ]
 

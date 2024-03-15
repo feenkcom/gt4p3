@@ -8,29 +8,29 @@ Class {
 		'dataTypes',
 		'collations',
 		'labels',
-		'subtype',
-		'canonicalFunction',
-		'subtypeDiffFunction',
-		'multirangeTypeName',
-		'subtypeOperatorClass',
-		'inputFunction',
-		'outputFunction',
-		'typeModifierInputFunction',
-		'typeModifierOutputFunction',
-		'analyzeFunction',
-		'subscriptFunction',
-		'internalLength',
-		'alignment',
-		'storage',
-		'likeType',
-		'category',
-		'preferred',
-		'default',
-		'element',
-		'delimiter',
-		'collatable',
-		'sendFunction',
-		'receiveFunction'
+		'subtypes',
+		'subtypeOperatorClasses',
+		'canonicalFunctions',
+		'subtypeDiffFunctions',
+		'multirangeTypeNames',
+		'inputFunctions',
+		'outputFunctions',
+		'receiveFunctions',
+		'sendFunctions',
+		'typeModifierInputFunctions',
+		'typeModifierOutputFunctions',
+		'analyzeFunctions',
+		'subscriptFunctions',
+		'internalLengths',
+		'alignments',
+		'storages',
+		'likeTypes',
+		'categories',
+		'preferreds',
+		'defaults',
+		'elements',
+		'delimiters',
+		'collatables'
 	],
 	#category : #'GToolkit4P3-Parser'
 }
@@ -51,23 +51,23 @@ PsqlCreateTypeCommandNode >> acceptVisitor: aProgramVisitor [
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> alignment [
-	^ alignment
+PsqlCreateTypeCommandNode >> alignments [
+	^ alignments
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> alignment: aSmaCCToken [
-	alignment := aSmaCCToken
+PsqlCreateTypeCommandNode >> alignments: anOrderedCollection [
+	alignments := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> analyzeFunction [
-	^ analyzeFunction
+PsqlCreateTypeCommandNode >> analyzeFunctions [
+	^ analyzeFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> analyzeFunction: aSmaCCToken [
-	analyzeFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> analyzeFunctions: anOrderedCollection [
+	analyzeFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
@@ -81,35 +81,35 @@ PsqlCreateTypeCommandNode >> attributeNames: anOrderedCollection [
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> canonicalFunction [
-	^ canonicalFunction
+PsqlCreateTypeCommandNode >> canonicalFunctions [
+	^ canonicalFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> canonicalFunction: aSmaCCToken [
-	canonicalFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> canonicalFunctions: anOrderedCollection [
+	canonicalFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> category [
-	^ category
+PsqlCreateTypeCommandNode >> categories [
+	^ categories
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> category: aSmaCCToken [
-	category := aSmaCCToken
+PsqlCreateTypeCommandNode >> categories: anOrderedCollection [
+	categories := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> collatable [
-	^ collatable
+PsqlCreateTypeCommandNode >> collatables [
+	^ collatables
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> collatable: aPsqlBooleanNode [
-	self collatable notNil ifTrue: [ self collatable parent: nil ].
-	collatable := aPsqlBooleanNode.
-	self collatable notNil ifTrue: [ self collatable parent: self ]
+PsqlCreateTypeCommandNode >> collatables: anOrderedCollection [
+	self setParents: self collatables to: nil.
+	collatables := anOrderedCollection.
+	self setParents: self collatables to: self
 ]
 
 { #category : #generated }
@@ -126,12 +126,12 @@ PsqlCreateTypeCommandNode >> collations: anOrderedCollection [
 
 { #category : #generated }
 PsqlCreateTypeCommandNode >> compositeNodeVariables [
-	^ #(#dataTypes #collations)
+	^ #(#dataTypes #collations #internalLengths #preferreds #defaults #elements #collatables)
 ]
 
 { #category : #generated }
 PsqlCreateTypeCommandNode >> compositeTokenVariables [
-	^ #(#_s #attributeNames #labels)
+	^ #(#_s #attributeNames #labels #subtypes #subtypeOperatorClasses #canonicalFunctions #subtypeDiffFunctions #multirangeTypeNames #inputFunctions #outputFunctions #receiveFunctions #sendFunctions #typeModifierInputFunctions #typeModifierOutputFunctions #analyzeFunctions #subscriptFunctions #alignments #storages #likeTypes #categories #delimiters)
 ]
 
 { #category : #generated }
@@ -147,37 +147,37 @@ PsqlCreateTypeCommandNode >> dataTypes: anOrderedCollection [
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> default [
-	^ default
+PsqlCreateTypeCommandNode >> defaults [
+	^ defaults
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> default: aPsqlExpressionNode [
-	self default notNil ifTrue: [ self default parent: nil ].
-	default := aPsqlExpressionNode.
-	self default notNil ifTrue: [ self default parent: self ]
+PsqlCreateTypeCommandNode >> defaults: anOrderedCollection [
+	self setParents: self defaults to: nil.
+	defaults := anOrderedCollection.
+	self setParents: self defaults to: self
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> delimiter [
-	^ delimiter
+PsqlCreateTypeCommandNode >> delimiters [
+	^ delimiters
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> delimiter: aSmaCCToken [
-	delimiter := aSmaCCToken
+PsqlCreateTypeCommandNode >> delimiters: anOrderedCollection [
+	delimiters := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> element [
-	^ element
+PsqlCreateTypeCommandNode >> elements [
+	^ elements
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> element: aPsqlBooleanNode [
-	self element notNil ifTrue: [ self element parent: nil ].
-	element := aPsqlBooleanNode.
-	self element notNil ifTrue: [ self element parent: self ]
+PsqlCreateTypeCommandNode >> elements: anOrderedCollection [
+	self setParents: self elements to: nil.
+	elements := anOrderedCollection.
+	self setParents: self elements to: self
 ]
 
 { #category : #'generated-initialize-release' }
@@ -188,28 +188,51 @@ PsqlCreateTypeCommandNode >> initialize [
 	dataTypes := OrderedCollection new: 2.
 	collations := OrderedCollection new: 2.
 	labels := OrderedCollection new: 2.
+	subtypes := OrderedCollection new: 2.
+	subtypeOperatorClasses := OrderedCollection new: 2.
+	canonicalFunctions := OrderedCollection new: 2.
+	subtypeDiffFunctions := OrderedCollection new: 2.
+	multirangeTypeNames := OrderedCollection new: 2.
+	inputFunctions := OrderedCollection new: 2.
+	outputFunctions := OrderedCollection new: 2.
+	receiveFunctions := OrderedCollection new: 2.
+	sendFunctions := OrderedCollection new: 2.
+	typeModifierInputFunctions := OrderedCollection new: 2.
+	typeModifierOutputFunctions := OrderedCollection new: 2.
+	analyzeFunctions := OrderedCollection new: 2.
+	subscriptFunctions := OrderedCollection new: 2.
+	internalLengths := OrderedCollection new: 2.
+	alignments := OrderedCollection new: 2.
+	storages := OrderedCollection new: 2.
+	likeTypes := OrderedCollection new: 2.
+	categories := OrderedCollection new: 2.
+	preferreds := OrderedCollection new: 2.
+	defaults := OrderedCollection new: 2.
+	elements := OrderedCollection new: 2.
+	delimiters := OrderedCollection new: 2.
+	collatables := OrderedCollection new: 2.
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> inputFunction [
-	^ inputFunction
+PsqlCreateTypeCommandNode >> inputFunctions [
+	^ inputFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> inputFunction: aSmaCCToken [
-	inputFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> inputFunctions: anOrderedCollection [
+	inputFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> internalLength [
-	^ internalLength
+PsqlCreateTypeCommandNode >> internalLengths [
+	^ internalLengths
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> internalLength: aPsqlNumberNode [
-	self internalLength notNil ifTrue: [ self internalLength parent: nil ].
-	internalLength := aPsqlNumberNode.
-	self internalLength notNil ifTrue: [ self internalLength parent: self ]
+PsqlCreateTypeCommandNode >> internalLengths: anOrderedCollection [
+	self setParents: self internalLengths to: nil.
+	internalLengths := anOrderedCollection.
+	self setParents: self internalLengths to: self
 ]
 
 { #category : #generated }
@@ -223,23 +246,23 @@ PsqlCreateTypeCommandNode >> labels: anOrderedCollection [
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> likeType [
-	^ likeType
+PsqlCreateTypeCommandNode >> likeTypes [
+	^ likeTypes
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> likeType: aSmaCCToken [
-	likeType := aSmaCCToken
+PsqlCreateTypeCommandNode >> likeTypes: anOrderedCollection [
+	likeTypes := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> multirangeTypeName [
-	^ multirangeTypeName
+PsqlCreateTypeCommandNode >> multirangeTypeNames [
+	^ multirangeTypeNames
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> multirangeTypeName: aSmaCCToken [
-	multirangeTypeName := aSmaCCToken
+PsqlCreateTypeCommandNode >> multirangeTypeNames: anOrderedCollection [
+	multirangeTypeNames := anOrderedCollection
 ]
 
 { #category : #generated }
@@ -256,122 +279,117 @@ PsqlCreateTypeCommandNode >> name: aPsqlQualifiedNameNode [
 
 { #category : #generated }
 PsqlCreateTypeCommandNode >> nodeVariables [
-	^ #(#name #internalLength #preferred #default #element #collatable)
+	^ #(#name)
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> outputFunction [
-	^ outputFunction
+PsqlCreateTypeCommandNode >> outputFunctions [
+	^ outputFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> outputFunction: aSmaCCToken [
-	outputFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> outputFunctions: anOrderedCollection [
+	outputFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> preferred [
-	^ preferred
+PsqlCreateTypeCommandNode >> preferreds [
+	^ preferreds
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> preferred: aPsqlBooleanNode [
-	self preferred notNil ifTrue: [ self preferred parent: nil ].
-	preferred := aPsqlBooleanNode.
-	self preferred notNil ifTrue: [ self preferred parent: self ]
+PsqlCreateTypeCommandNode >> preferreds: anOrderedCollection [
+	self setParents: self preferreds to: nil.
+	preferreds := anOrderedCollection.
+	self setParents: self preferreds to: self
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> receiveFunction [
-	^ receiveFunction
+PsqlCreateTypeCommandNode >> receiveFunctions [
+	^ receiveFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> receiveFunction: aSmaCCToken [
-	receiveFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> receiveFunctions: anOrderedCollection [
+	receiveFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> sendFunction [
-	^ sendFunction
+PsqlCreateTypeCommandNode >> sendFunctions [
+	^ sendFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> sendFunction: aSmaCCToken [
-	sendFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> sendFunctions: anOrderedCollection [
+	sendFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> storage [
-	^ storage
+PsqlCreateTypeCommandNode >> storages [
+	^ storages
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> storage: aSmaCCToken [
-	storage := aSmaCCToken
+PsqlCreateTypeCommandNode >> storages: anOrderedCollection [
+	storages := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subscriptFunction [
-	^ subscriptFunction
+PsqlCreateTypeCommandNode >> subscriptFunctions [
+	^ subscriptFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subscriptFunction: aSmaCCToken [
-	subscriptFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> subscriptFunctions: anOrderedCollection [
+	subscriptFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtype [
-	^ subtype
+PsqlCreateTypeCommandNode >> subtypeDiffFunctions [
+	^ subtypeDiffFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtype: aSmaCCToken [
-	subtype := aSmaCCToken
+PsqlCreateTypeCommandNode >> subtypeDiffFunctions: anOrderedCollection [
+	subtypeDiffFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtypeDiffFunction [
-	^ subtypeDiffFunction
+PsqlCreateTypeCommandNode >> subtypeOperatorClasses [
+	^ subtypeOperatorClasses
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtypeDiffFunction: aSmaCCToken [
-	subtypeDiffFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> subtypeOperatorClasses: anOrderedCollection [
+	subtypeOperatorClasses := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtypeOperatorClass [
-	^ subtypeOperatorClass
+PsqlCreateTypeCommandNode >> subtypes [
+	^ subtypes
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> subtypeOperatorClass: aSmaCCToken [
-	subtypeOperatorClass := aSmaCCToken
+PsqlCreateTypeCommandNode >> subtypes: anOrderedCollection [
+	subtypes := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> tokenVariables [
-	^ #(#subtype #canonicalFunction #subtypeDiffFunction #multirangeTypeName #subtypeOperatorClass #inputFunction #outputFunction #typeModifierInputFunction #typeModifierOutputFunction #analyzeFunction #subscriptFunction #alignment #storage #likeType #category #delimiter #sendFunction #receiveFunction)
+PsqlCreateTypeCommandNode >> typeModifierInputFunctions [
+	^ typeModifierInputFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> typeModifierInputFunction [
-	^ typeModifierInputFunction
+PsqlCreateTypeCommandNode >> typeModifierInputFunctions: anOrderedCollection [
+	typeModifierInputFunctions := anOrderedCollection
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> typeModifierInputFunction: aSmaCCToken [
-	typeModifierInputFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> typeModifierOutputFunctions [
+	^ typeModifierOutputFunctions
 ]
 
 { #category : #generated }
-PsqlCreateTypeCommandNode >> typeModifierOutputFunction [
-	^ typeModifierOutputFunction
-]
-
-{ #category : #generated }
-PsqlCreateTypeCommandNode >> typeModifierOutputFunction: aSmaCCToken [
-	typeModifierOutputFunction := aSmaCCToken
+PsqlCreateTypeCommandNode >> typeModifierOutputFunctions: anOrderedCollection [
+	typeModifierOutputFunctions := anOrderedCollection
 ]

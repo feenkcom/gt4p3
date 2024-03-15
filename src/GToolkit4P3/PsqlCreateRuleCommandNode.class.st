@@ -6,6 +6,7 @@ Class {
 		'name',
 		'event',
 		'tableName',
+		'commands',
 		'condition'
 	],
 	#category : #'GToolkit4P3-Parser'
@@ -24,6 +25,23 @@ PsqlCreateRuleCommandNode >> _s: anOrderedCollection [
 { #category : #generated }
 PsqlCreateRuleCommandNode >> acceptVisitor: aProgramVisitor [
 	^ aProgramVisitor visitCreateRuleCommand: self
+]
+
+{ #category : #generated }
+PsqlCreateRuleCommandNode >> commands [
+	^ commands
+]
+
+{ #category : #generated }
+PsqlCreateRuleCommandNode >> commands: anOrderedCollection [
+	self setParents: self commands to: nil.
+	commands := anOrderedCollection.
+	self setParents: self commands to: self
+]
+
+{ #category : #generated }
+PsqlCreateRuleCommandNode >> compositeNodeVariables [
+	^ #(#commands)
 ]
 
 { #category : #generated }
@@ -57,6 +75,7 @@ PsqlCreateRuleCommandNode >> event: aSmaCCToken [
 PsqlCreateRuleCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
+	commands := OrderedCollection new: 2.
 ]
 
 { #category : #generated }

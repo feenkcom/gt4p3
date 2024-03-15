@@ -37,9 +37,9 @@ PsqlAlterViewCommandNode >> columnName [
 ]
 
 { #category : #generated }
-PsqlAlterViewCommandNode >> columnName: aPsqlQualifiedNameNode [
+PsqlAlterViewCommandNode >> columnName: aPsqlExpressionNode [
 	self columnName notNil ifTrue: [ self columnName parent: nil ].
-	columnName := aPsqlQualifiedNameNode.
+	columnName := aPsqlExpressionNode.
 	self columnName notNil ifTrue: [ self columnName parent: self ]
 ]
 

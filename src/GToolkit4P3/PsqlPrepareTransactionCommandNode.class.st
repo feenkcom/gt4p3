@@ -35,7 +35,7 @@ PsqlPrepareTransactionCommandNode >> initialize [
 ]
 
 { #category : #generated }
-PsqlPrepareTransactionCommandNode >> tokenVariables [
+PsqlPrepareTransactionCommandNode >> nodeVariables [
 	^ #(#transactionId)
 ]
 
@@ -45,6 +45,8 @@ PsqlPrepareTransactionCommandNode >> transactionId [
 ]
 
 { #category : #generated }
-PsqlPrepareTransactionCommandNode >> transactionId: aSmaCCToken [
-	transactionId := aSmaCCToken
+PsqlPrepareTransactionCommandNode >> transactionId: aPsqlStringNode [
+	self transactionId notNil ifTrue: [ self transactionId parent: nil ].
+	transactionId := aPsqlStringNode.
+	self transactionId notNil ifTrue: [ self transactionId parent: self ]
 ]

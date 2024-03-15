@@ -3,12 +3,12 @@ Class {
 	#superclass : #PsqlCommandNode,
 	#instVars : [
 		'_s',
-		'name',
+		'operatorName',
 		'leftType',
 		'rightType',
 		'newOwner',
 		'newSchemaName',
-		'resProc',
+		'resProcs',
 		'joinProcs'
 	],
 	#category : #'GToolkit4P3-Parser'
@@ -31,13 +31,14 @@ PsqlAlterOperatorCommandNode >> acceptVisitor: aProgramVisitor [
 
 { #category : #generated }
 PsqlAlterOperatorCommandNode >> compositeTokenVariables [
-	^ #(#_s #joinProcs)
+	^ #(#_s #resProcs #joinProcs)
 ]
 
 { #category : #'generated-initialize-release' }
 PsqlAlterOperatorCommandNode >> initialize [
 	super initialize.
 	_s := OrderedCollection new: 2.
+	resProcs := OrderedCollection new: 2.
 	joinProcs := OrderedCollection new: 2.
 ]
 
@@ -62,18 +63,6 @@ PsqlAlterOperatorCommandNode >> leftType: aSmaCCToken [
 ]
 
 { #category : #generated }
-PsqlAlterOperatorCommandNode >> name [
-	^ name
-]
-
-{ #category : #generated }
-PsqlAlterOperatorCommandNode >> name: aPsqlQualifiedNameNode [
-	self name notNil ifTrue: [ self name parent: nil ].
-	name := aPsqlQualifiedNameNode.
-	self name notNil ifTrue: [ self name parent: self ]
-]
-
-{ #category : #generated }
 PsqlAlterOperatorCommandNode >> newOwner [
 	^ newOwner
 ]
@@ -94,18 +83,23 @@ PsqlAlterOperatorCommandNode >> newSchemaName: aSmaCCToken [
 ]
 
 { #category : #generated }
-PsqlAlterOperatorCommandNode >> nodeVariables [
-	^ #(#name)
+PsqlAlterOperatorCommandNode >> operatorName [
+	^ operatorName
 ]
 
 { #category : #generated }
-PsqlAlterOperatorCommandNode >> resProc [
-	^ resProc
+PsqlAlterOperatorCommandNode >> operatorName: aSmaCCToken [
+	operatorName := aSmaCCToken
 ]
 
 { #category : #generated }
-PsqlAlterOperatorCommandNode >> resProc: aSmaCCToken [
-	resProc := aSmaCCToken
+PsqlAlterOperatorCommandNode >> resProcs [
+	^ resProcs
+]
+
+{ #category : #generated }
+PsqlAlterOperatorCommandNode >> resProcs: anOrderedCollection [
+	resProcs := anOrderedCollection
 ]
 
 { #category : #generated }
@@ -120,5 +114,5 @@ PsqlAlterOperatorCommandNode >> rightType: aSmaCCToken [
 
 { #category : #generated }
 PsqlAlterOperatorCommandNode >> tokenVariables [
-	^ #(#leftType #rightType #newOwner #newSchemaName #resProc)
+	^ #(#operatorName #leftType #rightType #newOwner #newSchemaName)
 ]
