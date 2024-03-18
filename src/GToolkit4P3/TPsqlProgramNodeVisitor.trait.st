@@ -941,6 +941,11 @@ TPsqlProgramNodeVisitor >> visitIntervalExpression: anIntervalExpression [
 ]
 
 { #category : #generated }
+TPsqlProgramNodeVisitor >> visitLikeExpression: aLikeExpression [
+	^ self visitExpression: aLikeExpression
+]
+
+{ #category : #generated }
 TPsqlProgramNodeVisitor >> visitListExpression: aListExpression [
 	^ self visitExpression: aListExpression
 ]

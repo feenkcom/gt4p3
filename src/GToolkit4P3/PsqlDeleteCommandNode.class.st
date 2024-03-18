@@ -89,7 +89,7 @@ PsqlDeleteCommandNode >> compositeNodeVariables [
 
 { #category : #generated }
 PsqlDeleteCommandNode >> compositeTokenVariables [
-	^ #(#_s #aliases #columnAliases #samplingMethods #withQueryNames #columnDefinitions #joinColumns #joinUsingAliases #outputNames)
+	^ #(#_s #aliases #samplingMethods #withQueryNames #columnDefinitions #joinColumns #joinUsingAliases #columnAliases #outputNames)
 ]
 
 { #category : #generated }
@@ -132,7 +132,6 @@ PsqlDeleteCommandNode >> initialize [
 	_s := OrderedCollection new: 2.
 	tableNames := OrderedCollection new: 2.
 	aliases := OrderedCollection new: 2.
-	columnAliases := OrderedCollection new: 2.
 	samplingMethods := OrderedCollection new: 2.
 	args := OrderedCollection new: 2.
 	seeds := OrderedCollection new: 2.
@@ -143,6 +142,7 @@ PsqlDeleteCommandNode >> initialize [
 	joinConditions := OrderedCollection new: 2.
 	joinColumns := OrderedCollection new: 2.
 	joinUsingAliases := OrderedCollection new: 2.
+	columnAliases := OrderedCollection new: 2.
 	outputExpressions := OrderedCollection new: 2.
 	outputNames := OrderedCollection new: 2.
 	withQueries := OrderedCollection new: 2.
