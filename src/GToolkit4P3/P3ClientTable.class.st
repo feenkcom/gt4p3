@@ -83,8 +83,8 @@ P3ClientTable >> gtEntityRelationshipDiagramFor: aView [
 	<gtView>
 	| container list fkeys |
 	^ aView mondrian
-		title: 'ER Diagram';
-		priority: 60;
+		title: 'ER diagram';
+		priority: 49;
 		painting: [ :view | 
 			view nodes
 				stencil: [ :aTable | 

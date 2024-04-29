@@ -18,16 +18,18 @@ P3ClientTable >> gtViewDriverStandingsTop20OverallWinsIn: composite [
 	| normalizer plotterData |
 	self name = 'driverstandings' ifFalse: [ ^ composite empty ].
 	^ composite explicit
-		title: 'Top 20 Overall Wins';
-		stencil: [
-			normalizer := BrIdentityNormalizer new.
-			plotterData := GtPlotterDataGroup new values: 
-								self driverStandingsTop20OverallWins recordsAsDictionaries.
+		priority: 50;
+		title: 'Top 20 overall wins';
+		stencil: [ normalizer := BrIdentityNormalizer new.
+			plotterData := GtPlotterDataGroup new
+					values: self driverStandingsTop20OverallWins recordsAsDictionaries.
 			plotterData := plotterData labelled: [ :each | each at: #driverref ].
-			plotterData := plotterData colored: [ :each | normalizer value: (each at: #nationality) ]. 
+			plotterData := plotterData
+					background: [ :each | normalizer value: (each at: #nationality) ].
 			GtPlotter new horizontalBarChart
-				barWidthScale: (GtPlotterLinearScale new 
-									domainFrom: 1 to: (plotterData values max: [ :each | each at: #wins ]));
+				barWidthScale: (GtPlotterLinearScale new
+						domainFrom: 1
+						to: (plotterData values max: [ :each | each at: #wins ]));
 				amountOfTicks: 1;
 				barWidthData: [ :each | each at: #wins ];
 				barHeightScale: (GtPlotterConstantScale new constant: 20);
