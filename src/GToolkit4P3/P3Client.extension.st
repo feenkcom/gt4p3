@@ -86,6 +86,7 @@ P3Client >> gtSQLFor: aView [
 		title: 'SQL';
 		priority: 50;
 		aptitude: [ BrGlamorousCodeEditorAptitude new ];
+		styler: [ PsqlParser gtStyler ];
 		text: [ '' asRopedText ];
 		actionButtonIcon: BrGlamorousIcons playinspect  
 			action: [ :aButton |

@@ -39,29 +39,7 @@ LePostgresqlSnippetElement >> initializeLanguageElement [
 
 { #category : #private }
 LePostgresqlSnippetElement >> onConnectionEstablishedClosed: anAnnouncement [
-	self inUIProcessDo: [ self updateLanguageLabel]
-]
-
-{ #category : #'api - view' }
-LePostgresqlSnippetElement >> snippetToolbar [
-	| toolbar label editor |
-	toolbar := super snippetToolbar.
-	"label := BrLabel new
-		text: 'Result:' asRopedText;
-		aptitude: (BrGlamorousLabelAptitude new glamorousRegularFontAndSize
-				foreground: Color gray;
-				fontSize: 12);
-		yourself.
-	label 
-		constraintsDo: [ :c | c linear vertical alignCenter ];
-		margin: (BlInsets top: 0 left: 100 bottom: 0 right: 3).
-	toolbar addChild: label.
-	editor := BrEditor new.
-	editor size: 200@20.
-	editor vFitContent.
-	editor aptitude: (BrGlamorousEditableLabelAptitude new) + (BrGlamorousCodeEditorAptitude new).
-	toolbar addChild: editor."
-	^ toolbar
+	self enqueueTask: (BlTaskAction new action: [ self updateLanguageLabel])
 ]
 
 { #category : #'api - snippet view model' }
