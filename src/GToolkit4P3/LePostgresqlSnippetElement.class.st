@@ -16,7 +16,7 @@ LePostgresqlSnippetElement >> defaultConnection [
 { #category : #initalization }
 LePostgresqlSnippetElement >> initializeLanguageElement [
 	| aptitude |
-	aptitude := BrGlamorousWithDropdownAptitude
+	aptitude := BrGlamorousWithExplicitDropdownAptitude
 		handle: [
 			dropdownHandleButton := BrButton new
 				aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonWithLabelAptitude - BrGlamorousButtonExteriorAptitude;
